@@ -1,910 +1,570 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import { useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { 
+  BookOpen, 
+  Code, 
+  Palette, 
+  Zap, 
+  Users, 
+  Download, 
+  Github, 
+  Search,
+  ChevronRight,
+  Star,
+  Clock,
+  FileText,
+  Video,
+  Image,
+  Settings,
+  Database,
+  Globe,
+  Heart,
+  Shield
+} from "lucide-react";
+import Link from "next/link";
 
 export default function DocumentationPage() {
-  const [activeTab, setActiveTab] = useState('getting-started');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const gettingStartedCode = `// Basic usage
-import { CharacterLibrary } from '@character-library/core';
+  const documentationSections = [
+    {
+      id: "getting-started",
+      title: "Getting Started",
+      description: "Quick start guide to begin using the Universal Character Library",
+      icon: BookOpen,
+      category: "basics",
+      difficulty: "beginner",
+      readTime: "5 min",
+      content: [
+        {
+          title: "Installation",
+          description: "Learn how to install the library in your project",
+          code: `npm install universal-character-library`,
+          type: "guide"
+        },
+        {
+          title: "Basic Usage",
+          description: "Create and display your first character",
+          code: `import { Character } from 'universal-character-library';
 
-// Create a character instance
-const library = new CharacterLibrary();
-
-// Create and mount a character
-const character = await library.createCharacter('casual-boy', {
-  size: 1,
-  theme: 'light',
-  autoPlay: true
+const character = new Character({
+  id: 'casual-boy',
+  container: '#character-container',
+  customization: {
+    skinTone: '#FDBCB4',
+    hairColor: '#8B4513'
+  }
 });
 
-await library.mountCharacter(character.id, '#character-container');`;
-
-  const quickStartCode = `<!-- HTML -->
-<div id="my-character"></div>
-
-<!-- JavaScript -->
-<script src="https://cdn.character-library.com/latest/character-library.min.js"></script>
-<script>
-  // Quick start with global instance
-  const characterId = await characterUtils.createAndMount(
-    'casual-boy',
-    '#my-character',
+character.play('idle');`,
+          type: "example"
+        }
+      ]
+    },
     {
-      customizations: {
-        skin: '#FDBCB4',
-        hair: '#FFD700',
-        shirt: '#87CEEB'
-      }
-    }
-  );
-</script>`;
+      id: "character-types",
+      title: "Character Types",
+      description: "Explore the different types of characters available in the library",
+      icon: Users,
+      category: "characters",
+      difficulty: "beginner",
+      readTime: "8 min",
+      content: [
+        {
+          title: "Age Groups",
+          description: "Children, adults, and elderly characters",
+          type: "info"
+        },
+        {
+          title: "Cultural Diversity",
+          description: "Characters from various cultural backgrounds",
+          type: "info"
+        },
+        {
+          title: "Body Types",
+          description: "Different body shapes and sizes",
+          type: "info"
+        }
+      ]
+    },
+    {
+      id: "animations",
+      title: "Animation System",
+      description: "Comprehensive guide to character animations and controls",
+      icon: Zap,
+      category: "animations",
+      difficulty: "intermediate",
+      readTime: "12 min",
+      content: [
+        {
+          title: "Basic Animations",
+          description: "Idle, walking, running, and jumping animations",
+          code: `character.play('walk');
+character.play('run');
+character.play('jump');`,
+          type: "example"
+        },
+        {
+          title: "Emotional Animations",
+          description: "Happy, sad, angry, and surprised expressions",
+          type: "info"
+        },
+        {
+          title: "Animation Controls",
+          description: "Play, pause, stop, and speed control",
+          code: `character.play('dance');
+character.pause();
+character.stop();
+character.setAnimationSpeed(1.5);`,
+          type: "example"
+        }
+      ]
+    },
+    {
+      id: "customization",
+      title: "Customization",
+      description: "Learn how to customize character appearance and properties",
+      icon: Palette,
+      category: "customization",
+      difficulty: "intermediate",
+      readTime: "15 min",
+      content: [
+        {
+          title: "Appearance Customization",
+          description: "Skin tone, hair color, and clothing options",
+          code: `character.setCustomization({
+  skinTone: '#FDBCB4',
+  hairColor: '#8B4513',
+  clothing: {
+    top: 't-shirt',
+    bottom: 'jeans'
+  }
+});`,
+          type: "example"
+        },
+        {
+          title: "Color Themes",
+          description: "Pre-defined color schemes and themes",
+          type: "info"
+        },
+        {
+          title: "Accessories and Props",
+          description: "Add accessories and props to characters",
+          type: "info"
+        }
+      ]
+    },
+    {
+      id: "framework-integration",
+      title: "Framework Integration",
+      description: "Integrate the library with popular frontend frameworks",
+      icon: Code,
+      category: "integration",
+      difficulty: "intermediate",
+      readTime: "10 min",
+      content: [
+        {
+          title: "React Integration",
+          description: "Using the library with React components",
+          code: `import { Character } from 'universal-character-library';
+import { useEffect, useRef } from 'react';
 
-  const reactExampleCode = `import React, { useEffect, useRef } from 'react';
-import { CharacterLibrary } from '@character-library/react';
-
-function CharacterComponent() {
+function ReactCharacter() {
   const containerRef = useRef(null);
-  const [character, setCharacter] = useState(null);
-
+  
   useEffect(() => {
-    const initCharacter = async () => {
-      const library = new CharacterLibrary();
-      const char = await library.createCharacter('sporty-girl', {
-        size: 0.8,
-        theme: 'vibrant'
-      });
-      
-      await library.mountCharacter(char.id, containerRef.current);
-      setCharacter(char);
-    };
-
-    initCharacter();
+    const character = new Character({
+      container: containerRef.current,
+      // ... options
+    });
+    
+    return () => character.destroy();
   }, []);
+  
+  return <div ref={containerRef} />;
+}`,
+          type: "example"
+        },
+        {
+          title: "Vue Integration",
+          description: "Using the library with Vue.js",
+          type: "info"
+        },
+        {
+          title: "Next.js Integration",
+          description: "Server-side rendering with Next.js",
+          type: "info"
+        }
+      ]
+    },
+    {
+      id: "performance",
+      title: "Performance Optimization",
+      description: "Optimize character performance for large-scale applications",
+      icon: Database,
+      category: "advanced",
+      difficulty: "advanced",
+      readTime: "8 min",
+      content: [
+        {
+          title: "Memory Management",
+          description: "Efficient memory usage for multiple characters",
+          type: "info"
+        },
+        {
+          title: "Animation Performance",
+          description: "Optimize animation rendering and playback",
+          code: `// Enable hardware acceleration
+character.enableHardwareAcceleration();
 
-  const handleAnimation = (animationName) => {
-    if (character) {
-      library.playAnimation(character.id, animationName);
+// Use sprite sheets for better performance
+character.useSpriteSheets(true);
+
+// Optimize for mobile devices
+character.optimizeForMobile();`,
+          type: "example"
+        },
+        {
+          title: "Lazy Loading",
+          description: "Load characters on demand",
+          type: "info"
+        }
+      ]
+    },
+    {
+      id: "accessibility",
+      title: "Accessibility",
+      description: "Build inclusive character experiences with accessibility features",
+      icon: Shield,
+      category: "advanced",
+      difficulty: "intermediate",
+      readTime: "6 min",
+      content: [
+        {
+          title: "ARIA Labels",
+          description: "Proper ARIA labeling for screen readers",
+          code: `const character = new Character({
+  container: '#character-container',
+  ariaLabel: 'Animated character demonstrating walking animation',
+  ariaLive: 'polite'
+});`,
+          type: "example"
+        },
+        {
+          title: "Keyboard Navigation",
+          description: "Keyboard controls for character interaction",
+          type: "info"
+        },
+        {
+          title: "Motion Reduction",
+          description: "Respect user's motion preferences",
+          type: "info"
+        }
+      ]
+    }
+  ];
+
+  const filteredSections = documentationSections.filter(section => {
+    const matchesSearch = section.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         section.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory === "all" || section.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
+
+  const categories = [
+    { value: "all", label: "All Topics" },
+    { value: "basics", label: "Basics" },
+    { value: "characters", label: "Characters" },
+    { value: "animations", label: "Animations" },
+    { value: "customization", label: "Customization" },
+    { value: "integration", label: "Integration" },
+    { value: "advanced", label: "Advanced" }
+  ];
+
+  const getDifficultyColor = (difficulty: string) => {
+    switch (difficulty) {
+      case "beginner": return "bg-green-100 text-green-800";
+      case "intermediate": return "bg-yellow-100 text-yellow-800";
+      case "advanced": return "bg-red-100 text-red-800";
+      default: return "bg-gray-100 text-gray-800";
     }
   };
 
   return (
-    <div>
-      <div ref={containerRef} style={{ width: '200px', height: '300px' }} />
-      <div>
-        <button onClick={() => handleAnimation('wave')}>Wave</button>
-        <button onClick={() => handleAnimation('jump')}>Jump</button>
-        <button onClick={() => handleAnimation('dance')}>Dance</button>
-      </div>
-    </div>
-  );
-}`;
-
-  const vueExampleCode = `<template>
-  <div>
-    <div ref="characterContainer" style="width: 200px; height: 300px;"></div>
-    <div>
-      <button @click="playAnimation('wave')">Wave</button>
-      <button @click="playAnimation('jump')">Jump</button>
-      <button @click="playAnimation('dance')">Dance</button>
-    </div>
-  </div>
-</template>
-
-<script>
-import { CharacterLibrary } from '@character-library/vue';
-
-export default {
-  data() {
-    return {
-      character: null,
-      library: null
-    };
-  },
-  mounted() {
-    this.initCharacter();
-  },
-  methods: {
-    async initCharacter() {
-      this.library = new CharacterLibrary();
-      this.character = await this.library.createCharacter('formal-man', {
-        size: 0.9,
-        theme: 'dark'
-      });
-      
-      await this.library.mountCharacter(
-        this.character.id, 
-        this.$refs.characterContainer
-      );
-    },
-    playAnimation(animationName) {
-      if (this.character) {
-        this.library.playAnimation(this.character.id, animationName);
-      }
-    }
-  }
-};
-</script>`;
-
-  const customizationCode = `// Customize character appearance
-library.customizeCharacter(character.id, {
-  skin: '#FDBCB4',
-  hair: '#8B4513',
-  shirt: '#4169E1',
-  pants: '#2F4F4F',
-  shoes: '#000000'
-});
-
-// Change character size
-library.setCharacterSize(character.id, 1.5);
-
-// Apply theme
-library.applyTheme(character.id, 'vibrant');
-
-// Set animation speed
-library.setAnimationSpeed(character.id, 1.5);`;
-
-  const animationCode = `// Play different animations
-await library.playAnimation(character.id, 'idle');      // Breathing and subtle movement
-await library.playAnimation(character.id, 'walk');      // Walking animation
-await library.playAnimation(character.id, 'wave');      // Friendly wave
-await library.playAnimation(character.id, 'jump');      // Jumping motion
-await library.playAnimation(character.id, 'dance');     // Dancing moves
-await library.playAnimation(character.id, 'magic');     // Magic spell casting
-
-// Animation control
-library.pauseAnimation(character.id);     // Pause current animation
-library.resumeAnimation(character.id);    // Resume paused animation
-library.stopAnimation(character.id);      // Stop all animations
-
-// Animation options
-library.playAnimation(character.id, 'wave', {
-  speed: 1.5,    // 1.5x speed
-  loop: true     // Loop the animation
-});`;
-
-  const sceneCode = `// Create a scene with multiple characters
-const scene = await characterUtils.createScene('my-scene', [
-  {
-    type: 'casual-boy',
-    container: '#scene-container'
-  },
-  {
-    type: 'sporty-girl',
-    container: '#scene-container'
-  },
-  {
-    type: 'formal-man',
-    container: '#scene-container'
-  }
-], {
-  layout: 'horizontal',  // or 'vertical', 'grid', 'circle'
-  autoPlay: true,
-  animations: ['idle', 'walk', 'wave']
-});
-
-// Scene control
-scene.play();     // Play all characters
-scene.pause();    // Pause all characters
-scene.stop();     // Stop all characters
-
-// Add character to scene
-await scene.addCharacter({
-  type: 'fantasy-woman',
-  container: '#scene-container'
-});`;
-
-  const presetsCode = `// Use predefined character presets
-const friendlyGuide = await characterUtils.createFromPreset(
-  'friendly-guide',
-  '#character-container'
-);
-
-const energeticCoach = await characterUtils.createFromPreset(
-  'energetic-coach',
-  '#character-container'
-);
-
-const professionalAssistant = await characterUtils.createFromPreset(
-  'professional-assistant',
-  '#character-container'
-);
-
-const magicalCompanion = await characterUtils.createFromPreset(
-  'magical-companion',
-  '#character-container'
-);
-
-// Available presets:
-// - friendly-guide: Casual boy with light theme
-// - energetic-coach: Sporty girl with vibrant colors
-// - professional-assistant: Formal man with dark theme
-// - magical-companion: Fantasy woman with mystical theme`;
-
-  const eventsCode = `// Listen to character events
-library.on('characterCreated', (data) => {
-  console.log('Character created:', data);
-});
-
-library.on('animationStarted', (data) => {
-  console.log('Animation started:', data.animation);
-});
-
-library.on('characterCustomized', (data) => {
-  console.log('Character customized:', data.customizations);
-});
-
-library.on('themeApplied', (data) => {
-  console.log('Theme applied:', data.theme);
-});
-
-// Interactive character
-const interactiveChar = await characterUtils.createInteractiveCharacter(
-  'casual-boy',
-  '#interactive-container',
-  {
-    onClick: (character) => {
-      character.play('wave');
-    },
-    onHover: (character, state) => {
-      if (state === 'enter') {
-        character.setSize(1.1);
-      } else {
-        character.setSize(1);
-      }
-    },
-    animationOnInteract: 'jump'
-  }
-);`;
-
-  const apiMethods = [
-    {
-      method: 'createCharacter(characterId, options)',
-      description: 'Create a new character instance',
-      parameters: 'characterId: string, options: Object',
-      returns: 'Promise<Character>',
-      example: 'library.createCharacter("casual-boy", { size: 1, theme: "light" })'
-    },
-    {
-      method: 'mountCharacter(characterId, container)',
-      description: 'Mount character to DOM container',
-      parameters: 'characterId: string, container: string|HTMLElement',
-      returns: 'Promise<void>',
-      example: 'library.mountCharacter(char.id, "#container")'
-    },
-    {
-      method: 'playAnimation(characterId, animationName, options)',
-      description: 'Play animation on character',
-      parameters: 'characterId: string, animationName: string, options: Object',
-      returns: 'Promise<void>',
-      example: 'library.playAnimation(char.id, "wave", { speed: 1.5 })'
-    },
-    {
-      method: 'customizeCharacter(characterId, customizations)',
-      description: 'Customize character appearance',
-      parameters: 'characterId: string, customizations: Object',
-      returns: 'void',
-      example: 'library.customizeCharacter(char.id, { skin: "#FDBCB4" })'
-    },
-    {
-      method: 'setCharacterSize(characterId, size)',
-      description: 'Set character size multiplier',
-      parameters: 'characterId: string, size: number',
-      returns: 'void',
-      example: 'library.setCharacterSize(char.id, 1.5)'
-    },
-    {
-      method: 'destroyCharacter(characterId)',
-      description: 'Destroy character instance',
-      parameters: 'characterId: string',
-      returns: 'void',
-      example: 'library.destroyCharacter(char.id)'
-    }
-  ];
-
-  const availableCharacters = [
-    {
-      id: 'casual-boy',
-      name: 'Casual Boy',
-      description: 'Friendly young boy in casual clothing',
-      animations: ['idle', 'walk', 'wave', 'jump', 'blink', 'breathing'],
-      parts: ['skin', 'hair', 'shirt', 'pants', 'shoes', 'collar', 'pocket']
-    },
-    {
-      id: 'sporty-girl',
-      name: 'Sporty Girl',
-      description: 'Energetic girl in athletic attire',
-      animations: ['idle', 'walk', 'jump', 'dance', 'blink', 'breathing'],
-      parts: ['skin', 'hair', 'shirt', 'pants', 'shoes', 'headband', 'stripe', 'wristband', 'eyelash']
-    },
-    {
-      id: 'formal-man',
-      name: 'Formal Man',
-      description: 'Professional man in business attire',
-      animations: ['idle', 'walk', 'wave', 'blink', 'breathing'],
-      parts: ['skin', 'hair', 'shirt', 'jacket', 'tie', 'pants', 'shoes', 'pocket-square', 'button']
-    },
-    {
-      id: 'fantasy-woman',
-      name: 'Fantasy Woman',
-      description: 'Mystical woman in magical clothing',
-      animations: ['idle', 'walk', 'dance', 'magic', 'blink', 'breathing'],
-      parts: ['skin', 'hair', 'dress', 'shoes', 'tiara', 'gem', 'necklace', 'aura', 'seam', 'pattern', 'eyelash']
-    }
-  ];
-
-  return (
-    <div className="container mx-auto px-4 py-8 max-w-6xl">
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Character Library Documentation</h1>
-        <p className="text-xl text-muted-foreground">
-          Comprehensive guide to using the Character Library in your projects
-        </p>
+    <div className="min-h-screen bg-gradient-to-br from-background to-muted">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-primary/10 to-primary/5 border-b">
+        <div className="container mx-auto px-4 py-16">
+          <div className="text-center space-y-6">
+            <Badge variant="secondary" className="gap-2">
+              <BookOpen className="w-4 h-4" />
+              Documentation
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold">
+              Universal Character Library Documentation
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Comprehensive guides, API references, and examples to help you integrate 
+              and customize the Universal Character Library in your projects.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button size="lg" className="gap-2">
+                <Github className="w-5 h-5" />
+                View on GitHub
+              </Button>
+              <Button variant="outline" size="lg" className="gap-2">
+                <Download className="w-5 h-5" />
+                Download Library
+              </Button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-6">
-          <TabsTrigger value="getting-started">Getting Started</TabsTrigger>
-          <TabsTrigger value="examples">Examples</TabsTrigger>
-          <TabsTrigger value="api">API Reference</TabsTrigger>
-          <TabsTrigger value="characters">Characters</TabsTrigger>
-          <TabsTrigger value="advanced">Advanced</TabsTrigger>
-          <TabsTrigger value="troubleshooting">Troubleshooting</TabsTrigger>
-        </TabsList>
+      {/* Search and Filter */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex flex-col md:flex-row gap-4 items-center">
+          <div className="relative flex-1">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+            <Input
+              placeholder="Search documentation..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="pl-10"
+            />
+          </div>
+          <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+            <SelectTrigger className="w-full md:w-48">
+              <SelectValue placeholder="Select category" />
+            </SelectTrigger>
+            <SelectContent>
+              {categories.map((category) => (
+                <SelectItem key={category.value} value={category.value}>
+                  {category.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
 
-        <TabsContent value="getting-started" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Installation</CardTitle>
-              <CardDescription>Install the Character Library in your project</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold mb-2">NPM</h4>
-                  <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
-                    <code>npm install @character-library/core</code>
-                  </pre>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">CDN</h4>
-                  <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
-                    <code>{`<script src="https://cdn.character-library.com/latest/character-library.min.js"></script>`}</code>
-                  </pre>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+      {/* Documentation Content */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-6">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl font-bold mb-2">Documentation Topics</h2>
+              <p className="text-muted-foreground">
+                {filteredSections.length} {filteredSections.length === 1 ? "topic" : "topics"} found
+              </p>
+            </div>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Basic Usage</CardTitle>
-              <CardDescription>Create and display your first character</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
-                <code>{gettingStartedCode}</code>
-              </pre>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Quick Start</CardTitle>
-              <CardDescription>Get started quickly with the utilities API</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
-                <code>{quickStartCode}</code>
-              </pre>
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="examples" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>React Integration</CardTitle>
-              <CardDescription>Using Character Library with React</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
-                <code>{reactExampleCode}</code>
-              </pre>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Vue Integration</CardTitle>
-              <CardDescription>Using Character Library with Vue</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
-                <code>{vueExampleCode}</code>
-              </pre>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Character Customization</CardTitle>
-              <CardDescription>Customize character appearance and behavior</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
-                <code>{customizationCode}</code>
-              </pre>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Animation Control</CardTitle>
-              <CardDescription>Control character animations</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
-                <code>{animationCode}</code>
-              </pre>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Scene Management</CardTitle>
-              <CardDescription>Create scenes with multiple characters</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
-                <code>{sceneCode}</code>
-              </pre>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Presets</CardTitle>
-              <CardDescription>Use predefined character configurations</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
-                <code>{presetsCode}</code>
-              </pre>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Events & Interactions</CardTitle>
-              <CardDescription>Handle character events and user interactions</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
-                <code>{eventsCode}</code>
-              </pre>
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="api" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Core API Methods</CardTitle>
-              <CardDescription>Complete reference for CharacterLibrary methods</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-6">
-                {apiMethods.map((method, index) => (
-                  <div key={index} className="border-l-4 border-primary pl-4">
-                    <h4 className="font-mono font-semibold text-primary">{method.method}</h4>
-                    <p className="text-sm text-muted-foreground mb-2">{method.description}</p>
-                    <div className="text-xs space-y-1">
-                      <div><strong>Parameters:</strong> {method.parameters}</div>
-                      <div><strong>Returns:</strong> {method.returns}</div>
-                    </div>
-                    <pre className="bg-muted p-2 rounded mt-2 text-xs">
-                      <code>{method.example}</code>
-                    </pre>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Utilities API</CardTitle>
-              <CardDescription>Simplified methods for common use cases</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold mb-2">CharacterLibraryUtils</h4>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    Utility class that provides simplified methods for common operations
-                  </p>
-                  <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
-                    <code>{`// Quick creation and mounting
-const characterId = await characterUtils.createAndMount(
-  'casual-boy',
-  '#container',
-  options
-);
-
-// Create interactive character
-const interactiveId = await characterUtils.createInteractiveCharacter(
-  'sporty-girl',
-  '#container',
-  {
-    onClick: (char) => char.play('wave'),
-    onHover: (char, state) => char.setSize(state === 'enter' ? 1.1 : 1)
-  }
-);
-
-// Use presets
-const presetId = await characterUtils.createFromPreset(
-  'friendly-guide',
-  '#container'
-);`}</code>
-                  </pre>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="characters" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Available Characters</CardTitle>
-              <CardDescription>Complete list of available character types</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid gap-6 md:grid-cols-2">
-                {availableCharacters.map((character) => (
-                  <Card key={character.id} className="border-2">
+            <div className="space-y-6">
+              {filteredSections.map((section) => {
+                const Icon = section.icon;
+                return (
+                  <Card key={section.id} className="hover:shadow-lg transition-all duration-200">
                     <CardHeader>
-                      <CardTitle className="flex items-center justify-between">
-                        {character.name}
-                        <Badge variant="secondary">{character.id}</Badge>
-                      </CardTitle>
-                      <CardDescription>{character.description}</CardDescription>
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                            <Icon className="w-6 h-6 text-primary" />
+                          </div>
+                          <div className="flex-1">
+                            <CardTitle className="text-xl">{section.title}</CardTitle>
+                            <CardDescription className="mt-1">
+                              {section.description}
+                            </CardDescription>
+                            <div className="flex items-center gap-3 mt-3">
+                              <Badge variant="outline" className={getDifficultyColor(section.difficulty)}>
+                                {section.difficulty}
+                              </Badge>
+                              <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                                <Clock className="w-3 h-3" />
+                                {section.readTime}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <Button variant="ghost" size="sm">
+                          <ChevronRight className="w-4 h-4" />
+                        </Button>
+                      </div>
                     </CardHeader>
                     <CardContent>
-                      <div className="space-y-3">
-                        <div>
-                          <h5 className="font-semibold text-sm mb-1">Animations</h5>
-                          <div className="flex flex-wrap gap-1">
-                            {character.animations.map((animation) => (
-                              <Badge key={animation} variant="outline" className="text-xs">
-                                {animation}
-                              </Badge>
-                            ))}
+                      <Tabs defaultValue="overview" className="w-full">
+                        <TabsList className="grid w-full grid-cols-3">
+                          <TabsTrigger value="overview">Overview</TabsTrigger>
+                          <TabsTrigger value="examples">Examples</TabsTrigger>
+                          <TabsTrigger value="api">API</TabsTrigger>
+                        </TabsList>
+                        
+                        <TabsContent value="overview" className="mt-4">
+                          <div className="space-y-3">
+                            {section.content
+                              .filter(item => item.type === "info")
+                              .map((item, index) => (
+                                <div key={index} className="flex items-start gap-2">
+                                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
+                                  <div>
+                                    <h4 className="font-medium">{item.title}</h4>
+                                    <p className="text-sm text-muted-foreground">{item.description}</p>
+                                  </div>
+                                </div>
+                              ))}
                           </div>
-                        </div>
-                        <div>
-                          <h5 className="font-semibold text-sm mb-1">Customizable Parts</h5>
-                          <div className="flex flex-wrap gap-1">
-                            {character.parts.map((part) => (
-                              <Badge key={part} variant="outline" className="text-xs">
-                                {part}
-                              </Badge>
-                            ))}
+                        </TabsContent>
+                        
+                        <TabsContent value="examples" className="mt-4">
+                          <div className="space-y-3">
+                            {section.content
+                              .filter(item => item.type === "example")
+                              .map((item, index) => (
+                                <div key={index} className="space-y-2">
+                                  <h4 className="font-medium">{item.title}</h4>
+                                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                                  <div className="bg-muted p-3 rounded-md">
+                                    <pre className="text-sm overflow-x-auto">
+                                      <code>{item.code}</code>
+                                    </pre>
+                                  </div>
+                                </div>
+                              ))}
                           </div>
-                        </div>
-                      </div>
+                        </TabsContent>
+                        
+                        <TabsContent value="api" className="mt-4">
+                          <div className="space-y-3">
+                            <div className="text-sm text-muted-foreground">
+                              API reference for {section.title.toLowerCase()} functionality.
+                            </div>
+                            <Button variant="outline" size="sm" className="gap-2">
+                              <FileText className="w-4 h-4" />
+                              View Full API Reference
+                            </Button>
+                          </div>
+                        </TabsContent>
+                      </Tabs>
                     </CardContent>
                   </Card>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-6">
+            {/* Quick Start */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Zap className="w-5 h-5" />
+                  Quick Start
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="text-sm text-muted-foreground">
+                  Get started in minutes with these quick steps:
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">
+                      1
+                    </div>
+                    <span>Install the library</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">
+                      2
+                    </div>
+                    <span>Import Character class</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">
+                      3
+                    </div>
+                    <span>Create and customize</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">
+                      4
+                    </div>
+                    <span>Add animations</span>
+                  </div>
+                </div>
+                <Button className="w-full mt-4">
+                  Start Tutorial
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Popular Topics */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Star className="w-5 h-5" />
+                  Popular Topics
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                {["Getting Started", "Basic Animations", "React Integration", "Customization"].map((topic, index) => (
+                  <Link key={index} href="#" className="block">
+                    <div className="flex items-center justify-between p-2 rounded-md hover:bg-muted transition-colors">
+                      <span className="text-sm">{topic}</span>
+                      <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                    </div>
+                  </Link>
                 ))}
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Character Properties</CardTitle>
-              <CardDescription>Common properties for all characters</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid gap-4 md:grid-cols-2">
-                <div>
-                  <h4 className="font-semibold mb-2">Appearance</h4>
-                  <ul className="text-sm space-y-1">
-                    <li>• Skin tone customization</li>
-                    <li>• Hair color and style</li>
-                    <li>• Clothing colors and patterns</li>
-                    <li>• Accessory customization</li>
-                    <li>• Size scaling (0.1x - 3x)</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Animation</h4>
-                  <ul className="text-sm space-y-1">
-                    <li>• Speed control (0.1x - 5x)</li>
-                    <li>• Play/pause/stop controls</li>
-                    <li>• Loop control</li>
-                    <li>• Multiple animation types</li>
-                    <li>• Smooth transitions</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Themes</h4>
-                  <ul className="text-sm space-y-1">
-                    <li>• Light theme</li>
-                    <li>• Dark theme</li>
-                    <li>• Vibrant theme</li>
-                    <li>• Seasonal themes</li>
-                    <li>• Custom themes</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Accessibility</h4>
-                  <ul className="text-sm space-y-1">
-                    <li>• ARIA labels</li>
-                    <li>• Reduced motion support</li>
-                    <li>• Keyboard navigation</li>
-                    <li>• Screen reader support</li>
-                    <li>• High contrast mode</li>
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="advanced" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Advanced Customization</CardTitle>
-              <CardDescription>Deep customization options and techniques</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold mb-2">Custom Themes</h4>
-                  <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
-                    <code>{`// Create custom theme
-cssManager.createTheme('my-custom-theme', {
-  '--cl-skin-color': '#FFE4B5',
-  '--cl-hair-color': '#8B4513',
-  '--cl-clothing-color-primary': '#9370DB',
-  '--cl-clothing-color-secondary': '#4B0082',
-  '--cl-shoes-color': '#2F4F4F'
-});
-
-// Apply custom theme
-library.applyTheme(character.id, 'my-custom-theme');`}</code>
-                  </pre>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold mb-2">CSS Variables</h4>
-                  <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
-                    <code>{`/* Character CSS Variables */
-.character {
-  --cl-skin-color: #FDBCB4;
-  --cl-hair-color: #8B4513;
-  --cl-shirt-color: #4169E1;
-  --cl-pants-color: #2F4F4F;
-  --cl-shoes-color: #000000;
-  --cl-animation-speed: 1;
-  --cl-character-size: 1;
-}
-
-/* Override specific character */
-.my-character {
-  --cl-skin-color: #DEB887;
-  --cl-hair-color: #FFD700;
-  --cl-shirt-color: #FF69B4;
-}`}</code>
-                  </pre>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold mb-2">Performance Optimization</h4>
-                  <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
-                    <code>{`// Lazy load characters
-const loadCharacter = async (characterId) => {
-  // Load metadata first
-  const metadata = await library.loadCharacterMetadata(characterId);
-  
-  // Create character only when needed
-  const character = await library.createCharacter(characterId, {
-    lazyLoad: true
-  });
-  
-  return character;
-};
-
-// Batch operations
-const characters = await Promise.all([
-  library.createCharacter('casual-boy'),
-  library.createCharacter('sporty-girl'),
-  library.createCharacter('formal-man')
-]);
-
-// Memory management
-const cleanup = () => {
-  characters.forEach(char => {
-    library.destroyCharacter(char.id);
-  });
-};`}</code>
-                  </pre>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Animation System</CardTitle>
-              <CardDescription>Advanced animation control and custom animations</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold mb-2">Animation Types</h4>
-                  <ul className="text-sm space-y-2">
-                    <li>
-                      <strong>CSS Animations:</strong> Hardware-accelerated, performant for simple animations
-                    </li>
-                    <li>
-                      <strong>Web Animations API:</strong> Programmatic control, complex sequences
-                    </li>
-                    <li>
-                      <strong>Lottie:</strong> Complex vector animations, professional quality
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold mb-2">Custom Animations</h4>
-                  <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
-                    <code>{`// Create custom animation
-const customAnimation = {
-  name: 'custom-dance',
-  duration: 2000,
-  type: 'web-animations',
-  loop: true,
-  keyframes: [
-    { transform: 'translateY(0) rotate(0deg)' },
-    { transform: 'translateY(-20px) rotate(10deg)' },
-    { transform: 'translateY(0) rotate(-10deg)' },
-    { transform: 'translateY(-10px) rotate(5deg)' }
-  ]
-};
-
-// Apply custom animation
-library.playAnimation(character.id, 'custom-dance', {
-  customKeyframes: customAnimation.keyframes
-});`}</code>
-                  </pre>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="troubleshooting" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Common Issues</CardTitle>
-              <CardDescription>Solutions to common problems</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold mb-2">Character Not Displaying</h4>
-                  <div className="text-sm space-y-1">
-                    <p>• Check that the container element exists in the DOM</p>
-                    <p>• Ensure the character ID is correct</p>
-                    <p>• Verify that the character files are loaded</p>
-                    <p>• Check browser console for errors</p>
+            {/* Resources */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Globe className="w-5 h-5" />
+                  Resources
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                <Link href="#" className="block">
+                  <div className="flex items-center gap-2 p-2 rounded-md hover:bg-muted transition-colors">
+                    <Video className="w-4 h-4" />
+                    <span className="text-sm">Video Tutorials</span>
                   </div>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold mb-2">Animations Not Working</h4>
-                  <div className="text-sm space-y-1">
-                    <p>• Check if animations are supported in the browser</p>
-                    <p>• Verify animation names are correct</p>
-                    <p>• Check if reduced motion is enabled</p>
-                    <p>• Ensure CSS files are loaded</p>
+                </Link>
+                <Link href="#" className="block">
+                  <div className="flex items-center gap-2 p-2 rounded-md hover:bg-muted transition-colors">
+                    <Image className="w-4 h-4" />
+                    <span className="text-sm">Examples Gallery</span>
                   </div>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold mb-2">Performance Issues</h4>
-                  <div className="text-sm space-y-1">
-                    <p>• Limit number of simultaneous animations</p>
-                    <p>• Use appropriate character sizes</p>
-                    <p>• Enable lazy loading for large scenes</p>
-                    <p>• Clean up unused characters</p>
+                </Link>
+                <Link href="#" className="block">
+                  <div className="flex items-center gap-2 p-2 rounded-md hover:bg-muted transition-colors">
+                    <Github className="w-4 h-4" />
+                    <span className="text-sm">GitHub Repository</span>
                   </div>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold mb-2">Customization Not Applied</h4>
-                  <div className="text-sm space-y-1">
-                    <p>• Check CSS variable names</p>
-                    <p>• Ensure color values are valid</p>
-                    <p>• Verify theme is applied correctly</p>
-                    <p>• Check for CSS specificity issues</p>
+                </Link>
+                <Link href="#" className="block">
+                  <div className="flex items-center gap-2 p-2 rounded-md hover:bg-muted transition-colors">
+                    <Heart className="w-4 h-4" />
+                    <span className="text-sm">Community Support</span>
                   </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Browser Support</CardTitle>
-              <CardDescription>Supported browsers and features</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid gap-4 md:grid-cols-2">
-                <div>
-                  <h4 className="font-semibold mb-2">Fully Supported</h4>
-                  <ul className="text-sm space-y-1">
-                    <li>• Chrome 60+</li>
-                    <li>• Firefox 55+</li>
-                    <li>• Safari 12+</li>
-                    <li>• Edge 79+</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Partial Support</h4>
-                  <ul className="text-sm space-y-1">
-                    <li>• Safari 11 (no Web Animations API)</li>
-                    <li>• IE 11 (basic functionality only)</li>
-                    <li>• Mobile browsers (performance may vary)</li>
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Getting Help</CardTitle>
-              <CardDescription>Resources for support and community</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-3">
-                <div>
-                  <h4 className="font-semibold">Documentation</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Complete documentation and API reference
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold">GitHub Issues</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Report bugs and request features
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold">Community Forum</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Get help from other developers
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold">Examples</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Working examples and demos
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

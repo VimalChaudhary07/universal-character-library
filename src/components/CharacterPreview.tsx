@@ -189,14 +189,18 @@ export default function CharacterPreview({
     setPlaybackSpeed(value[0]);
   };
 
-  const getCharacterEmoji = () => {
-    switch (characterType) {
-      case 'boy': return '👦';
-      case 'girl': return '👧';
-      case 'man': return '👨';
-      case 'woman': return '👩';
-      default: return '👤';
-    }
+  const getCharacterPlaceholder = () => {
+    return (
+      <div className="w-full h-full flex items-center justify-center bg-muted/30">
+        <div className="text-center">
+          <div className="text-4xl mb-2">🎨</div>
+          <div className="text-xs text-muted-foreground">Character Art</div>
+          <div className="text-xs text-muted-foreground mt-1">
+            {characterType} • {characterStyle}
+          </div>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -268,9 +272,7 @@ export default function CharacterPreview({
                 } as React.CSSProperties}
               />
             ) : (
-              <div className="text-8xl">
-                {getCharacterEmoji()}
-              </div>
+              getCharacterPlaceholder()
             )}
           </div>
           

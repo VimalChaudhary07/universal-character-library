@@ -4,43 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import { Github, Download, Palette, Zap, Code, Users, BarChart3 } from "lucide-react";
 import Link from "next/link";
 import CharacterGallery from "@/components/CharacterGallery";
+import HeroCharacterPreview from "@/components/HeroCharacterPreview";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-muted">
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-16 md:py-24">
-        <div className="text-center space-y-8">
-          <div className="space-y-4">
-            <Badge variant="secondary" className="text-sm px-4 py-2">
-              Open Source Character Library
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-              Universal Character Library
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              The world's most comprehensive collection of 1000+ diverse animated 2D characters with 500+ unique animations. 
-              Built with SVG, CSS, and JavaScript for maximum flexibility and performance.
-            </p>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="gap-2">
-              <Github className="w-5 h-5" />
-              View on GitHub
-            </Button>
-            <Button variant="outline" size="lg" className="gap-2">
-              <Download className="w-5 h-5" />
-              Download Library
-            </Button>
-            <Link href="/performance">
-              <Button variant="outline" size="lg" className="gap-2">
-                <BarChart3 className="w-5 h-5" />
-                Performance Dashboard
-              </Button>
-            </Link>
-          </div>
-        </div>
+        <HeroCharacterPreview />
       </section>
 
       {/* Features Section */}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import CharacterDetail from "./CharacterDetail";
 import { COMPREHENSIVE_CHARACTERS, Character } from "@/lib/characterDatabase";
+import { enhanceCharactersWithSVG, EnhancedCharacter } from "@/lib/svgCharacterManager";
 
 // Import SVG characters for available ones
 import BoyCasualSVG from "@/characters/boy/casual/svg/base.svg?raw";
