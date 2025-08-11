@@ -1,0 +1,234 @@
+<svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" class="character-boy-sports">
+  <!-- Character: Sports Boy (Basketball Theme) -->
+  
+  <!-- Body Group -->
+  <g class="character-body">
+    
+    <!-- Head -->
+    <g class="part head">
+      <circle cx="100" cy="60" r="35" class="skin" fill="#FDBCB4"/>
+      
+      <!-- Hair (Athletic style) -->
+      <path d="M 65 40 Q 100 25, 135 40 Q 140 60, 135 75 L 130 70 Q 120 55, 115 50 L 115 65 Q 100 70, 85 65 L 85 50 Q 80 55, 70 70 L 65 75 Q 60 60, 65 40" 
+            class="hair" fill="#000000"/>
+      
+      <!-- Sports Headband -->
+      <rect x="65" y="45" width="70" height="8" rx="4" class="headband" fill="#FF6B35"/>
+      <rect x="65" y="47" width="70" height="2" class="headband-stripe" fill="#FFFFFF"/>
+      
+      <!-- Eyes -->
+      <g class="eyes">
+        <ellipse cx="85" cy="55" rx="3" ry="5" class="eye" fill="#000000"/>
+        <ellipse cx="115" cy="55" rx="3" ry="5" class="eye" fill="#000000"/>
+        <!-- Determined expression -->
+        <path d="M 82 52 L 84 54 M 116 52 L 118 54" class="eyebrow" stroke="#000000" stroke-width="1" fill="none"/>
+      </g>
+      
+      <!-- Mouth (Focused) -->
+      <path d="M 90 70 Q 100 73, 110 70" class="mouth" stroke="#000000" stroke-width="2" fill="none"/>
+      
+      <!-- Ears -->
+      <circle cx="65" cy="60" r="8" class="skin ear" fill="#FDBCB4"/>
+      <circle cx="135" cy="60" r="8" class="skin ear" fill="#FDBCB4"/>
+    </g>
+    
+    <!-- Torso -->
+    <g class="part torso">
+      <!-- Basketball Jersey -->
+      <path d="M 70 90 L 70 140 Q 70 150, 80 150 L 120 150 Q 130 150, 130 140 L 130 90 Q 100 85, 70 90" 
+            class="jersey" fill="#FF6B35"/>
+      
+      <!-- Jersey Number -->
+      <text x="100" y="120" text-anchor="middle" class="jersey-number" fill="#FFFFFF" font-size="20" font-weight="bold">23</text>
+      
+      <!-- Jersey Stripes -->
+      <rect x="70" y="90" width="60" height="4" class="jersey-stripe" fill="#000000"/>
+      <rect x="70" y="145" width="60" height="4" class="jersey-stripe" fill="#000000"/>
+      
+      <!-- Jersey Side Panels -->
+      <rect x="70" y="94" width="8" height="46" class="jersey-panel" fill="#000000"/>
+      <rect x="122" y="94" width="8" height="46" class="jersey-panel" fill="#000000"/>
+      
+      <!-- Arms -->
+      <g class="arms">
+        <!-- Left Arm -->
+        <rect x="60" y="95" width="15" height="40" rx="7" class="jersey arm-left" fill="#FF6B35"/>
+        <rect x="60" y="130" width="15" height="15" rx="5" class="sleeve-left" fill="#000000"/>
+        <circle cx="67" cy="150" r="8" class="skin hand" fill="#FDBCB4"/>
+        <!-- Wristband -->
+        <rect x="60" y="142" width="15" height="4" class="wristband" fill="#FF6B35"/>
+        
+        <!-- Right Arm -->
+        <rect x="125" y="95" width="15" height="40" rx="7" class="jersey arm-right" fill="#FF6B35"/>
+        <rect x="125" y="130" width="15" height="15" rx="5" class="sleeve-right" fill="#000000"/>
+        <circle cx="133" cy="150" r="8" class="skin hand" fill="#FDBCB4"/>
+        <!-- Wristband -->
+        <rect x="125" y="142" width="15" height="4" class="wristband" fill="#FF6B35"/>
+      </g>
+    </g>
+    
+    <!-- Legs -->
+    <g class="part legs">
+      <!-- Left Leg -->
+      <rect x="80" y="150" width="20" height="50" rx="10" class="shorts leg-left" fill="#000000"/>
+      <rect x="80" y="190" width="20" height="10" rx="5" class="shorts-cuff" fill="#FF6B35"/>
+      <ellipse cx="90" cy="210" rx="12" ry="10" class="shoes shoe-left" fill="#FFFFFF"/>
+      <!-- Shoe Details -->
+        <ellipse cx="90" cy="205" rx="12" ry="3" class="shoe-sole" fill="#000000"/>
+        <circle cx="85" cy="200" r="2" class="shoe-lace" fill="#000000"/>
+        <circle cx="95" cy="200" r="2" class="shoe-lace" fill="#000000"/>
+      
+      <!-- Right Leg -->
+      <rect x="100" y="150" width="20" height="50" rx="10" class="shorts leg-right" fill="#000000"/>
+      <rect x="100" y="190" width="20" height="10" rx="5" class="shorts-cuff" fill="#FF6B35"/>
+      <ellipse cx="110" cy="210" rx="12" ry="10" class="shoes shoe-right" fill="#FFFFFF"/>
+      <!-- Shoe Details -->
+        <ellipse cx="110" cy="205" rx="12" ry="3" class="shoe-sole" fill="#000000"/>
+        <circle cx="105" cy="200" r="2" class="shoe-lace" fill="#000000"/>
+        <circle cx="115" cy="200" r="2" class="shoe-lace" fill="#000000"/>
+    </g>
+    
+    <!-- Accessories -->
+    <g class="accessories">
+      <!-- Basketball -->
+      <g class="basketball" transform="translate(40, 120)">
+        <circle cx="0" cy="0" r="15" class="ball" fill="#FF6B35"/>
+        <path d="M -15 0 Q 0 -5, 15 0 M -15 0 Q 0 5, 15 0 M 0 -15 Q -5 0, 0 15 M 0 -15 Q 5 0, 0 15" 
+              class="ball-lines" stroke="#000000" stroke-width="1" fill="none"/>
+        <path d="M -10 -10 Q 0 0, 10 10 M -10 10 Q 0 0, 10 -10" 
+              class="ball-lines" stroke="#000000" stroke-width="1" fill="none"/>
+      </g>
+      
+      <!-- Sweatbands -->
+      <rect x="85" y="125" width="8" height="15" rx="4" class="sweatband" fill="#FF6B35"/>
+      <rect x="107" y="125" width="8" height="15" rx="4" class="sweatband" fill="#FF6B35"/>
+      
+      <!-- Knee Pads -->
+      <ellipse cx="90" cy="175" rx="12" ry="8" class="knee-pad" fill="#000000"/>
+      <ellipse cx="110" cy="175" rx="12" ry="8" class="knee-pad" fill="#000000"/>
+      <ellipse cx="90" cy="175" rx="8" ry="5" class="knee-pad-center" fill="#FF6B35"/>
+      <ellipse cx="110" cy="175" rx="8" ry="5" class="knee-pad-center" fill="#FF6B35"/>
+      
+      <!-- Water Bottle -->
+      <g class="water-bottle" transform="translate(155, 140)">
+        <rect x="0" y="0" width="8" height="20" rx="2" class="bottle" fill="#00CED1"/>
+        <rect x="0" y="0" width="8" height="3" class="bottle-cap" fill="#000080"/>
+        <rect x="1" y="8" width="6" height="8" class="water" fill="#87CEEB"/>
+      </g>
+      
+      <!-- Motion Lines -->
+      <g class="motion-lines">
+        <path d="M 25 100 L 15 100" class="motion-line" stroke="#000000" stroke-width="2" opacity="0.3"/>
+        <path d="M 25 110 L 10 110" class="motion-line" stroke="#000000" stroke-width="2" opacity="0.3"/>
+        <path d="M 25 120 L 5 120" class="motion-line" stroke="#000000" stroke-width="2" opacity="0.3"/>
+      </g>
+    </g>
+    
+  </g>
+  
+  <!-- Animation Classes -->
+  <style>
+    .character-boy-sports {
+      transform-origin: 100px 150px;
+    }
+    
+    /* Base styles for customization */
+    .skin {
+      fill: var(--skin-color, #FDBCB4);
+    }
+    
+    .hair {
+      fill: var(--hair-color, #000000);
+    }
+    
+    .jersey {
+      fill: var(--jersey-color, #FF6B35);
+    }
+    
+    .jersey-number {
+      fill: var(--number-color, #FFFFFF);
+    }
+    
+    .jersey-stripe {
+      fill: var(--stripe-color, #000000);
+    }
+    
+    .jersey-panel {
+      fill: var(--panel-color, #000000);
+    }
+    
+    .sleeve-left, .sleeve-right {
+      fill: var(--sleeve-color, #000000);
+    }
+    
+    .shorts {
+      fill: var(--shorts-color, #000000);
+    }
+    
+    .shorts-cuff {
+      fill: var(--cuff-color, #FF6B35);
+    }
+    
+    .shoes {
+      fill: var(--shoes-color, #FFFFFF);
+    }
+    
+    .shoe-sole {
+      fill: var(--sole-color, #000000);
+    }
+    
+    .shoe-lace {
+      fill: var(--lace-color, #000000);
+    }
+    
+    .headband {
+      fill: var(--headband-color, #FF6B35);
+    }
+    
+    .headband-stripe {
+      fill: var(--stripe-color, #FFFFFF);
+    }
+    
+    .wristband {
+      fill: var(--wristband-color, #FF6B35);
+    }
+    
+    .sweatband {
+      fill: var(--sweatband-color, #FF6B35);
+    }
+    
+    .knee-pad {
+      fill: var(--knee-pad-color, #000000);
+    }
+    
+    .knee-pad-center {
+      fill: var(--knee-pad-center-color, #FF6B35);
+    }
+    
+    .ball {
+      fill: var(--ball-color, #FF6B35);
+    }
+    
+    .ball-lines {
+      stroke: var(--ball-lines-color, #000000);
+    }
+    
+    .bottle {
+      fill: var(--bottle-color, #00CED1);
+    }
+    
+    .bottle-cap {
+      fill: var(--cap-color, #000080);
+    }
+    
+    .water {
+      fill: var(--water-color, #87CEEB);
+    }
+    
+    .motion-line {
+      stroke: var(--motion-color, #000000);
+    }
+    
+    /* Animation states will be added via external CSS */
+  </style>
+</svg>

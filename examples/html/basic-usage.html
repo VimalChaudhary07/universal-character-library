@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Library - Basic Usage</title>
+    <link rel="stylesheet" href="../src/lib/dist/css/character-library.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .character-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .character-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .character-preview {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 15px;
+        }
+        .controls {
+            margin-top: 15px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Character Library - Basic Usage</h1>
+        <p>This example demonstrates how to use the Character Library with plain HTML, CSS, and JavaScript.</p>
+        
+        <div class="character-container">
+            <div class="character-card">
+                <h3>Casual Boy</h3>
+                <div id="boy-character" class="character-preview"></div>
+                <div class="controls">
+                    <button onclick="playAnimation('boy-character', 'idle')">Idle</button>
+                    <button onclick="playAnimation('boy-character', 'walk')">Walk</button>
+                    <button onclick="playAnimation('boy-character', 'wave')">Wave</button>
+                </div>
+            </div>
+            
+            <div class="character-card">
+                <h3>Sporty Girl</h3>
+                <div id="girl-character" class="character-preview"></div>
+                <div class="controls">
+                    <button onclick="playAnimation('girl-character', 'idle')">Idle</button>
+                    <button onclick="playAnimation('girl-character', 'jump')">Jump</button>
+                    <button onclick="playAnimation('girl-character', 'dance')">Dance</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../src/lib/dist/js/index.umd.js"></script>
+    <script>
+        // Initialize characters
+        const boyCharacter = new CharacterLibrary.Character({
+            id: 'casual-boy',
+            container: '#boy-character',
+            colors: {
+                skin: '#FDBCB4',
+                hair: '#8B4513',
+                shirt: '#4169E1',
+                pants: '#2F4F4F',
+                shoes: '#000000'
+            }
+        });
+
+        const girlCharacter = new CharacterLibrary.Character({
+            id: 'sporty-girl',
+            container: '#girl-character',
+            colors: {
+                skin: '#FDBCB4',
+                hair: '#FFD700',
+                shirt: '#FF69B4',
+                pants: '#000080',
+                shoes: '#FFFFFF'
+            }
+        });
+
+        // Animation control function
+        function playAnimation(characterId, animationName) {
+            const character = characterId === 'boy-character' ? boyCharacter : girlCharacter;
+            character.play(animationName);
+        }
+
+        // Start with idle animation
+        boyCharacter.play('idle');
+        girlCharacter.play('idle');
+    </script>
+</body>
+</html>

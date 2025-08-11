@@ -1,0 +1,169 @@
+<svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" class="character-woman-traditional">
+  <!-- Character: Traditional Woman (Cultural Representation) -->
+  
+  <!-- Body Group -->
+  <g class="character-body">
+    
+    <!-- Head -->
+    <g class="part head">
+      <circle cx="100" cy="60" r="35" class="skin" fill="#FDBCB4"/>
+      
+      <!-- Hair (Traditional style) -->
+      <path d="M 60 35 Q 100 20, 140 35 Q 145 55, 140 75 L 130 70 Q 120 60, 115 55 L 115 70 Q 100 75, 85 70 L 85 55 Q 80 60, 70 70 L 60 75 Q 55 55, 60 35" 
+            class="hair" fill="#000000"/>
+      
+      <!-- Eyes -->
+      <g class="eyes">
+        <ellipse cx="85" cy="55" rx="3" ry="5" class="eye" fill="#000000"/>
+        <ellipse cx="115" cy="55" rx="3" ry="5" class="eye" fill="#000000"/>
+      </g>
+      
+      <!-- Mouth -->
+      <path d="M 90 70 Q 100 75, 110 70" class="mouth" stroke="#000000" stroke-width="2" fill="none"/>
+      
+      <!-- Ears -->
+      <circle cx="65" cy="60" r="8" class="skin ear" fill="#FDBCB4"/>
+      <circle cx="135" cy="60" r="8" class="skin ear" fill="#FDBCB4"/>
+      
+      <!-- Traditional Jewelry -->
+      <circle cx="100" cy="45" r="3" class="nose-ring" stroke="#FFD700" stroke-width="2" fill="none"/>
+      <path d="M 70 60 Q 65 65, 70 70" class="earring" stroke="#FFD700" stroke-width="2" fill="none"/>
+      <circle cx="68" cy="65" r="2" class="earring-jewel" fill="#FF1493"/>
+      <path d="M 130 60 Q 135 65, 130 70" class="earring" stroke="#FFD700" stroke-width="2" fill="none"/>
+      <circle cx="132" cy="65" r="2" class="earring-jewel" fill="#FF1493"/>
+    </g>
+    
+    <!-- Torso -->
+    <g class="part torso">
+      <!-- Traditional Dress -->
+      <path d="M 70 90 L 70 140 Q 70 150, 80 150 L 120 150 Q 130 150, 130 140 L 130 90 Q 100 85, 70 90" 
+            class="dress" fill="#DC143C"/>
+      
+      <!-- Dress Pattern -->
+      <circle cx="85" cy="110" r="4" class="pattern" fill="#FFD700"/>
+      <circle cx="100" cy="110" r="4" class="pattern" fill="#FFD700"/>
+      <circle cx="115" cy="110" r="4" class="pattern" fill="#FFD700"/>
+      <circle cx="85" cy="125" r="4" class="pattern" fill="#FFD700"/>
+      <circle cx="100" cy="125" r="4" class="pattern" fill="#FFD700"/>
+      <circle cx="115" cy="125" r="4" class="pattern" fill="#FFD700"/>
+      
+      <!-- Dress Border -->
+      <rect x="70" y="145" width="60" height="5" class="dress-border" fill="#FFD700"/>
+      
+      <!-- Arms -->
+      <g class="arms">
+        <!-- Left Arm -->
+        <rect x="60" y="95" width="15" height="40" rx="7" class="dress arm-left" fill="#DC143C"/>
+        <circle cx="67" cy="140" r="8" class="skin hand" fill="#FDBCB4"/>
+        <!-- Traditional Bracelet -->
+        <rect x="60" y="125" width="15" height="3" class="bracelet" fill="#FFD700"/>
+        
+        <!-- Right Arm -->
+        <rect x="125" y="95" width="15" height="40" rx="7" class="dress arm-right" fill="#DC143C"/>
+        <circle cx="133" cy="140" r="8" class="skin hand" fill="#FDBCB4"/>
+        <!-- Traditional Bracelet -->
+        <rect x="125" y="125" width="15" height="3" class="bracelet" fill="#FFD700"/>
+      </g>
+    </g>
+    
+    <!-- Legs -->
+    <g class="part legs">
+      <!-- Left Leg -->
+      <rect x="80" y="150" width="18" height="50" rx="9" class="dress leg-left" fill="#DC143C"/>
+      <ellipse cx="89" cy="205" rx="12" ry="8" class="shoes shoe-left" fill="#8B0000"/>
+      
+      <!-- Right Leg -->
+      <rect x="102" y="150" width="18" height="50" rx="9" class="dress leg-right" fill="#DC143C"/>
+      <ellipse cx="111" cy="205" rx="12" ry="8" class="shoes shoe-right" fill="#8B0000"/>
+    </g>
+    
+    <!-- Accessories -->
+    <g class="accessories">
+      <!-- Traditional Necklace -->
+      <circle cx="100" cy="85" r="4" class="necklace" fill="#FFD700"/>
+      <path d="M 85 85 Q 100 95, 115 85" class="necklace-chain" stroke="#FFD700" stroke-width="2" fill="none"/>
+      
+      <!-- Bindi (Traditional forehead decoration) -->
+      <circle cx="100" cy="50" r="3" class="bindi" fill="#FF0000"/>
+      
+      <!-- Shoulder Scarf -->
+      <path d="M 70 95 Q 100 90, 130 95 Q 125 100, 100 105 Q 75 100, 70 95" 
+            class="scarf" stroke="#FFD700" stroke-width="3" fill="none"/>
+      
+      <!-- Hand Accessories -->
+      <circle cx="67" cy="140" r="3" class="hand-ring" stroke="#FFD700" stroke-width="2" fill="none"/>
+      <circle cx="133" cy="140" r="3" class="hand-ring" stroke="#FFD700" stroke-width="2" fill="none"/>
+    </g>
+    
+  </g>
+  
+  <!-- Animation Classes -->
+  <style>
+    .character-woman-traditional {
+      transform-origin: 100px 150px;
+    }
+    
+    /* Base styles for customization */
+    .skin {
+      fill: var(--skin-color, #FDBCB4);
+    }
+    
+    .hair {
+      fill: var(--hair-color, #000000);
+    }
+    
+    .dress {
+      fill: var(--dress-color, #DC143C);
+    }
+    
+    .shoes {
+      fill: var(--shoes-color, #8B0000);
+    }
+    
+    .pattern {
+      fill: var(--pattern-color, #FFD700);
+    }
+    
+    .dress-border {
+      fill: var(--border-color, #FFD700);
+    }
+    
+    .bracelet {
+      fill: var(--bracelet-color, #FFD700);
+    }
+    
+    .necklace {
+      fill: var(--necklace-color, #FFD700);
+    }
+    
+    .necklace-chain {
+      stroke: var(--necklace-color, #FFD700);
+    }
+    
+    .bindi {
+      fill: var(--bindi-color, #FF0000);
+    }
+    
+    .scarf {
+      stroke: var(--scarf-color, #FFD700);
+    }
+    
+    .nose-ring {
+      stroke: var(--jewelry-color, #FFD700);
+    }
+    
+    .earring {
+      stroke: var(--jewelry-color, #FFD700);
+    }
+    
+    .earring-jewel {
+      fill: var(--jewel-color, #FF1493);
+    }
+    
+    .hand-ring {
+      stroke: var(--jewelry-color, #FFD700);
+    }
+    
+    /* Animation states will be added via external CSS */
+  </style>
+</svg>

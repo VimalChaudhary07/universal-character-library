@@ -1,0 +1,190 @@
+<svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" class="character-man-traditional">
+  <!-- Character: Traditional Man (African Cultural Representation) -->
+  
+  <!-- Body Group -->
+  <g class="character-body">
+    
+    <!-- Head -->
+    <g class="part head">
+      <circle cx="100" cy="60" r="35" class="skin" fill="#8D5524"/>
+      
+      <!-- Hair (Traditional African style) -->
+      <path d="M 65 40 Q 100 25, 135 40 Q 140 55, 135 70 L 125 65 Q 115 50, 100 45 Q 85 50, 75 65 L 65 70 Q 60 55, 65 40" 
+            class="hair" fill="#000000"/>
+      
+      <!-- Eyes -->
+      <g class="eyes">
+        <ellipse cx="85" cy="55" rx="4" ry="6" class="eye" fill="#000000"/>
+        <ellipse cx="115" cy="55" rx="4" ry="6" class="eye" fill="#000000"/>
+      </g>
+      
+      <!-- Mouth -->
+      <path d="M 88 72 Q 100 76, 112 72" class="mouth" stroke="#000000" stroke-width="2" fill="none"/>
+      
+      <!-- Beard (Traditional) -->
+      <path d="M 75 80 Q 85 85, 95 80 M 105 80 Q 115 85, 125 80" class="beard" stroke="#000000" stroke-width="2" fill="none"/>
+      
+      <!-- Ears -->
+      <circle cx="65" cy="60" r="10" class="skin ear" fill="#8D5524"/>
+      <circle cx="135" cy="60" r="10" class="skin ear" fill="#8D5524"/>
+      
+      <!-- Traditional Head Scarf -->
+      <path d="M 60 35 Q 100 20, 140 35 L 140 50 Q 100 60, 60 50 Z" class="head-scarf" fill="#FF6B35"/>
+      <path d="M 60 35 Q 100 25, 140 35" class="scarf-pattern" stroke="#FFD700" stroke-width="2" fill="none"/>
+    </g>
+    
+    <!-- Torso -->
+    <g class="part torso">
+      <!-- Traditional Tunic -->
+      <path d="M 70 90 L 70 140 Q 70 150, 80 150 L 120 150 Q 130 150, 130 140 L 130 90 Q 100 85, 70 90" 
+            class="tunic" fill="#228B22"/>
+      
+      <!-- Tunic Patterns -->
+      <rect x="75" y="95" width="50" height="3" class="pattern" fill="#FFD700"/>
+      <rect x="75" y="105" width="50" height="3" class="pattern" fill="#FFD700"/>
+      <rect x="75" y="115" width="50" height="3" class="pattern" fill="#FFD700"/>
+      <rect x="75" y="125" width="50" height="3" class="pattern" fill="#FFD700"/>
+      <rect x="75" y="135" width="50" height="3" class="pattern" fill="#FFD700"/>
+      
+      <!-- Arms -->
+      <g class="arms">
+        <!-- Left Arm -->
+        <rect x="55" y="95" width="15" height="45" rx="7" class="tunic arm-left" fill="#228B22"/>
+        <rect x="57" y="135" width="11" height="15" rx="5" class="cuff-left" fill="#FF6B35"/>
+        <circle cx="62" cy="155" r="9" class="skin hand" fill="#8D5524"/>
+        <!-- Traditional Bracelet -->
+        <rect x="55" y="120" width="15" height="4" class="bracelet" fill="#FFD700"/>
+        
+        <!-- Right Arm -->
+        <rect x="130" y="95" width="15" height="45" rx="7" class="tunic arm-right" fill="#228B22"/>
+        <rect x="132" y="135" width="11" height="15" rx="5" class="cuff-right" fill="#FF6B35"/>
+        <circle cx="138" cy="155" r="9" class="skin hand" fill="#8D5524"/>
+        <!-- Traditional Bracelet -->
+        <rect x="130" y="120" width="15" height="4" class="bracelet" fill="#FFD700"/>
+      </g>
+    </g>
+    
+    <!-- Legs -->
+    <g class="part legs">
+      <!-- Left Leg -->
+      <rect x="78" y="150" width="22" height="55" rx="11" class="pants leg-left" fill="#8B4513"/>
+      <ellipse cx="89" cy="210" rx="14" ry="10" class="shoes shoe-left" fill="#654321"/>
+      
+      <!-- Right Leg -->
+      <rect x="100" y="150" width="22" height="55" rx="11" class="pants leg-right" fill="#8B4513"/>
+      <ellipse cx="111" cy="210" rx="14" ry="10" class="shoes shoe-right" fill="#654321"/>
+    </g>
+    
+    <!-- Accessories -->
+    <g class="accessories">
+      <!-- Traditional Necklace -->
+      <circle cx="100" cy="85" r="5" class="necklace" fill="#FFD700"/>
+      <path d="M 80 85 Q 100 95, 120 85" class="necklace-chain" stroke="#FFD700" stroke-width="3" fill="none"/>
+      <circle cx="85" cy="87" r="3" class="necklace-bead" fill="#FF6B35"/>
+      <circle cx="100" cy="90" r="3" class="necklace-bead" fill="#FF6B35"/>
+      <circle cx="115" cy="87" r="3" class="necklace-bead" fill="#FF6B35"/>
+      
+      <!-- Belt -->
+      <rect x="70" y="145" width="60" height="8" class="belt" fill="#8B4513"/>
+      <rect x="70" y="145" width="60" height="2" class="belt-buckle" fill="#FFD700"/>
+      
+      <!-- Arm Bands -->
+      <rect x="55" y="110" width="15" height="3" class="arm-band" fill="#FF6B35"/>
+      <rect x="130" y="110" width="15" height="3" class="arm-band" fill="#FF6B35"/>
+      
+      <!-- Traditional Staff (optional accessory) -->
+      <g class="staff" transform="translate(150, 120)">
+        <rect x="0" y="0" width="4" height="80" class="staff-shaft" fill="#8B4513"/>
+        <circle cx="2" cy="0" r="6" class="staff-top" fill="#FFD700"/>
+        <rect x="0" y="70" width="4" height="10" class="staff-base" fill="#654321"/>
+      </g>
+    </g>
+    
+  </g>
+  
+  <!-- Animation Classes -->
+  <style>
+    .character-man-traditional {
+      transform-origin: 100px 150px;
+    }
+    
+    /* Base styles for customization */
+    .skin {
+      fill: var(--skin-color, #8D5524);
+    }
+    
+    .hair {
+      fill: var(--hair-color, #000000);
+    }
+    
+    .tunic {
+      fill: var(--tunic-color, #228B22);
+    }
+    
+    .pants {
+      fill: var(--pants-color, #8B4513);
+    }
+    
+    .shoes {
+      fill: var(--shoes-color, #654321);
+    }
+    
+    .head-scarf {
+      fill: var(--head-scarf-color, #FF6B35);
+    }
+    
+    .scarf-pattern {
+      stroke: var(--pattern-color, #FFD700);
+    }
+    
+    .pattern {
+      fill: var(--pattern-color, #FFD700);
+    }
+    
+    .cuff-left, .cuff-right {
+      fill: var(--cuff-color, #FF6B35);
+    }
+    
+    .bracelet {
+      fill: var(--bracelet-color, #FFD700);
+    }
+    
+    .necklace {
+      fill: var(--necklace-color, #FFD700);
+    }
+    
+    .necklace-chain {
+      stroke: var(--necklace-color, #FFD700);
+    }
+    
+    .necklace-bead {
+      fill: var(--bead-color, #FF6B35);
+    }
+    
+    .belt {
+      fill: var(--belt-color, #8B4513);
+    }
+    
+    .belt-buckle {
+      fill: var(--buckle-color, #FFD700);
+    }
+    
+    .arm-band {
+      fill: var(--arm-band-color, #FF6B35);
+    }
+    
+    .staff-shaft {
+      fill: var(--staff-color, #8B4513);
+    }
+    
+    .staff-top {
+      fill: var(--staff-top-color, #FFD700);
+    }
+    
+    .staff-base {
+      fill: var(--staff-base-color, #654321);
+    }
+    
+    /* Animation states will be added via external CSS */
+  </style>
+</svg>

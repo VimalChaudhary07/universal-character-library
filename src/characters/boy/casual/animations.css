@@ -1,0 +1,267 @@
+/* Character Animations - Casual Boy */
+
+/* CSS Custom Properties for Animation Control */
+:root {
+  --animation-duration: 1s;
+  --animation-timing: ease-in-out;
+  --animation-iteration: infinite;
+}
+
+/* Base Animation Classes */
+.character-group {
+  animation: none;
+}
+
+/* Idle Animation - Gentle breathing and subtle movement */
+.character-group.idle {
+  animation: idle-breathing 4s ease-in-out infinite,
+             idle-subtle-movement 6s ease-in-out infinite;
+}
+
+@keyframes idle-breathing {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.02) translateY(-2px); }
+}
+
+@keyframes idle-subtle-movement {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(0.5deg); }
+  75% { transform: rotate(-0.5deg); }
+}
+
+/* Walk Animation - Walking with arm and leg movement */
+.character-group.walk {
+  animation: walk-body 1s ease-in-out infinite;
+}
+
+.character-group.walk .left-leg {
+  animation: walk-left-leg 1s ease-in-out infinite;
+}
+
+.character-group.walk .right-leg {
+  animation: walk-right-leg 1s ease-in-out infinite;
+}
+
+.character-group.walk .left-arm {
+  animation: walk-left-arm 1s ease-in-out infinite;
+}
+
+.character-group.walk .right-arm {
+  animation: walk-right-arm 1s ease-in-out infinite;
+}
+
+.character-group.walk .left-hand {
+  animation: walk-left-hand 1s ease-in-out infinite;
+}
+
+.character-group.walk .right-hand {
+  animation: walk-right-hand 1s ease-in-out infinite;
+}
+
+@keyframes walk-body {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(-2deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  75% { transform: translateY(-5px) rotate(2deg); }
+}
+
+@keyframes walk-left-leg {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(20deg); }
+}
+
+@keyframes walk-right-leg {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-20deg); }
+}
+
+@keyframes walk-left-arm {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-15deg); }
+}
+
+@keyframes walk-right-arm {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(15deg); }
+}
+
+@keyframes walk-left-hand {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-3px, -2px); }
+}
+
+@keyframes walk-right-hand {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(3px, -2px); }
+}
+
+/* Wave Animation - Friendly waving */
+.character-group.wave .right-arm {
+  animation: wave-arm 1.5s ease-in-out;
+}
+
+.character-group.wave .right-hand {
+  animation: wave-hand 1.5s ease-in-out;
+}
+
+@keyframes wave-arm {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-45deg); }
+  50% { transform: rotate(-90deg); }
+  75% { transform: rotate(-45deg); }
+}
+
+@keyframes wave-hand {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-5px, -3px) rotate(-10deg); }
+  50% { transform: translate(-8px, -5px) rotate(-20deg); }
+  75% { transform: translate(-5px, -3px) rotate(-10deg); }
+}
+
+/* Jump Animation - Jumping with bounce */
+.character-group.jump {
+  animation: jump-body 0.8s ease-in-out;
+}
+
+.character-group.jump .left-leg {
+  animation: jump-leg 0.8s ease-in-out;
+}
+
+.character-group.jump .right-leg {
+  animation: jump-leg 0.8s ease-in-out;
+}
+
+.character-group.jump .left-arm {
+  animation: jump-arm 0.8s ease-in-out;
+}
+
+.character-group.jump .right-arm {
+  animation: jump-arm 0.8s ease-in-out;
+}
+
+@keyframes jump-body {
+  0%, 100% { transform: translateY(0) scale(1, 1); }
+  50% { transform: translateY(-30px) scale(1.1, 0.9); }
+}
+
+@keyframes jump-leg {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-15deg); }
+}
+
+@keyframes jump-arm {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-30deg); }
+}
+
+/* Blink Animation - Natural blinking */
+.character-group.blink .eyelid-left {
+  animation: blink-eyelid 3s ease-in-out infinite;
+}
+
+.character-group.blink .eyelid-right {
+  animation: blink-eyelid 3s ease-in-out infinite;
+}
+
+@keyframes blink-eyelid {
+  0%, 90%, 100% { opacity: 0; }
+  95% { opacity: 1; }
+}
+
+/* Breathing Animation - Subtle breathing */
+.character-group.breathing {
+  animation: breathing-body 4s ease-in-out infinite;
+}
+
+.character-group.breathing .head-group {
+  animation: breathing-head 4s ease-in-out infinite;
+}
+
+@keyframes breathing-body {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.015) translateY(-1px); }
+}
+
+@keyframes breathing-head {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1px); }
+}
+
+/* Animation State Classes */
+.character-group.paused {
+  animation-play-state: paused !important;
+}
+
+.character-group.paused * {
+  animation-play-state: paused !important;
+}
+
+/* Responsive Animation Scaling */
+@media (prefers-reduced-motion: reduce) {
+  .character-group *,
+  .character-group {
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+  }
+}
+
+/* Animation Performance Optimizations */
+.character-group,
+.character-group * {
+  will-change: transform;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Smooth Animation Transitions */
+.character-group {
+  transition: all 0.3s ease;
+}
+
+/* Hover Effects */
+.character-group:hover {
+  filter: brightness(1.1);
+}
+
+/* Loading State */
+.character-group.loading {
+  opacity: 0.5;
+}
+
+.character-group.ready {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Error State */
+.character-group.error {
+  filter: grayscale(100%);
+  opacity: 0.7;
+}
+
+/* Animation Classes for Different Speeds */
+.character-group.slow {
+  animation-duration: calc(var(--animation-duration) * 2);
+}
+
+.character-group.fast {
+  animation-duration: calc(var(--animation-duration) * 0.5);
+}
+
+/* Custom Animation Properties */
+.character-group[data-animation-speed="0.5"] {
+  animation-duration: calc(var(--animation-duration) * 2);
+}
+
+.character-group[data-animation-speed="1"] {
+  animation-duration: var(--animation-duration);
+}
+
+.character-group[data-animation-speed="1.5"] {
+  animation-duration: calc(var(--animation-duration) * 0.67);
+}
+
+.character-group[data-animation-speed="2"] {
+  animation-duration: calc(var(--animation-duration) * 0.5);
+}

@@ -1,0 +1,107 @@
+{
+  "id": "casual-boy",
+  "name": "Casual Boy",
+  "type": "boy",
+  "style": "casual",
+  "version": "1.0.0",
+  "description": "A friendly young boy in casual clothing, perfect for children's apps and games.",
+  "tags": ["child", "casual", "friendly", "youth"],
+  "parts": {
+    "skin": {
+      "color": "#FDBCB4",
+      "selector": ".skin-color",
+      "description": "Skin tone color"
+    },
+    "hair": {
+      "color": "#8B4513",
+      "selector": ".hair-color",
+      "description": "Hair color"
+    },
+    "shirt": {
+      "color": "#4169E1",
+      "selector": ".shirt-color",
+      "description": "Shirt color"
+    },
+    "pants": {
+      "color": "#2F4F4F",
+      "selector": ".pants-color",
+      "description": "Pants color"
+    },
+    "shoes": {
+      "color": "#000000",
+      "selector": ".shoes-color",
+      "description": "Shoes color"
+    }
+  },
+  "animations": [
+    {
+      "name": "idle",
+      "duration": 2000,
+      "type": "css",
+      "loop": true,
+      "file": "animations.css",
+      "description": "Gentle breathing and subtle movement"
+    },
+    {
+      "name": "walk",
+      "duration": 1000,
+      "type": "css",
+      "loop": true,
+      "file": "animations.css",
+      "description": "Walking animation with arm and leg movement"
+    },
+    {
+      "name": "wave",
+      "duration": 1500,
+      "type": "css",
+      "loop": false,
+      "file": "animations.css",
+      "description": "Friendly waving animation"
+    },
+    {
+      "name": "jump",
+      "duration": 800,
+      "type": "css",
+      "loop": false,
+      "file": "animations.css",
+      "description": "Jumping animation with bounce effect"
+    },
+    {
+      "name": "blink",
+      "duration": 3000,
+      "type": "css",
+      "loop": true,
+      "file": "animations.css",
+      "description": "Natural blinking animation"
+    },
+    {
+      "name": "breathing",
+      "duration": 4000,
+      "type": "css",
+      "loop": true,
+      "file": "animations.css",
+      "description": "Subtle breathing animation"
+    }
+  ],
+  "variants": [
+    {
+      "name": "casual",
+      "file": "svg/base.svg",
+      "description": "Casual clothing variant"
+    }
+  ],
+  "accessibility": {
+    "label": "Casual boy character",
+    "role": "img",
+    "ariaDescription": "A customizable animated boy character in casual clothing"
+  },
+  "dimensions": {
+    "width": 200,
+    "height": 300,
+    "viewBox": "0 0 200 300"
+  },
+  "author": "Character Library Team",
+  "license": "MIT",
+  "created": "2024-01-01",
+  "updated": "2024-01-01"
+}

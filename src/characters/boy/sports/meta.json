@@ -1,0 +1,69 @@
+{
+  "id": "boy-sports",
+  "name": "Sports Boy",
+  "type": "boy",
+  "style": "sports",
+  "animations": [
+    "idle",
+    "walk",
+    "run",
+    "jump",
+    "dribble",
+    "shoot",
+    "pass",
+    "catch",
+    "block",
+    "celebrate",
+    "exercise",
+    "stretch",
+    "victory",
+    "sports-dance"
+  ],
+  "description": "An athletic boy in sports uniform, perfect for fitness and athletic themes.",
+  "tags": [
+    "child",
+    "sports",
+    "athletic",
+    "basketball",
+    "fitness",
+    "active",
+    "energetic"
+  ],
+  "isAvailable": true,
+  "culture": "Western",
+  "bodyType": "athletic",
+  "theme": "sports",
+  "accessories": [
+    "basketball",
+    "headband",
+    "wristbands",
+    "knee-pads",
+    "water-bottle",
+    "sports-shoes",
+    "jersey",
+    "shorts"
+  ],
+  "colors": {
+    "skin": "#FDBCB4",
+    "hair": "#000000",
+    "primary": "#FF6B35",
+    "secondary": "#000000",
+    "accent": "#FFFFFF"
+  },
+  "customizableParts": [
+    "skin",
+    "hair",
+    "jersey",
+    "shorts",
+    "shoes",
+    "sports-gear",
+    "accessories",
+    "team-colors"
+  ],
+  "animationStyles": [
+    "athletic",
+    "energetic",
+    "sports",
+    "competitive"
+  ]
+}

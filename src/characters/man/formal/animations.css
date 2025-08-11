@@ -1,0 +1,174 @@
+/* Formal Man Character Animations */
+
+/* Idle Animation - Professional standing posture */
+@keyframes idle-standing {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-1px) scale(1.002); }
+}
+
+@keyframes idle-posture {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(0.2deg); }
+  75% { transform: rotate(-0.2deg); }
+}
+
+.anim-idle {
+  animation: idle-standing 2s ease-in-out infinite,
+             idle-posture 8s ease-in-out infinite;
+}
+
+/* Walk Animation - Professional walking gait */
+@keyframes walk-body {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-4px) rotate(0.5deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  75% { transform: translateY(-4px) rotate(-0.5deg); }
+}
+
+@keyframes walk-arm-left {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-15deg); }
+}
+
+@keyframes walk-arm-right {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(15deg); }
+}
+
+@keyframes walk-leg-left {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(12deg); }
+}
+
+@keyframes walk-leg-right {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-12deg); }
+}
+
+.anim-walk {
+  animation: walk-body 1s ease-in-out infinite;
+}
+
+.anim-walk .arm-left {
+  animation: walk-arm-left 1s ease-in-out infinite;
+  transform-origin: 68px 100px;
+}
+
+.anim-walk .arm-right {
+  animation: walk-arm-right 1s ease-in-out infinite;
+  transform-origin: 132px 100px;
+}
+
+.anim-walk .leg-left {
+  animation: walk-leg-left 1s ease-in-out infinite;
+  transform-origin: 88px 150px;
+}
+
+.anim-walk .leg-right {
+  animation: walk-leg-right 1s ease-in-out infinite;
+  transform-origin: 112px 150px;
+}
+
+/* Wave Animation - Professional greeting wave */
+@keyframes wave-arm {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-30deg); }
+  50% { transform: rotate(-40deg); }
+  75% { transform: rotate(-20deg); }
+}
+
+@keyframes wave-body {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(2deg); }
+}
+
+.anim-wave .arm-right {
+  animation: wave-arm 1.5s ease-in-out;
+  transform-origin: 132px 100px;
+}
+
+.anim-wave {
+  animation: wave-body 1.5s ease-in-out;
+}
+
+/* Blink Animation - Natural eye blinking */
+@keyframes blink-eyes {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
+.anim-blink .eye {
+  animation: blink-eyes 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Breathing Animation - Subtle breathing movement */
+@keyframes breathing-chest {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.015); }
+}
+
+@keyframes breathing-head {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-0.5px); }
+}
+
+.anim-breathing .torso {
+  animation: breathing-chest 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.anim-breathing .head {
+  animation: breathing-head 4s ease-in-out infinite;
+}
+
+/* Animation utility classes */
+.character-man-formal {
+  transform-origin: 100px 150px;
+  transition: all 0.3s ease;
+}
+
+/* Pause state */
+.paused {
+  animation-play-state: paused !important;
+}
+
+.paused * {
+  animation-play-state: paused !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .character-man-formal {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 480px) {
+  .character-man-formal {
+    transform: scale(0.6);
+  }
+}
+
+/* Accessibility - Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .anim-idle {
+    animation: none;
+  }
+  
+  .anim-walk {
+    animation: none;
+  }
+  
+  .anim-wave {
+    animation: none;
+  }
+  
+  .anim-blink {
+    animation: none;
+  }
+  
+  .anim-breathing {
+    animation: none;
+  }
+}

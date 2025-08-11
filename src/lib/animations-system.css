@@ -1,0 +1,868 @@
+/**
+ * Character Library Animation System
+ * 
+ * A comprehensive CSS animation system for character animations
+ * including idle, blink, breathing, and other basic animations.
+ * 
+ * @version 1.0.0
+ * @author Character Library Team
+ */
+
+/* ========================================
+   ANIMATION SYSTEM ROOT VARIABLES
+   ======================================== */
+
+:root {
+  /* Animation Timing Variables */
+  --animation-idle-duration: 4s;
+  --animation-blink-duration: 3s;
+  --animation-breathing-duration: 4s;
+  --animation-walk-duration: 1s;
+  --animation-wave-duration: 1.5s;
+  --animation-jump-duration: 0.8s;
+  --animation-dance-duration: 2s;
+  
+  /* Animation Easing Variables */
+  --animation-ease-linear: linear;
+  --animation-ease-in: ease-in;
+  --animation-ease-out: ease-out;
+  --animation-ease-in-out: ease-in-out;
+  --animation-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --animation-ease-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  
+  /* Animation Intensity Variables */
+  --animation-intensity-low: 0.3;
+  --animation-intensity-medium: 0.6;
+  --animation-intensity-high: 1.0;
+  
+  /* Animation State Variables */
+  --animation-play-state: running;
+  --animation-fill-mode: none;
+  --animation-direction: normal;
+  --animation-iteration-count: infinite;
+}
+
+/* ========================================
+   IDLE ANIMATION
+   ======================================== */
+
+/* Base Idle Animation - Gentle breathing and subtle movement */
+.character-group.idle {
+  animation: idle-body-breathing var(--animation-idle-duration) var(--animation-ease-in-out) infinite,
+             idle-subtle-movement calc(var(--animation-idle-duration) * 1.5) var(--animation-ease-in-out) infinite;
+}
+
+/* Body Breathing Keyframes */
+@keyframes idle-body-breathing {
+  0%, 100% { 
+    transform: scale(1) translateY(0); 
+  }
+  25% { 
+    transform: scale(1.005) translateY(-1px); 
+  }
+  50% { 
+    transform: scale(1.01) translateY(-2px); 
+  }
+  75% { 
+    transform: scale(1.005) translateY(-1px); 
+  }
+}
+
+/* Subtle Movement Keyframes */
+@keyframes idle-subtle-movement {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  25% { 
+    transform: rotate(0.3deg); 
+  }
+  50% { 
+    transform: rotate(0deg); 
+  }
+  75% { 
+    transform: rotate(-0.3deg); 
+  }
+}
+
+/* Head-specific idle animation */
+.character-group.idle .head-group {
+  animation: idle-head-movement var(--animation-idle-duration) var(--animation-ease-in-out) infinite;
+}
+
+@keyframes idle-head-movement {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg); 
+  }
+  25% { 
+    transform: translateY(-0.5px) rotate(0.5deg); 
+  }
+  50% { 
+    transform: translateY(-1px) rotate(0deg); 
+  }
+  75% { 
+    transform: translateY(-0.5px) rotate(-0.5deg); 
+  }
+}
+
+/* ========================================
+   BLINK ANIMATION
+   ======================================== */
+
+/* Base Blink Animation */
+.character-group.blink .eyelid-left,
+.character-group.blink .eyelid-right {
+  animation: blink-eyelid var(--animation-blink-duration) var(--animation-ease-in-out) infinite;
+}
+
+/* Eyelid Blink Keyframes */
+@keyframes blink-eyelid {
+  0%, 90%, 100% { 
+    opacity: 0; 
+    transform: scaleY(0);
+  }
+  95% { 
+    opacity: 1; 
+    transform: scaleY(1);
+  }
+}
+
+/* Synchronized blink for both eyes */
+.character-group.blink .eyes-group {
+  animation: blink-synchronization var(--animation-blink-duration) var(--animation-ease-in-out) infinite;
+}
+
+@keyframes blink-synchronization {
+  0%, 90%, 100% { 
+    transform: scaleY(1); 
+  }
+  95% { 
+    transform: scaleY(0.95); 
+  }
+}
+
+/* ========================================
+   BREATHING ANIMATION
+   ======================================== */
+
+/* Base Breathing Animation */
+.character-group.breathing {
+  animation: breathing-body var(--animation-breathing-duration) var(--animation-ease-in-out) infinite;
+}
+
+/* Body Breathing Keyframes */
+@keyframes breathing-body {
+  0%, 100% { 
+    transform: scale(1) translateY(0); 
+  }
+  25% { 
+    transform: scale(1.008) translateY(-1px); 
+  }
+  50% { 
+    transform: scale(1.015) translateY(-2px); 
+  }
+  75% { 
+    transform: scale(1.008) translateY(-1px); 
+  }
+}
+
+/* Chest-specific breathing */
+.character-group.breathing .torso-group {
+  animation: breathing-chest var(--animation-breathing-duration) var(--animation-ease-in-out) infinite;
+}
+
+@keyframes breathing-chest {
+  0%, 100% { 
+    transform: scaleY(1); 
+  }
+  50% { 
+    transform: scaleY(1.02); 
+  }
+}
+
+/* Head breathing movement */
+.character-group.breathing .head-group {
+  animation: breathing-head var(--animation-breathing-duration) var(--animation-ease-in-out) infinite;
+}
+
+@keyframes breathing-head {
+  0%, 100% { 
+    transform: translateY(0); 
+  }
+  50% { 
+    transform: translateY(-1px); 
+  }
+}
+
+/* ========================================
+   WALK ANIMATION
+   ======================================== */
+
+/* Base Walk Animation */
+.character-group.walk {
+  animation: walk-body var(--animation-walk-duration) var(--animation-ease-in-out) infinite;
+}
+
+/* Body Movement Keyframes */
+@keyframes walk-body {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg); 
+  }
+  25% { 
+    transform: translateY(-4px) rotate(-1deg); 
+  }
+  50% { 
+    transform: translateY(0) rotate(0deg); 
+  }
+  75% { 
+    transform: translateY(-4px) rotate(1deg); 
+  }
+}
+
+/* Leg Animation - Left */
+.character-group.walk .left-leg {
+  animation: walk-left-leg var(--animation-walk-duration) var(--animation-ease-in-out) infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes walk-left-leg {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  25% { 
+    transform: rotate(15deg); 
+  }
+  50% { 
+    transform: rotate(0deg); 
+  }
+  75% { 
+    transform: rotate(-10deg); 
+  }
+}
+
+/* Leg Animation - Right */
+.character-group.walk .right-leg {
+  animation: walk-right-leg var(--animation-walk-duration) var(--animation-ease-in-out) infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes walk-right-leg {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  25% { 
+    transform: rotate(-10deg); 
+  }
+  50% { 
+    transform: rotate(0deg); 
+  }
+  75% { 
+    transform: rotate(15deg); 
+  }
+}
+
+/* Arm Animation - Left */
+.character-group.walk .left-arm {
+  animation: walk-left-arm var(--animation-walk-duration) var(--animation-ease-in-out) infinite;
+  transform-origin: shoulder center;
+}
+
+@keyframes walk-left-arm {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  25% { 
+    transform: rotate(-10deg); 
+  }
+  50% { 
+    transform: rotate(0deg); 
+  }
+  75% { 
+    transform: rotate(10deg); 
+  }
+}
+
+/* Arm Animation - Right */
+.character-group.walk .right-arm {
+  animation: walk-right-arm var(--animation-walk-duration) var(--animation-ease-in-out) infinite;
+  transform-origin: shoulder center;
+}
+
+@keyframes walk-right-arm {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  25% { 
+    transform: rotate(10deg); 
+  }
+  50% { 
+    transform: rotate(0deg); 
+  }
+  75% { 
+    transform: rotate(-10deg); 
+  }
+}
+
+/* Hand Movement */
+.character-group.walk .left-hand {
+  animation: walk-left-hand var(--animation-walk-duration) var(--animation-ease-in-out) infinite;
+}
+
+@keyframes walk-left-hand {
+  0%, 100% { 
+    transform: translate(0, 0); 
+  }
+  50% { 
+    transform: translate(-2px, -1px); 
+  }
+}
+
+.character-group.walk .right-hand {
+  animation: walk-right-hand var(--animation-walk-duration) var(--animation-ease-in-out) infinite;
+}
+
+@keyframes walk-right-hand {
+  0%, 100% { 
+    transform: translate(0, 0); 
+  }
+  50% { 
+    transform: translate(2px, -1px); 
+  }
+}
+
+/* ========================================
+   WAVE ANIMATION
+   ======================================== */
+
+/* Base Wave Animation */
+.character-group.wave .right-arm {
+  animation: wave-arm var(--animation-wave-duration) var(--animation-ease-in-out);
+  transform-origin: shoulder center;
+}
+
+@keyframes wave-arm {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  25% { 
+    transform: rotate(-30deg); 
+  }
+  50% { 
+    transform: rotate(-60deg); 
+  }
+  75% { 
+    transform: rotate(-30deg); 
+  }
+}
+
+/* Hand Waving Movement */
+.character-group.wave .right-hand {
+  animation: wave-hand var(--animation-wave-duration) var(--animation-ease-in-out);
+}
+
+@keyframes wave-hand {
+  0%, 100% { 
+    transform: translate(0, 0) rotate(0deg); 
+  }
+  25% { 
+    transform: translate(-3px, -2px) rotate(-10deg); 
+  }
+  50% { 
+    transform: translate(-5px, -3px) rotate(-20deg); 
+  }
+  75% { 
+    transform: translate(-3px, -2px) rotate(-10deg); 
+  }
+}
+
+/* ========================================
+   JUMP ANIMATION
+   ======================================== */
+
+/* Base Jump Animation */
+.character-group.jump {
+  animation: jump-body var(--animation-jump-duration) var(--animation-ease-bounce);
+}
+
+/* Body Jump Keyframes */
+@keyframes jump-body {
+  0%, 100% { 
+    transform: translateY(0) scale(1, 1); 
+  }
+  30% { 
+    transform: translateY(-10px) scale(1.05, 0.95); 
+  }
+  50% { 
+    transform: translateY(-25px) scale(1.1, 0.9); 
+  }
+  70% { 
+    transform: translateY(-10px) scale(1.05, 0.95); 
+  }
+}
+
+/* Leg Jump Animation */
+.character-group.jump .left-leg,
+.character-group.jump .right-leg {
+  animation: jump-leg var(--animation-jump-duration) var(--animation-ease-bounce);
+  transform-origin: center bottom;
+}
+
+@keyframes jump-leg {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  30% { 
+    transform: rotate(-5deg); 
+  }
+  50% { 
+    transform: rotate(-15deg); 
+  }
+  70% { 
+    transform: rotate(-5deg); 
+  }
+}
+
+/* Arm Jump Animation */
+.character-group.jump .left-arm,
+.character-group.jump .right-arm {
+  animation: jump-arm var(--animation-jump-duration) var(--animation-ease-bounce);
+  transform-origin: shoulder center;
+}
+
+@keyframes jump-arm {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  30% { 
+    transform: rotate(-20deg); 
+  }
+  50% { 
+    transform: rotate(-40deg); 
+  }
+  70% { 
+    transform: rotate(-20deg); 
+  }
+}
+
+/* ========================================
+   DANCE ANIMATION
+   ======================================== */
+
+/* Base Dance Animation */
+.character-group.dance {
+  animation: dance-body var(--animation-dance-duration) var(--animation-ease-in-out) infinite;
+}
+
+/* Body Dance Keyframes */
+@keyframes dance-body {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg) scale(1); 
+  }
+  25% { 
+    transform: translateY(-8px) rotate(-3deg) scale(1.05); 
+  }
+  50% { 
+    transform: translateY(0) rotate(0deg) scale(1); 
+  }
+  75% { 
+    transform: translateY(-8px) rotate(3deg) scale(1.05); 
+  }
+}
+
+/* Arm Dance Animation - Left */
+.character-group.dance .left-arm {
+  animation: dance-left-arm var(--animation-dance-duration) var(--animation-ease-in-out) infinite;
+  transform-origin: shoulder center;
+}
+
+@keyframes dance-left-arm {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  25% { 
+    transform: rotate(-45deg); 
+  }
+  50% { 
+    transform: rotate(-90deg); 
+  }
+  75% { 
+    transform: rotate(-45deg); 
+  }
+}
+
+/* Arm Dance Animation - Right */
+.character-group.dance .right-arm {
+  animation: dance-right-arm var(--animation-dance-duration) var(--animation-ease-in-out) infinite;
+  transform-origin: shoulder center;
+}
+
+@keyframes dance-right-arm {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  25% { 
+    transform: rotate(45deg); 
+  }
+  50% { 
+    transform: rotate(90deg); 
+  }
+  75% { 
+    transform: rotate(45deg); 
+  }
+}
+
+/* Leg Dance Animation - Left */
+.character-group.dance .left-leg {
+  animation: dance-left-leg var(--animation-dance-duration) var(--animation-ease-in-out) infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes dance-left-leg {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  25% { 
+    transform: rotate(10deg); 
+  }
+  50% { 
+    transform: rotate(0deg); 
+  }
+  75% { 
+    transform: rotate(-10deg); 
+  }
+}
+
+/* Leg Dance Animation - Right */
+.character-group.dance .right-leg {
+  animation: dance-right-leg var(--animation-dance-duration) var(--animation-ease-in-out) infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes dance-right-leg {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  25% { 
+    transform: rotate(-10deg); 
+  }
+  50% { 
+    transform: rotate(0deg); 
+  }
+  75% { 
+    transform: rotate(10deg); 
+  }
+}
+
+/* Head Dance Movement */
+.character-group.dance .head-group {
+  animation: dance-head var(--animation-dance-duration) var(--animation-ease-in-out) infinite;
+}
+
+@keyframes dance-head {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  25% { 
+    transform: rotate(-5deg); 
+  }
+  50% { 
+    transform: rotate(0deg); 
+  }
+  75% { 
+    transform: rotate(5deg); 
+  }
+}
+
+/* ========================================
+   ANIMATION CONTROL CLASSES
+   ======================================== */
+
+/* Animation State Control */
+.character-group.paused {
+  animation-play-state: paused !important;
+}
+
+.character-group.paused * {
+  animation-play-state: paused !important;
+}
+
+.character-group.stopped {
+  animation: none !important;
+}
+
+.character-group.stopped * {
+  animation: none !important;
+}
+
+/* Animation Speed Control */
+.character-group.speed-slow {
+  animation-duration: calc(var(--animation-duration) * 2) !important;
+}
+
+.character-group.speed-normal {
+  animation-duration: var(--animation-duration) !important;
+}
+
+.character-group.speed-fast {
+  animation-duration: calc(var(--animation-duration) * 0.5) !important;
+}
+
+/* Animation Direction Control */
+.character-group.reverse {
+  animation-direction: reverse !important;
+}
+
+.character-group.alternate {
+  animation-direction: alternate !important;
+}
+
+/* Animation Iteration Control */
+.character-group.once {
+  animation-iteration-count: 1 !important;
+}
+
+.character-group.twice {
+  animation-iteration-count: 2 !important;
+}
+
+.character-group.loop {
+  animation-iteration-count: infinite !important;
+}
+
+/* ========================================
+   ANIMATION INTENSITY VARIANTS
+   ======================================== */
+
+/* Low Intensity Animations */
+.character-group.intensity-low {
+  --animation-intensity: var(--animation-intensity-low);
+}
+
+.character-group.intensity-low .head-group {
+  animation-duration: calc(var(--animation-idle-duration) * 1.5);
+}
+
+.character-group.intensity-low .torso-group {
+  animation-duration: calc(var(--animation-breathing-duration) * 1.5);
+}
+
+/* Medium Intensity Animations */
+.character-group.intensity-medium {
+  --animation-intensity: var(--animation-intensity-medium);
+}
+
+/* High Intensity Animations */
+.character-group.intensity-high {
+  --animation-intensity: var(--animation-intensity-high);
+}
+
+.character-group.intensity-high .head-group {
+  animation-duration: calc(var(--animation-idle-duration) * 0.7);
+}
+
+.character-group.intensity-high .torso-group {
+  animation-duration: calc(var(--animation-breathing-duration) * 0.7);
+}
+
+/* ========================================
+   COMBINATION ANIMATIONS
+   ======================================== */
+
+/* Idle + Breathing */
+.character-group.idle-breathing {
+  animation: idle-body-breathing var(--animation-idle-duration) var(--animation-ease-in-out) infinite,
+             breathing-body var(--animation-breathing-duration) var(--animation-ease-in-out) infinite;
+}
+
+/* Idle + Blink */
+.character-group.idle-blink {
+  animation: idle-body-breathing var(--animation-idle-duration) var(--animation-ease-in-out) infinite,
+             idle-subtle-movement calc(var(--animation-idle-duration) * 1.5) var(--animation-ease-in-out) infinite;
+}
+
+.character-group.idle-blink .eyelid-left,
+.character-group.idle-blink .eyelid-right {
+  animation: blink-eyelid var(--animation-blink-duration) var(--animation-ease-in-out) infinite;
+}
+
+/* ========================================
+   RESPONSIVE ANIMATION ADJUSTMENTS
+   ======================================== */
+
+/* Mobile Animation Adjustments */
+@media (max-width: 768px) {
+  :root {
+    --animation-idle-duration: 3s;
+    --animation-blink-duration: 2.5s;
+    --animation-breathing-duration: 3s;
+    --animation-walk-duration: 0.8s;
+    --animation-wave-duration: 1.2s;
+    --animation-jump-duration: 0.6s;
+    --animation-dance-duration: 1.5s;
+  }
+  
+  /* Reduce animation intensity on mobile */
+  .character-group {
+    --animation-intensity: var(--animation-intensity-low);
+  }
+}
+
+/* Large Screen Animation Enhancements */
+@media (min-width: 1200px) {
+  :root {
+    --animation-idle-duration: 5s;
+    --animation-blink-duration: 4s;
+    --animation-breathing-duration: 5s;
+    --animation-walk-duration: 1.2s;
+    --animation-wave-duration: 2s;
+    --animation-jump-duration: 1s;
+    --animation-dance-duration: 2.5s;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY AND PREFERENCES
+   ======================================== */
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .character-group,
+  .character-group *,
+  .character-group .head-group,
+  .character-group .torso-group,
+  .character-group .legs-group,
+  .character-group .arms-group,
+  .character-group .eyes-group {
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+  }
+  
+  /* Fallback to simple static state */
+  .character-group.idle {
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .character-group {
+    filter: contrast(1.2);
+  }
+}
+
+/* Dark Mode Animation Adjustments */
+@media (prefers-color-scheme: dark) {
+  .character-group {
+    filter: brightness(1.1);
+  }
+}
+
+/* ========================================
+   PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+
+/* Hardware Acceleration */
+.character-group,
+.character-group .head-group,
+.character-group .torso-group,
+.character-group .legs-group,
+.character-group .arms-group,
+.character-group .eyes-group {
+  will-change: transform;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Smooth Animation Transitions */
+.character-group {
+  transition: all 0.3s ease;
+}
+
+/* Animation Performance Classes */
+.character-group.optimized {
+  will-change: transform;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.character-group.battery-saver {
+  will-change: auto;
+  animation-duration: calc(var(--animation-duration) * 2);
+}
+
+/* ========================================
+   DEBUG AND DEVELOPMENT UTILITIES
+   ======================================== */
+
+/* Debug Mode - Visual Animation Indicators */
+.character-group.debug::before {
+  content: attr(class);
+  position: absolute;
+  top: -20px;
+  left: 0;
+  background: rgba(255, 0, 0, 0.8);
+  color: white;
+  padding: 2px 4px;
+  font-size: 10px;
+  z-index: 1000;
+  white-space: nowrap;
+}
+
+/* Animation Timeline Visualization */
+.character-group.timeline {
+  border: 1px dashed red;
+  position: relative;
+}
+
+.character-group.timeline::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, red 0%, yellow 50%, green 100%);
+  animation: timeline-progress var(--animation-duration) linear infinite;
+}
+
+@keyframes timeline-progress {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+/* Performance Monitor */
+.character-group.performance-monitor::after {
+  content: 'FPS: ' attr(data-fps);
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 2px 4px;
+  font-size: 10px;
+  z-index: 1000;
+}
+
+/* ========================================
+   FALLBACKS FOR OLDER BROWSERS
+   ======================================== */
+
+/* Fallback for browsers without CSS animation support */
+@supports not (animation: test) {
+  .character-group {
+    transform: scale(1) translateY(0);
+  }
+  
+  .character-group .eyelid-left,
+  .character-group .eyelid-right {
+    opacity: 0;
+  }
+}
+
+/* Fallback for browsers without 3D transforms */
+@supports not (transform-style: preserve-3d) {
+  .character-group,
+  .character-group * {
+    transform-style: flat;
+  }
+}

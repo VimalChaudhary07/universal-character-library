@@ -1,0 +1,68 @@
+{
+  "id": "woman-occupational",
+  "name": "Medical Woman",
+  "type": "woman",
+  "style": "occupational",
+  "animations": [
+    "idle",
+    "walk",
+    "examine",
+    "write",
+    "consult",
+    "treat",
+    "assist",
+    "communicate",
+    "record",
+    "analyze",
+    "care",
+    "professional-duties",
+    "teach"
+  ],
+  "description": "A woman in medical professional attire, representing healthcare and occupational excellence.",
+  "tags": [
+    "adult",
+    "occupational",
+    "medical",
+    "doctor",
+    "professional",
+    "healthcare",
+    "career"
+  ],
+  "isAvailable": true,
+  "culture": "Western",
+  "bodyType": "professional",
+  "theme": "medical",
+  "accessories": [
+    "stethoscope",
+    "medical-cap",
+    "lab-coat",
+    "medical-mask",
+    "id-badge",
+    "clipboard",
+    "medical-tools",
+    "gloves"
+  ],
+  "colors": {
+    "skin": "#FDBCB4",
+    "hair": "#8B4513",
+    "primary": "#FFFFFF",
+    "secondary": "#4169E1",
+    "accent": "#DC143C"
+  },
+  "customizableParts": [
+    "skin",
+    "hair",
+    "lab-coat",
+    "medical-accessories",
+    "tools",
+    "badge",
+    "gloves",
+    "professional-gear"
+  ],
+  "animationStyles": [
+    "professional",
+    "caring",
+    "medical",
+    "occupational"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "id": "woman-historical",
+  "name": "Historical Woman",
+  "type": "woman",
+  "style": "historical",
+  "animations": [
+    "idle",
+    "walk",
+    "curtsy",
+    "dance",
+    "fan-dance",
+    "read",
+    "write",
+    "sew",
+    "greet",
+    "bow",
+    "wave",
+    "spin",
+    "twirl",
+    "celebrate",
+    "traditional-dance"
+  ],
+  "description": "A woman in historical period clothing, representing medieval and renaissance eras.",
+  "tags": [
+    "adult",
+    "historical",
+    "period",
+    "elegant",
+    "graceful",
+    "noble",
+    "heritage"
+  ],
+  "isAvailable": true,
+  "culture": "Historical",
+  "bodyType": "graceful",
+  "theme": "historical",
+  "accessories": [
+    "historical-headpiece",
+    "jewelry",
+    "embroidery",
+    "apron",
+    "belt",
+    "pouch",
+    "fan",
+    "period-accessories"
+  ],
+  "colors": {
+    "skin": "#FDBCB4",
+    "hair": "#8B4513",
+    "primary": "#8B0000",
+    "secondary": "#F5F5DC",
+    "accent": "#FFD700"
+  },
+  "customizableParts": [
+    "skin",
+    "hair",
+    "gown",
+    "headpiece",
+    "jewelry",
+    "embroidery",
+    "accessories"
+  ],
+  "animationStyles": [
+    "graceful",
+    "elegant",
+    "historical",
+    "period"
+  ]
+}

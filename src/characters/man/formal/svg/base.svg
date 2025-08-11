@@ -1,0 +1,139 @@
+<svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" class="character-man-formal">
+  <!-- Character: Formal Man -->
+  
+  <!-- Body Group -->
+  <g class="character-body">
+    
+    <!-- Head -->
+    <g class="part head">
+      <circle cx="100" cy="60" r="35" class="skin" fill="#FDBCB4"/>
+      
+      <!-- Hair -->
+      <path d="M 65 40 Q 100 25, 135 40 Q 140 50, 138 60 L 130 58 Q 100 50, 70 58 L 62 60 Q 60 50, 65 40" 
+            class="hair" fill="#2F4F4F"/>
+      
+      <!-- Eyes -->
+      <g class="eyes">
+        <ellipse cx="85" cy="55" rx="4" ry="6" class="eye" fill="#000"/>
+        <ellipse cx="115" cy="55" rx="4" ry="6" class="eye" fill="#000"/>
+      </g>
+      
+      <!-- Mouth -->
+      <path d="M 88 72 Q 100 76, 112 72" class="mouth" stroke="#000" stroke-width="2" fill="none"/>
+      
+      <!-- Ears -->
+      <circle cx="65" cy="60" r="10" class="skin ear" fill="#FDBCB4"/>
+      <circle cx="135" cy="60" r="10" class="skin ear" fill="#FDBCB4"/>
+      
+      <!-- Facial features -->
+      <path d="M 95 65 L 105 65" class="nose" stroke="#000" stroke-width="1" fill="none"/>
+    </g>
+    
+    <!-- Torso -->
+    <g class="part torso">
+      <!-- Suit Jacket -->
+      <path d="M 70 90 L 70 140 Q 70 150, 80 150 L 120 150 Q 130 150, 130 140 L 130 90 Q 100 85, 70 90" 
+            class="jacket" fill="#1a1a1a"/>
+      
+      <!-- Dress Shirt -->
+      <rect x="85" y="90" width="30" height="50" rx="2" class="shirt" fill="#FFFFFF"/>
+      
+      <!-- Tie -->
+      <path d="M 100 90 L 95 110 L 100 130 L 105 110 L 100 90" class="tie" fill="#8B0000"/>
+      
+      <!-- Arms -->
+      <g class="arms">
+        <!-- Left Arm -->
+        <rect x="55" y="95" width="15" height="45" rx="7" class="jacket arm-left" fill="#1a1a1a"/>
+        <rect x="57" y="135" width="11" height="15" rx="5" class="shirt cuff-left" fill="#FFFFFF"/>
+        <circle cx="62" cy="155" r="9" class="skin hand" fill="#FDBCB4"/>
+        
+        <!-- Right Arm -->
+        <rect x="130" y="95" width="15" height="45" rx="7" class="jacket arm-right" fill="#1a1a1a"/>
+        <rect x="132" y="135" width="11" height="15" rx="5" class="shirt cuff-right" fill="#FFFFFF"/>
+        <circle cx="138" cy="155" r="9" class="skin hand" fill="#FDBCB4"/>
+      </g>
+    </g>
+    
+    <!-- Legs -->
+    <g class="part legs">
+      <!-- Left Leg -->
+      <rect x="78" y="150" width="22" height="55" rx="11" class="pants leg-left" fill="#1a1a1a"/>
+      <ellipse cx="89" cy="210" rx="14" ry="10" class="shoes shoe-left" fill="#000000"/>
+      
+      <!-- Right Leg -->
+      <rect x="100" y="150" width="22" height="55" rx="11" class="pants leg-right" fill="#1a1a1a"/>
+      <ellipse cx="111" cy="210" rx="14" ry="10" class="shoes shoe-right" fill="#000000"/>
+    </g>
+    
+    <!-- Accessories -->
+    <g class="accessories">
+      <!-- Lapels -->
+      <path d="M 70 90 L 85 105 L 85 95" class="lapel" fill="#1a1a1a"/>
+      <path d="M 130 90 L 115 105 L 115 95" class="lapel" fill="#1a1a1a"/>
+      
+      <!-- Pocket Square -->
+      <rect x="108" y="100" width="12" height="8" rx="1" class="pocket-square" fill="#FFFFFF"/>
+      
+      <!-- Buttons -->
+      <circle cx="100" cy="110" r="2" class="button" fill="#8B0000"/>
+      <circle cx="100" cy="125" r="2" class="button" fill="#8B0000"/>
+      <circle cx="100" cy="140" r="2" class="button" fill="#8B0000"/>
+    </g>
+    
+  </g>
+  
+  <!-- Animation Classes -->
+  <style>
+    .character-man-formal {
+      transform-origin: 100px 150px;
+    }
+    
+    /* Base styles for customization */
+    .skin {
+      fill: var(--skin-color, #FDBCB4);
+    }
+    
+    .hair {
+      fill: var(--hair-color, #2F4F4F);
+    }
+    
+    .shirt {
+      fill: var(--shirt-color, #FFFFFF);
+    }
+    
+    .jacket {
+      fill: var(--jacket-color, #1a1a1a);
+    }
+    
+    .tie {
+      fill: var(--tie-color, #8B0000);
+    }
+    
+    .pants {
+      fill: var(--pants-color, #1a1a1a);
+    }
+    
+    .shoes {
+      fill: var(--shoes-color, #000000);
+    }
+    
+    .lapel {
+      fill: var(--jacket-color, #1a1a1a);
+    }
+    
+    .pocket-square {
+      fill: var(--pocket-square-color, #FFFFFF);
+    }
+    
+    .button {
+      fill: var(--button-color, #8B0000);
+    }
+    
+    .cuff-left, .cuff-right {
+      fill: var(--shirt-color, #FFFFFF);
+    }
+    
+    /* Animation states will be added via external CSS */
+  </style>
+</svg>

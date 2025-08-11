@@ -1,0 +1,107 @@
+{
+  "id": "sporty-girl",
+  "name": "Sporty Girl",
+  "type": "girl",
+  "style": "sporty",
+  "version": "1.0.0",
+  "description": "An energetic girl in sporty attire, great for fitness apps and active content.",
+  "tags": ["child", "sporty", "energetic", "active", "fitness"],
+  "parts": {
+    "skin": {
+      "color": "#FDBCB4",
+      "selector": ".skin-color",
+      "description": "Skin tone color"
+    },
+    "hair": {
+      "color": "#FFD700",
+      "selector": ".hair-color",
+      "description": "Hair color"
+    },
+    "shirt": {
+      "color": "#FF69B4",
+      "selector": ".shirt-color",
+      "description": "Sport shirt color"
+    },
+    "pants": {
+      "color": "#000080",
+      "selector": ".pants-color",
+      "description": "Sport pants color"
+    },
+    "shoes": {
+      "color": "#FFFFFF",
+      "selector": ".shoes-color",
+      "description": "Sport shoes color"
+    }
+  },
+  "animations": [
+    {
+      "name": "idle",
+      "duration": 2000,
+      "type": "css",
+      "loop": true,
+      "file": "animations.css",
+      "description": "Energetic idle with subtle movement"
+    },
+    {
+      "name": "walk",
+      "duration": 1000,
+      "type": "css",
+      "loop": true,
+      "file": "animations.css",
+      "description": "Sporty walking animation"
+    },
+    {
+      "name": "jump",
+      "duration": 800,
+      "type": "css",
+      "loop": false,
+      "file": "animations.css",
+      "description": "Athletic jumping animation"
+    },
+    {
+      "name": "dance",
+      "duration": 2000,
+      "type": "css",
+      "loop": true,
+      "file": "animations.css",
+      "description": "Energetic dance animation"
+    },
+    {
+      "name": "blink",
+      "duration": 3000,
+      "type": "css",
+      "loop": true,
+      "file": "animations.css",
+      "description": "Natural blinking animation"
+    },
+    {
+      "name": "breathing",
+      "duration": 4000,
+      "type": "css",
+      "loop": true,
+      "file": "animations.css",
+      "description": "Active breathing animation"
+    }
+  ],
+  "variants": [
+    {
+      "name": "sporty",
+      "file": "svg/base.svg",
+      "description": "Sporty clothing variant"
+    }
+  ],
+  "accessibility": {
+    "label": "Sporty girl character",
+    "role": "img",
+    "ariaDescription": "A customizable animated girl character in sporty athletic clothing"
+  },
+  "dimensions": {
+    "width": 200,
+    "height": 300,
+    "viewBox": "0 0 200 300"
+  },
+  "author": "Character Library Team",
+  "license": "MIT",
+  "created": "2024-01-01",
+  "updated": "2024-01-01"
+}

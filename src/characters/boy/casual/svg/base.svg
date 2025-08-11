@@ -1,0 +1,128 @@
+<svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" class="character-svg">
+  <!-- Character Structure -->
+  <g class="character-group">
+    
+    <!-- Body Parts -->
+    <!-- Head -->
+    <g class="head-group">
+      <!-- Hair -->
+      <path class="hair-color" d="M70 50 Q100 30 130 50 Q140 70 130 90 Q100 100 70 90 Q60 70 70 50" fill="#8B4513"/>
+      
+      <!-- Face -->
+      <ellipse class="skin-color" cx="100" cy="80" rx="30" ry="35" fill="#FDBCB4"/>
+      
+      <!-- Eyes -->
+      <g class="eyes-group">
+        <!-- Left Eye -->
+        <ellipse class="eye-left" cx="85" cy="75" rx="8" ry="6" fill="#FFFFFF"/>
+        <circle class="pupil-left" cx="85" cy="75" r="4" fill="#000000"/>
+        
+        <!-- Right Eye -->
+        <ellipse class="eye-right" cx="115" cy="75" rx="8" ry="6" fill="#FFFFFF"/>
+        <circle class="pupil-right" cx="115" cy="75" r="4" fill="#000000"/>
+        
+        <!-- Eyelids for blinking -->
+        <ellipse class="eyelid-left" cx="85" cy="75" rx="8" ry="6" fill="#FDBCB4" opacity="0"/>
+        <ellipse class="eyelid-right" cx="115" cy="75" rx="8" ry="6" fill="#FDBCB4" opacity="0"/>
+      </g>
+      
+      <!-- Nose -->
+      <path class="nose" d="M100 85 L98 90 L102 90 Z" fill="#F0D0B0"/>
+      
+      <!-- Mouth -->
+      <path class="mouth" d="M90 95 Q100 100 110 95" stroke="#D2691E" stroke-width="2" fill="none"/>
+    </g>
+    
+    <!-- Torso -->
+    <g class="torso-group">
+      <!-- Shirt -->
+      <rect class="shirt-color" x="75" y="115" width="50" height="60" rx="5" fill="#4169E1"/>
+      
+      <!-- Shirt Collar -->
+      <path class="shirt-collar" d="M85 115 Q100 120 115 115" stroke="#4169E1" stroke-width="2" fill="none"/>
+      
+      <!-- Arms -->
+      <g class="arms-group">
+        <!-- Left Arm -->
+        <g class="left-arm">
+          <rect class="skin-color" x="60" y="120" width="15" height="40" rx="7" fill="#FDBCB4"/>
+          <rect class="shirt-color" x="60" y="155" width="15" height="25" rx="7" fill="#4169E1"/>
+        </g>
+        
+        <!-- Right Arm -->
+        <g class="right-arm">
+          <rect class="skin-color" x="125" y="120" width="15" height="40" rx="7" fill="#FDBCB4"/>
+          <rect class="shirt-color" x="125" y="155" width="15" height="25" rx="7" fill="#4169E1"/>
+        </g>
+      </g>
+    </g>
+    
+    <!-- Legs -->
+    <g class="legs-group">
+      <!-- Left Leg -->
+      <g class="left-leg">
+        <rect class="pants-color" x="80" y="175" width="20" height="50" rx="5" fill="#2F4F4F"/>
+        <rect class="skin-color" x="80" y="225" width="20" height="20" rx="5" fill="#FDBCB4"/>
+        <ellipse class="shoes-color" cx="90" cy="250" rx="15" ry="8" fill="#000000"/>
+      </g>
+      
+      <!-- Right Leg -->
+      <g class="right-leg">
+        <rect class="pants-color" x="100" y="175" width="20" height="50" rx="5" fill="#2F4F4F"/>
+        <rect class="skin-color" x="100" y="225" width="20" height="20" rx="5" fill="#FDBCB4"/>
+        <ellipse class="shoes-color" cx="110" cy="250" rx="15" ry="8" fill="#000000"/>
+      </g>
+    </g>
+    
+    <!-- Hands -->
+    <g class="hands-group">
+      <circle class="skin-color left-hand" cx="67" cy="180" r="8" fill="#FDBCB4"/>
+      <circle class="skin-color right-hand" cx="133" cy="180" r="8" fill="#FDBCB4"/>
+    </g>
+    
+  </g>
+  
+  <!-- Animation Classes -->
+  <style>
+    .character-svg {
+      width: 200px;
+      height: 300px;
+    }
+    
+    .character-group {
+      transform-origin: 100px 150px;
+    }
+    
+    .head-group {
+      transform-origin: 100px 80px;
+    }
+    
+    .eyes-group {
+      transform-origin: 100px 75px;
+    }
+    
+    .left-arm {
+      transform-origin: 67px 140px;
+    }
+    
+    .right-arm {
+      transform-origin: 133px 140px;
+    }
+    
+    .left-leg {
+      transform-origin: 90px 200px;
+    }
+    
+    .right-leg {
+      transform-origin: 110px 200px;
+    }
+    
+    .left-hand {
+      transform-origin: 67px 180px;
+    }
+    
+    .right-hand {
+      transform-origin: 133px 180px;
+    }
+  </style>
+</svg>

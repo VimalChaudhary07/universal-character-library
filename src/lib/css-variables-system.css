@@ -1,0 +1,719 @@
+/**
+ * Character Library CSS Variables System
+ * 
+ * A comprehensive CSS custom properties system for character customization
+ * 
+ * @version 1.0.0
+ * @author Character Library Team
+ */
+
+/* ========================================
+   ROOT LEVEL CUSTOM PROPERTIES
+   ======================================== */
+
+:root {
+  /* Character Dimensions */
+  --character-width: 200px;
+  --character-height: 300px;
+  --character-scale: 1;
+  --character-aspect-ratio: 2/3;
+  
+  /* Character Colors */
+  --character-skin-color: #FDBCB4;
+  --character-hair-color: #8B4513;
+  --character-shirt-color: #4169E1;
+  --character-pants-color: #2F4F4F;
+  --character-shoes-color: #000000;
+  
+  /* Animation Properties */
+  --character-animation-duration: 1s;
+  --character-animation-timing: ease-in-out;
+  --character-animation-iteration: infinite;
+  --character-animation-delay: 0s;
+  --character-animation-direction: normal;
+  --character-animation-fill-mode: none;
+  
+  /* Spacing and Layout */
+  --character-spacing: 10px;
+  --character-margin: 20px;
+  --character-padding: 15px;
+  
+  /* Visual Effects */
+  --character-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --character-border-radius: 8px;
+  --character-border-width: 2px;
+  --character-border-color: transparent;
+  --character-opacity: 1;
+  
+  /* Transform Properties */
+  --character-rotate: 0deg;
+  --character-translate-x: 0px;
+  --character-translate-y: 0px;
+  --character-scale-x: 1;
+  --character-scale-y: 1;
+  --character-skew-x: 0deg;
+  --character-skew-y: 0deg;
+  
+  /* Filter Effects */
+  --character-blur: 0px;
+  --character-brightness: 1;
+  --character-contrast: 1;
+  --character-grayscale: 0;
+  --character-hue-rotate: 0deg;
+  --character-invert: 0;
+  --character-saturate: 1;
+  --character-sepia: 0;
+  
+  /* Theme Colors */
+  --character-primary-color: #4169E1;
+  --character-secondary-color: #FF69B4;
+  --character-accent-color: #FFD700;
+  --character-background-color: transparent;
+  
+  /* Typography */
+  --character-font-family: system-ui, -apple-system, sans-serif;
+  --character-font-size: 16px;
+  --character-font-weight: 400;
+  --character-line-height: 1.5;
+  --character-text-color: #333333;
+  
+  /* Interaction States */
+  --character-hover-scale: 1.05;
+  --character-hover-translate-y: -4px;
+  --character-active-scale: 1.02;
+  --character-active-translate-y: -2px;
+  --character-focus-outline: 2px solid var(--character-primary-color);
+  --character-focus-outline-offset: 2px;
+  
+  /* Loading States */
+  --character-loading-opacity: 0.5;
+  --character-loading-filter: grayscale(50%);
+  --character-ready-opacity: 1;
+  --character-ready-transition: opacity 0.3s ease;
+  
+  /* Error States */
+  --character-error-opacity: 0.7;
+  --character-error-filter: grayscale(100%) sepia(20%);
+  
+  /* Animation States */
+  --character-idle-duration: 4s;
+  --character-walk-duration: 1s;
+  --character-wave-duration: 1.5s;
+  --character-jump-duration: 0.8s;
+  --character-dance-duration: 2s;
+  --character-blink-duration: 3s;
+  --character-breathing-duration: 4s;
+  
+  /* Performance */
+  --character-will-change: transform, filter;
+  --character-transform-style: preserve-3d;
+  --character-backface-visibility: hidden;
+}
+
+/* ========================================
+   CHARACTER TYPE SPECIFIC VARIABLES
+   ======================================== */
+
+/* Boy Characters */
+.character-boy {
+  --character-skin-color: #FDBCB4;
+  --character-hair-color: #8B4513;
+  --character-primary-color: #4169E1;
+  --character-secondary-color: #32CD32;
+  --character-accent-color: #FFD700;
+}
+
+/* Girl Characters */
+.character-girl {
+  --character-skin-color: #FDBCB4;
+  --character-hair-color: #FFD700;
+  --character-primary-color: #FF69B4;
+  --character-secondary-color: #9370DB;
+  --character-accent-color: #FF1493;
+}
+
+/* Man Characters */
+.character-man {
+  --character-skin-color: #DEB887;
+  --character-hair-color: #696969;
+  --character-primary-color: #2F4F4F;
+  --character-secondary-color: #4682B4;
+  --character-accent-color: #DAA520;
+}
+
+/* Woman Characters */
+.character-woman {
+  --character-skin-color: #FDBCB4;
+  --character-hair-color: #8B4513;
+  --character-primary-color: #DC143C;
+  --character-secondary-color: #FF1493;
+  --character-accent-color: #FFD700;
+}
+
+/* ========================================
+   STYLE SPECIFIC VARIABLES
+   ======================================== */
+
+/* Casual Style */
+.character-casual {
+  --character-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --character-border-radius: 8px;
+  --character-primary-color: #4169E1;
+}
+
+/* Formal Style */
+.character-formal {
+  --character-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  --character-border-radius: 4px;
+  --character-primary-color: #2F4F4F;
+  --character-border-color: #2F4F4F;
+}
+
+/* Sporty Style */
+.character-sporty {
+  --character-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --character-border-radius: 12px;
+  --character-primary-color: #FF69B4;
+  --character-animation-duration: 0.8s;
+}
+
+/* Fantasy Style */
+.character-fantasy {
+  --character-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+  --character-border-radius: 16px;
+  --character-primary-color: #9370DB;
+  --character-filter-hue-rotate: 15deg;
+}
+
+/* ========================================
+   SIZE VARIANT VARIABLES
+   ======================================== */
+
+/* Small Size */
+.character-size-small {
+  --character-width: 100px;
+  --character-height: 150px;
+  --character-scale: 0.5;
+  --character-font-size: 12px;
+  --character-spacing: 5px;
+  --character-margin: 10px;
+  --character-padding: 8px;
+}
+
+/* Medium Size */
+.character-size-medium {
+  --character-width: 200px;
+  --character-height: 300px;
+  --character-scale: 1;
+  --character-font-size: 16px;
+  --character-spacing: 10px;
+  --character-margin: 20px;
+  --character-padding: 15px;
+}
+
+/* Large Size */
+.character-size-large {
+  --character-width: 300px;
+  --character-height: 450px;
+  --character-scale: 1.5;
+  --character-font-size: 20px;
+  --character-spacing: 15px;
+  --character-margin: 30px;
+  --character-padding: 20px;
+}
+
+/* ========================================
+   THEME VARIANT VARIABLES
+   ======================================== */
+
+/* Light Theme */
+.character-theme-light {
+  --character-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --character-background-color: #FFFFFF;
+  --character-text-color: #333333;
+  --character-border-color: #E0E0E0;
+}
+
+/* Dark Theme */
+.character-theme-dark {
+  --character-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  --character-background-color: #1A1A1A;
+  --character-text-color: #FFFFFF;
+  --character-border-color: #404040;
+}
+
+/* Neon Theme */
+.character-theme-neon {
+  --character-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  --character-background-color: #000000;
+  --character-text-color: #00FFFF;
+  --character-border-color: #00FFFF;
+  --character-filter-hue-rotate: 0deg;
+  --character-filter-brightness: 1.2;
+}
+
+/* ========================================
+   ANIMATION SPEED VARIABLES
+   ======================================== */
+
+/* Slow Speed */
+.character-animation-slow {
+  --character-animation-duration: 2s;
+  --character-idle-duration: 6s;
+  --character-walk-duration: 2s;
+  --character-wave-duration: 3s;
+  --character-jump-duration: 1.6s;
+  --character-dance-duration: 4s;
+  --character-blink-duration: 5s;
+  --character-breathing-duration: 6s;
+}
+
+/* Normal Speed */
+.character-animation-normal {
+  --character-animation-duration: 1s;
+  --character-idle-duration: 4s;
+  --character-walk-duration: 1s;
+  --character-wave-duration: 1.5s;
+  --character-jump-duration: 0.8s;
+  --character-dance-duration: 2s;
+  --character-blink-duration: 3s;
+  --character-breathing-duration: 4s;
+}
+
+/* Fast Speed */
+.character-animation-fast {
+  --character-animation-duration: 0.5s;
+  --character-idle-duration: 2s;
+  --character-walk-duration: 0.5s;
+  --character-wave-duration: 0.75s;
+  --character-jump-duration: 0.4s;
+  --character-dance-duration: 1s;
+  --character-blink-duration: 1.5s;
+  --character-breathing-duration: 2s;
+}
+
+/* ========================================
+   UTILITY CLASSES FOR CSS VARIABLES
+   ======================================== */
+
+/* Character Container Base Styles */
+.character-container {
+  width: var(--character-width);
+  height: var(--character-height);
+  margin: var(--character-margin);
+  padding: var(--character-padding);
+  background-color: var(--character-background-color);
+  border-radius: var(--character-border-radius);
+  border: var(--character-border-width) solid var(--character-border-color);
+  opacity: var(--character-opacity);
+  transition: all 0.3s ease;
+  font-family: var(--character-font-family);
+  font-size: var(--character-font-size);
+  font-weight: var(--character-font-weight);
+  line-height: var(--character-line-height);
+  color: var(--character-text-color);
+}
+
+/* SVG Element Styles */
+.character-svg {
+  width: 100%;
+  height: 100%;
+  transform: 
+    scale(var(--character-scale)) 
+    translateX(var(--character-translate-x)) 
+    translateY(var(--character-translate-y)) 
+    rotate(var(--character-rotate)) 
+    skewX(var(--character-skew-x)) 
+    skewY(var(--character-skew-y));
+  filter: 
+    blur(var(--character-blur)) 
+    brightness(var(--character-brightness)) 
+    contrast(var(--character-contrast)) 
+    grayscale(var(--character-grayscale)) 
+    hue-rotate(var(--character-hue-rotate)) 
+    invert(var(--character-invert)) 
+    saturate(var(--character-saturate)) 
+    sepia(var(--character-sepia));
+  filter: drop-shadow(var(--character-shadow));
+  border-radius: var(--character-border-radius);
+  will-change: var(--character-will-change);
+  transform-style: var(--character-transform-style);
+  backface-visibility: var(--character-backface-visibility);
+  transition: all 0.3s ease;
+}
+
+/* Character Group Styles */
+.character-group {
+  transform-origin: center;
+  animation-duration: var(--character-animation-duration);
+  animation-timing-function: var(--character-animation-timing);
+  animation-iteration-count: var(--character-animation-iteration);
+  animation-delay: var(--character-animation-delay);
+  animation-direction: var(--character-animation-direction);
+  animation-fill-mode: var(--character-animation-fill-mode);
+}
+
+/* Color Application Classes */
+.character-color-skin {
+  fill: var(--character-skin-color);
+  stroke: var(--character-skin-color);
+}
+
+.character-color-hair {
+  fill: var(--character-hair-color);
+  stroke: var(--character-hair-color);
+}
+
+.character-color-shirt {
+  fill: var(--character-shirt-color);
+  stroke: var(--character-shirt-color);
+}
+
+.character-color-pants {
+  fill: var(--character-pants-color);
+  stroke: var(--character-pants-color);
+}
+
+.character-color-shoes {
+  fill: var(--character-shoes-color);
+  stroke: var(--character-shoes-color);
+}
+
+/* ========================================
+   INTERACTION STATE CLASSES
+   ======================================== */
+
+/* Hover States */
+.character-container:hover .character-svg {
+  transform: 
+    scale(calc(var(--character-scale) * var(--character-hover-scale))) 
+    translateX(var(--character-translate-x)) 
+    translateY(calc(var(--character-translate-y) + var(--character-hover-translate-y))) 
+    rotate(var(--character-rotate));
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+}
+
+/* Active States */
+.character-container:active .character-svg {
+  transform: 
+    scale(calc(var(--character-scale) * var(--character-active-scale))) 
+    translateX(var(--character-translate-x)) 
+    translateY(calc(var(--character-translate-y) + var(--character-active-translate-y))) 
+    rotate(var(--character-rotate));
+}
+
+/* Focus States */
+.character-container:focus .character-svg {
+  outline: var(--character-focus-outline);
+  outline-offset: var(--character-focus-outline-offset);
+}
+
+/* ========================================
+   STATE MANAGEMENT CLASSES
+   ======================================== */
+
+/* Loading State */
+.character-container.loading .character-svg {
+  opacity: var(--character-loading-opacity);
+  filter: var(--character-loading-filter);
+}
+
+/* Ready State */
+.character-container.ready .character-svg {
+  opacity: var(--character-ready-opacity);
+  transition: var(--character-ready-transition);
+}
+
+/* Error State */
+.character-container.error .character-svg {
+  opacity: var(--character-error-opacity);
+  filter: var(--character-error-filter);
+}
+
+/* Interactive State */
+.character-container.interactive {
+  cursor: pointer;
+}
+
+/* Disabled State */
+.character-container[disabled] .character-svg,
+.character-container[aria-disabled="true"] .character-svg {
+  opacity: 0.4;
+  filter: grayscale(100%);
+  cursor: not-allowed;
+}
+
+/* Busy State */
+.character-container[aria-busy="true"] .character-svg {
+  opacity: 0.6;
+}
+
+/* ========================================
+   ANIMATION CONTROL CLASSES
+   ======================================== */
+
+/* Animation State Classes */
+.character-group.paused {
+  animation-play-state: paused !important;
+}
+
+.character-group.paused * {
+  animation-play-state: paused !important;
+}
+
+/* Animation Duration Classes */
+.character-group.duration-slow {
+  animation-duration: calc(var(--character-animation-duration) * 2);
+}
+
+.character-group.duration-normal {
+  animation-duration: var(--character-animation-duration);
+}
+
+.character-group.duration-fast {
+  animation-duration: calc(var(--character-animation-duration) * 0.5);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  :root {
+    --character-width: 150px;
+    --character-height: 225px;
+    --character-scale: 0.75;
+    --character-font-size: 14px;
+    --character-spacing: 8px;
+    --character-margin: 15px;
+    --character-padding: 12px;
+  }
+}
+
+/* Small Mobile Responsive */
+@media (max-width: 480px) {
+  :root {
+    --character-width: 120px;
+    --character-height: 180px;
+    --character-scale: 0.6;
+    --character-font-size: 12px;
+    --character-spacing: 6px;
+    --character-margin: 10px;
+    --character-padding: 8px;
+  }
+}
+
+/* Large Desktop Responsive */
+@media (min-width: 1200px) {
+  :root {
+    --character-width: 250px;
+    --character-height: 375px;
+    --character-scale: 1.25;
+    --character-font-size: 18px;
+    --character-spacing: 12px;
+    --character-margin: 25px;
+    --character-padding: 18px;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY AND PREFERENCES
+   ======================================== */
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --character-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --character-border-width: 3px;
+    --character-filter-contrast: 1.2;
+  }
+  
+  .character-svg {
+    filter: drop-shadow(var(--character-shadow)) contrast(var(--character-filter-contrast));
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --character-animation-duration: 0s;
+    --character-animation-iteration: 1;
+    --character-transition-duration: 0s;
+  }
+  
+  .character-group,
+  .character-group *,
+  .character-svg,
+  .character-container {
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --character-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    --character-background-color: #1A1A1A;
+    --character-text-color: #FFFFFF;
+    --character-border-color: #404040;
+  }
+}
+
+/* Light Mode Support */
+@media (prefers-color-scheme: light) {
+  :root {
+    --character-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --character-background-color: #FFFFFF;
+    --character-text-color: #333333;
+    --character-border-color: #E0E0E0;
+  }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+  :root {
+    --character-shadow: none;
+    --character-scale: 1;
+    --character-background-color: transparent;
+    --character-border-color: #000000;
+    --character-opacity: 1;
+  }
+  
+  .character-svg {
+    filter: none;
+    break-inside: avoid;
+  }
+  
+  .character-container {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* ========================================
+   CUSTOM PROPERTY VALIDATION
+   ======================================== */
+
+/* Ensure custom properties are within valid ranges */
+:root {
+  /* Size constraints */
+  --character-width: clamp(50px, 100%, 400px);
+  --character-height: clamp(75px, 100%, 600px);
+  --character-scale: clamp(0.25, 1, 3);
+  
+  /* Color constraints */
+  --character-opacity: clamp(0, 1, 1);
+  --character-grayscale: clamp(0, 1, 1);
+  --character-brightness: clamp(0, 2, 1);
+  --character-contrast: clamp(0, 2, 1);
+  --character-saturate: clamp(0, 2, 1);
+  --character-sepia: clamp(0, 1, 1);
+  --character-invert: clamp(0, 1, 1);
+  
+  /* Filter constraints */
+  --character-blur: clamp(0px, 10px, 0px);
+  --character-hue-rotate: clamp(0deg, 360deg, 0deg);
+  
+  /* Transform constraints */
+  --character-rotate: clamp(-180deg, 180deg, 0deg);
+  --character-skew-x: clamp(-45deg, 45deg, 0deg);
+  --character-skew-y: clamp(-45deg, 45deg, 0deg);
+  
+  /* Animation constraints */
+  --character-animation-duration: clamp(0.1s, 10s, 1s);
+  --character-animation-delay: clamp(0s, 10s, 0s);
+}
+
+/* ========================================
+   FALLBACKS FOR OLDER BROWSERS
+   ======================================== */
+
+/* Fallback for browsers that don't support CSS custom properties */
+@supports not (custom-properties: var(--character-width)) {
+  .character-container {
+    width: 200px;
+    height: 300px;
+    margin: 20px;
+    padding: 15px;
+    background-color: transparent;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    opacity: 1;
+  }
+  
+  .character-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    border-radius: 8px;
+  }
+  
+  .character-color-skin {
+    fill: #FDBCB4;
+    stroke: #FDBCB4;
+  }
+  
+  .character-color-hair {
+    fill: #8B4513;
+    stroke: #8B4513;
+  }
+  
+  .character-color-shirt {
+    fill: #4169E1;
+    stroke: #4169E1;
+  }
+  
+  .character-color-pants {
+    fill: #2F4F4F;
+    stroke: #2F4F4F;
+  }
+  
+  .character-color-shoes {
+    fill: #000000;
+    stroke: #000000;
+  }
+}
+
+/* ========================================
+   DEVELOPER UTILITIES
+   ======================================== */
+
+/* Debug mode - shows visual indicators for CSS variables */
+.character-debug {
+  --character-border-color: red;
+  --character-border-width: 2px;
+  --character-border-style: dashed;
+}
+
+.character-debug .character-svg::before {
+  content: 'Debug Mode';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: red;
+  color: white;
+  padding: 2px 4px;
+  font-size: 10px;
+  z-index: 1000;
+}
+
+/* Performance indicator */
+.character-performance {
+  --character-will-change: auto;
+}
+
+.character-performance .character-svg {
+  will-change: auto;
+}
+
+/* Accessibility indicator */
+.character-accessibility {
+  --character-focus-outline: 3px solid #FF0000;
+  --character-focus-outline-offset: 3px;
+}

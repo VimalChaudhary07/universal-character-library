@@ -1,0 +1,543 @@
+/**
+ * Accessibility Styles for Character Library
+ * 
+ * Provides comprehensive accessibility support including:
+ * - Screen reader optimizations
+ * - High contrast mode support
+ * - Reduced motion handling
+ * - Keyboard navigation indicators
+ * - Focus management
+ * 
+ * @version 1.0.0
+ * @author Character Library Team
+ */
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus management */
+.character-focused {
+  outline: 3px solid #007bff;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.character-focused * {
+  outline: none;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .character-element {
+    border: 2px solid currentColor;
+  }
+  
+  .character-element * {
+    stroke: currentColor;
+    stroke-width: 2;
+  }
+  
+  .btn {
+    border: 2px solid currentColor;
+    background: Window;
+    color: WindowText;
+  }
+  
+  .btn:hover {
+    background: Highlight;
+    color: HighlightText;
+  }
+  
+  .btn:focus {
+    outline: 3px solid Highlight;
+    outline-offset: 2px;
+  }
+  
+  .character-preview {
+    border: 2px solid currentColor;
+    background: Window;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all animations */
+  .anim-idle,
+  .anim-walk,
+  .anim-wave,
+  .anim-jump,
+  .anim-blink,
+  .anim-breathing,
+  .anim-dance,
+  .anim-magic {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+  
+  /* Remove motion-based transforms */
+  .character-element {
+    transition: none !important;
+  }
+  
+  /* Remove hover effects that involve motion */
+  .character-element:hover {
+    transform: none !important;
+  }
+  
+  /* Remove parallax and other motion effects */
+  .parallax-container {
+    transform: none !important;
+  }
+  
+  /* Provide static alternatives */
+  .character-element.motion-reduced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    pointer-events: none;
+  }
+}
+
+/* Keyboard navigation indicators */
+.keyboard-nav .character-element {
+  position: relative;
+}
+
+.keyboard-nav .character-element::after {
+  content: '⌨️';
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  background: #007bff;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 12px;
+  z-index: 10;
+}
+
+/* Focus visible improvements */
+.character-element:focus-visible {
+  outline: 3px solid #007bff;
+  outline-offset: 2px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.25);
+}
+
+/* Skip links for keyboard navigation */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #007bff;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Character accessibility attributes */
+[data-character] {
+  position: relative;
+}
+
+[data-character]:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Animation status indicators */
+.animation-status {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 5;
+}
+
+.animation-status.playing {
+  background: rgba(40, 167, 69, 0.9);
+}
+
+.animation-status.paused {
+  background: rgba(255, 193, 7, 0.9);
+}
+
+/* Progress indicators for screen readers */
+.progress-indicator {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 5;
+}
+
+/* High contrast mode specific styles */
+.high-contrast-mode {
+  /* Force higher contrast colors */
+  --character-stroke: currentColor;
+  --character-fill: currentColor;
+  --background-color: Window;
+  --text-color: WindowText;
+  --border-color: currentColor;
+}
+
+.high-contrast-mode .character-element {
+  filter: contrast(1.5);
+}
+
+.high-contrast-mode .character-element * {
+  stroke: var(--character-stroke);
+  stroke-width: 2;
+  fill: var(--character-fill);
+}
+
+/* Screen reader mode optimizations */
+.screen-reader-mode .character-element {
+  /* Additional attributes for screen readers */
+  role: 'img';
+  aria-label: attr(data-character-name);
+}
+
+.screen-reader-mode .controls {
+  /* Ensure controls are properly labeled */
+  aria-label: 'Character controls';
+}
+
+/* Large text support */
+@media (prefers-reduced-motion: reduce) and (prefers-contrast: high) {
+  .character-element {
+    transform: scale(1.2);
+  }
+  
+  .controls {
+    font-size: 1.2em;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    font-size: 1.1em;
+  }
+}
+
+/* Focus trap styles */
+.focus-trap-active {
+  position: relative;
+}
+
+.focus-trap-active::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Accessible modal styles */
+.accessible-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  padding: 20px;
+  z-index: 1000;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.accessible-modal:focus {
+  outline: none;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.modal-close:hover {
+  background: #f0f0f0;
+}
+
+.modal-close:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Accessible form controls */
+.accessible-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.accessible-form input,
+.accessible-form select,
+.accessible-form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px; /* Prevents zoom on iOS */
+}
+
+.accessible-form input:focus,
+.accessible-form select:focus,
+.accessible-form textarea:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+  border-color: #007bff;
+}
+
+.accessible-form .error {
+  color: #dc3545;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.accessible-form .required::after {
+  content: ' *';
+  color: #dc3545;
+}
+
+/* Accessible table styles */
+.accessible-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.accessible-table th,
+.accessible-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.accessible-table th {
+  background: #f8f9fa;
+  font-weight: bold;
+}
+
+.accessible-table caption {
+  caption-side: top;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Accessible color indicators */
+.color-indicator {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.color-indicator::after {
+  content: attr(data-color-name);
+  position: absolute;
+  left: -9999px;
+}
+
+/* Accessible tooltips */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 200px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text,
+.tooltip:focus .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip:focus-within .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Loading states with accessibility */
+.loading-indicator {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-indicator::before {
+  content: 'Loading...';
+  position: absolute;
+  left: -9999px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-indicator {
+    animation: none;
+    border-top-color: #007bff;
+  }
+  
+  .loading-indicator::before {
+    content: 'Loading';
+    position: static;
+    margin-left: 8px;
+    display: inline;
+  }
+}
+
+/* Error states with accessibility */
+.error-message {
+  color: #dc3545;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+
+.error-message::before {
+  content: 'Error: ';
+  font-weight: bold;
+}
+
+/* Success states with accessibility */
+.success-message {
+  color: #155724;
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+
+.success-message::before {
+  content: 'Success: ';
+  font-weight: bold;
+}
+
+/* Accessible landmarks */
+.character-library {
+  role: 'main';
+  aria-label: 'Character Library';
+}
+
+.character-gallery {
+  role: 'region';
+  aria-label: 'Character Gallery';
+}
+
+.character-details {
+  role: 'region';
+  aria-label: 'Character Details';
+}
+
+.character-controls {
+  role: 'region';
+  aria-label: 'Character Controls';
+}
+
+/* Print styles */
+@media print {
+  .character-element {
+    filter: grayscale(100%);
+  }
+  
+  .controls,
+  .animation-status,
+  .progress-indicator {
+    display: none;
+  }
+  
+  .character-element::before {
+    content: attr(data-character-name);
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 12px;
+    color: #333;
+  }
+}

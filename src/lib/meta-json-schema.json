@@ -1,0 +1,454 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Character Metadata Schema",
+  "description": "Schema for character metadata and configuration files",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "type",
+    "style",
+    "version",
+    "description",
+    "parts",
+    "animations",
+    "variants",
+    "accessibility",
+    "dimensions"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the character",
+      "pattern": "^[a-z0-9-]+$",
+      "minLength": 1,
+      "maxLength": 50
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the character",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "type": {
+      "type": "string",
+      "description": "Character type category",
+      "enum": ["boy", "girl", "man", "woman"]
+    },
+    "style": {
+      "type": "string",
+      "description": "Character style variant",
+      "enum": ["casual", "formal", "sporty", "fantasy"]
+    },
+    "version": {
+      "type": "string",
+      "description": "Semantic version of the character",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of the character",
+      "minLength": 10,
+      "maxLength": 500
+    },
+    "tags": {
+      "type": "array",
+      "description": "Tags for categorization and search",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 30
+      },
+      "minItems": 1,
+      "maxItems": 10
+    },
+    "parts": {
+      "type": "object",
+      "description": "Configurable character parts with colors",
+      "required": ["skin", "hair", "shirt", "pants", "shoes"],
+      "properties": {
+        "skin": {
+          "$ref": "#/definitions/part"
+        },
+        "hair": {
+          "$ref": "#/definitions/part"
+        },
+        "shirt": {
+          "$ref": "#/definitions/part"
+        },
+        "pants": {
+          "$ref": "#/definitions/part"
+        },
+        "shoes": {
+          "$ref": "#/definitions/part"
+        }
+      },
+      "additionalProperties": {
+        "$ref": "#/definitions/part"
+      }
+    },
+    "animations": {
+      "type": "array",
+      "description": "Available animations for the character",
+      "items": {
+        "$ref": "#/definitions/animation"
+      },
+      "minItems": 1,
+      "maxItems": 20
+    },
+    "variants": {
+      "type": "array",
+      "description": "Available style variants of the character",
+      "items": {
+        "$ref": "#/definitions/variant"
+      },
+      "minItems": 1,
+      "maxItems": 10
+    },
+    "accessibility": {
+      "type": "object",
+      "description": "Accessibility information",
+      "required": ["label", "role", "ariaDescription"],
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Accessible label for the character",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "role": {
+          "type": "string",
+          "description": "ARIA role for the character",
+          "enum": ["img", "figure", "graphics-symbol", "graphics-object"]
+        },
+        "ariaDescription": {
+          "type": "string",
+          "description": "Detailed description for screen readers",
+          "minLength": 10,
+          "maxLength": 200
+        },
+        "ariaHidden": {
+          "type": "boolean",
+          "description": "Whether the character should be hidden from screen readers",
+          "default": false
+        }
+      }
+    },
+    "dimensions": {
+      "type": "object",
+      "description": "Character dimensions and viewBox",
+      "required": ["width", "height", "viewBox"],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "description": "Width in pixels",
+          "minimum": 50,
+          "maximum": 1000
+        },
+        "height": {
+          "type": "integer",
+          "description": "Height in pixels",
+          "minimum": 50,
+          "maximum": 1000
+        },
+        "viewBox": {
+          "type": "string",
+          "description": "SVG viewBox string",
+          "pattern": "^0 0 [0-9]+ [0-9]+$"
+        }
+      }
+    },
+    "author": {
+      "type": "string",
+      "description": "Author or creator of the character",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "license": {
+      "type": "string",
+      "description": "License for the character",
+      "enum": ["MIT", "Apache-2.0", "GPL-3.0", "CC-BY-4.0", "CC-BY-SA-4.0", "CC0-1.0"]
+    },
+    "created": {
+      "type": "string",
+      "description": "Creation date (ISO 8601 format)",
+      "format": "date"
+    },
+    "updated": {
+      "type": "string",
+      "description": "Last update date (ISO 8601 format)",
+      "format": "date"
+    },
+    "compatibility": {
+      "type": "object",
+      "description": "Browser and framework compatibility information",
+      "properties": {
+        "browsers": {
+          "type": "array",
+          "description": "Supported browsers",
+          "items": {
+            "type": "string",
+            "enum": ["chrome", "firefox", "safari", "edge", "opera"]
+          }
+        },
+        "frameworks": {
+          "type": "array",
+          "description": "Supported frameworks",
+          "items": {
+            "type": "string",
+            "enum": ["react", "vue", "angular", "svelte", "vanilla-js"]
+          }
+        },
+        "features": {
+          "type": "array",
+          "description": "Supported features",
+          "items": {
+            "type": "string",
+            "enum": ["css-variables", "web-animations", "svg-filters", "responsive", "accessibility"]
+          }
+        }
+      }
+    },
+    "performance": {
+      "type": "object",
+      "description": "Performance characteristics and recommendations",
+      "properties": {
+        "fileSize": {
+          "type": "object",
+          "description": "File size information",
+          "properties": {
+            "svg": {
+              "type": "integer",
+              "description": "SVG file size in bytes",
+              "minimum": 0
+            },
+            "css": {
+              "type": "integer",
+              "description": "CSS file size in bytes",
+              "minimum": 0
+            },
+            "js": {
+              "type": "integer",
+              "description": "JavaScript file size in bytes",
+              "minimum": 0
+            }
+          }
+        },
+        "loadingTime": {
+          "type": "object",
+          "description": "Estimated loading times",
+          "properties": {
+            "slow3g": {
+              "type": "number",
+              "description": "Loading time on slow 3G in seconds",
+              "minimum": 0
+            },
+            "fast3g": {
+              "type": "number",
+              "description": "Loading time on fast 3G in seconds",
+              "minimum": 0
+            },
+            "wifi": {
+              "type": "number",
+              "description": "Loading time on WiFi in seconds",
+              "minimum": 0
+            }
+          }
+        },
+        "optimization": {
+          "type": "array",
+          "description": "Optimization techniques applied",
+          "items": {
+            "type": "string",
+            "enum": ["svg-minified", "css-minified", "js-minified", "lazy-loading", "tree-shaking"]
+          }
+        }
+      }
+    },
+    "customization": {
+      "type": "object",
+      "description": "Customization options and capabilities",
+      "properties": {
+        "colors": {
+          "type": "boolean",
+          "description": "Whether colors can be customized",
+          "default": true
+        },
+        "size": {
+          "type": "boolean",
+          "description": "Whether size can be customized",
+          "default": true
+        },
+        "animations": {
+          "type": "boolean",
+          "description": "Whether animations can be customized",
+          "default": true
+        },
+        "themes": {
+          "type": "boolean",
+          "description": "Whether themes can be applied",
+          "default": true
+        },
+        "export": {
+          "type": "boolean",
+          "description": "Whether character can be exported",
+          "default": true
+        }
+      }
+    },
+    "preview": {
+      "type": "object",
+      "description": "Preview and thumbnail information",
+      "properties": {
+        "thumbnail": {
+          "type": "string",
+          "description": "Path to thumbnail image",
+          "pattern": "^.*\\.(png|jpg|jpeg|svg|webp)$"
+        },
+        "screenshots": {
+          "type": "array",
+          "description": "Paths to screenshot images",
+          "items": {
+            "type": "string",
+            "pattern": "^.*\\.(png|jpg|jpeg|svg|webp)$"
+          }
+        },
+        "demo": {
+          "type": "string",
+          "description": "URL to live demo",
+          "format": "uri"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "part": {
+      "type": "object",
+      "description": "Configurable character part",
+      "required": ["color", "selector"],
+      "properties": {
+        "color": {
+          "type": "string",
+          "description": "Default color for the part",
+          "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+        },
+        "selector": {
+          "type": "string",
+          "description": "CSS selector for the part",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_-]*$"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the part",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "required": {
+          "type": "boolean",
+          "description": "Whether this part is required",
+          "default": true
+        },
+        "customizable": {
+          "type": "boolean",
+          "description": "Whether this part can be customized",
+          "default": true
+        }
+      }
+    },
+    "animation": {
+      "type": "object",
+      "description": "Character animation definition",
+      "required": ["name", "duration", "type", "loop", "file"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the animation",
+          "pattern": "^[a-z0-9-]+$",
+          "minLength": 1,
+          "maxLength": 30
+        },
+        "duration": {
+          "type": "integer",
+          "description": "Animation duration in milliseconds",
+          "minimum": 100,
+          "maximum": 10000
+        },
+        "type": {
+          "type": "string",
+          "description": "Animation type",
+          "enum": ["css", "web-animations", "lottie"]
+        },
+        "loop": {
+          "type": "boolean",
+          "description": "Whether the animation loops",
+          "default": true
+        },
+        "file": {
+          "type": "string",
+          "description": "File containing the animation",
+          "pattern": "^.*\\.(css|js|json)$"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the animation",
+          "minLength": 10,
+          "maxLength": 200
+        },
+        "easing": {
+          "type": "string",
+          "description": "Easing function for the animation",
+          "enum": ["linear", "ease", "ease-in", "ease-out", "ease-in-out", "cubic-bezier"]
+        },
+        "keyframes": {
+          "type": "array",
+          "description": "Keyframe definitions for CSS animations",
+          "items": {
+            "type": "object",
+            "properties": {
+              "percentage": {
+                "type": "number",
+                "description": "Keyframe percentage",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "properties": {
+                "type": "object",
+                "description": "CSS properties at this keyframe"
+              }
+            }
+          }
+        }
+      }
+    },
+    "variant": {
+      "type": "object",
+      "description": "Character style variant",
+      "required": ["name", "file"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the variant",
+          "pattern": "^[a-z0-9-]+$",
+          "minLength": 1,
+          "maxLength": 30
+        },
+        "file": {
+          "type": "string",
+          "description": "File containing the variant",
+          "pattern": "^.*\\.svg$"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the variant",
+          "minLength": 10,
+          "maxLength": 200
+        },
+        "thumbnail": {
+          "type": "string",
+          "description": "Path to variant thumbnail",
+          "pattern": "^.*\\.(png|jpg|jpeg|svg|webp)$"
+        }
+      }
+    }
+  }
+}

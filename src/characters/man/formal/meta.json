@@ -1,0 +1,139 @@
+{
+  "id": "formal-man",
+  "name": "Formal Man",
+  "type": "man",
+  "style": "formal",
+  "version": "1.0.0",
+  "description": "A professional man in formal business attire, ideal for corporate applications.",
+  "tags": ["adult", "formal", "professional", "business", "corporate"],
+  "parts": {
+    "skin": {
+      "color": "#FDBCB4",
+      "selector": ".skin",
+      "description": "Skin tone"
+    },
+    "hair": {
+      "color": "#2F4F4F",
+      "selector": ".hair",
+      "description": "Hair color"
+    },
+    "shirt": {
+      "color": "#FFFFFF",
+      "selector": ".shirt",
+      "description": "Dress shirt color"
+    },
+    "jacket": {
+      "color": "#1a1a1a",
+      "selector": ".jacket",
+      "description": "Suit jacket color"
+    },
+    "tie": {
+      "color": "#8B0000",
+      "selector": ".tie",
+      "description": "Tie color"
+    },
+    "pants": {
+      "color": "#1a1a1a",
+      "selector": ".pants",
+      "description": "Dress pants color"
+    },
+    "shoes": {
+      "color": "#000000",
+      "selector": ".shoes",
+      "description": "Dress shoes color"
+    },
+    "pocket-square": {
+      "color": "#FFFFFF",
+      "selector": ".pocket-square",
+      "description": "Pocket square color"
+    },
+    "button": {
+      "color": "#8B0000",
+      "selector": ".button",
+      "description": "Button color"
+    }
+  },
+  "animations": [
+    {
+      "name": "idle",
+      "duration": 2000,
+      "type": "css",
+      "loop": true,
+      "file": "animations.css",
+      "description": "Professional standing posture"
+    },
+    {
+      "name": "walk",
+      "duration": 1000,
+      "type": "css",
+      "loop": true,
+      "file": "animations.css",
+      "description": "Professional walking gait"
+    },
+    {
+      "name": "wave",
+      "duration": 1500,
+      "type": "web-animations",
+      "loop": false,
+      "file": "animations.css",
+      "description": "Professional greeting wave"
+    },
+    {
+      "name": "blink",
+      "duration": 3000,
+      "type": "css",
+      "loop": true,
+      "file": "animations.css",
+      "description": "Natural eye blinking"
+    },
+    {
+      "name": "breathing",
+      "duration": 4000,
+      "type": "css",
+      "loop": true,
+      "file": "animations.css",
+      "description": "Subtle breathing movement"
+    }
+  ],
+  "variants": [
+    {
+      "name": "formal",
+      "file": "svg/base.svg",
+      "description": "Business formal attire"
+    }
+  ],
+  "accessibility": {
+    "label": "Animated formal man character",
+    "role": "img",
+    "ariaDescription": "A customizable animated man character in formal business attire"
+  },
+  "technical": {
+    "svgViewBox": "0 0 200 300",
+    "transformOrigin": "100px 150px",
+    "cssClass": "character-man-formal",
+    "colorVariables": [
+      "--skin-color",
+      "--hair-color",
+      "--shirt-color",
+      "--jacket-color",
+      "--tie-color",
+      "--pants-color",
+      "--shoes-color",
+      "--pocket-square-color",
+      "--button-color"
+    ],
+    "supportedAnimations": [
+      "idle",
+      "walk", 
+      "wave",
+      "blink",
+      "breathing"
+    ]
+  },
+  "performance": {
+    "svgSize": "3.2KB",
+    "animationCount": 5,
+    "customizableParts": 9,
+    "complexity": "medium"
+  }
+}

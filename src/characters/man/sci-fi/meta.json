@@ -1,0 +1,70 @@
+{
+  "id": "man-sci-fi",
+  "name": "Sci-Fi Man",
+  "type": "man",
+  "style": "sci-fi",
+  "animations": [
+    "idle",
+    "walk",
+    "run",
+    "fly",
+    "tech-use",
+    "fight",
+    "explore",
+    "communicate",
+    "hack",
+    "pilot",
+    "scan",
+    "teleport",
+    "energy-blast",
+    "jet-pack",
+    "shield-activate"
+  ],
+  "description": "A man in futuristic sci-fi attire, perfect for space and technology themes.",
+  "tags": [
+    "adult",
+    "sci-fi",
+    "futuristic",
+    "tech",
+    "cybernetic",
+    "space",
+    "advanced"
+  ],
+  "isAvailable": true,
+  "culture": "Futuristic",
+  "bodyType": "enhanced",
+  "theme": "technology",
+  "accessories": [
+    "cybernetic-implants",
+    "neural-interface",
+    "energy-core",
+    "jet-boosters",
+    "shoulder-cannons",
+    "tech-pouches",
+    "hud-display",
+    "energy-shield"
+  ],
+  "colors": {
+    "skin": "#FDBCB4",
+    "hair": "#00CED1",
+    "primary": "#4169E1",
+    "secondary": "#1E90FF",
+    "accent": "#FF69B4"
+  },
+  "customizableParts": [
+    "skin",
+    "hair",
+    "armor",
+    "cybernetics",
+    "tech-lights",
+    "energy-core",
+    "weapons",
+    "accessories"
+  ],
+  "animationStyles": [
+    "futuristic",
+    "tech",
+    "combat",
+    "exploration"
+  ]
+}

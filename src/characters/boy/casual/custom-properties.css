@@ -1,0 +1,256 @@
+/* Character Custom Properties - Casual Boy */
+
+/* Root character container */
+.character-boy-casual {
+  /* Character Dimensions */
+  --character-width: 200px;
+  --character-height: 300px;
+  --character-scale: 1;
+  
+  /* Color Customization */
+  --skin-color: #FDBCB4;
+  --hair-color: #8B4513;
+  --shirt-color: #4169E1;
+  --pants-color: #2F4F4F;
+  --shoes-color: #000000;
+  
+  /* Animation Properties */
+  --animation-duration: 1s;
+  --animation-timing: ease-in-out;
+  --animation-iteration: infinite;
+  
+  /* Spacing and Layout */
+  --character-spacing: 10px;
+  --character-margin: 20px;
+  
+  /* Effects */
+  --character-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --character-border-radius: 8px;
+}
+
+/* Apply custom properties to SVG elements */
+.character-boy-casual .skin-color {
+  fill: var(--skin-color);
+  stroke: var(--skin-color);
+}
+
+.character-boy-casual .hair-color {
+  fill: var(--hair-color);
+  stroke: var(--hair-color);
+}
+
+.character-boy-casual .shirt-color {
+  fill: var(--shirt-color);
+  stroke: var(--shirt-color);
+}
+
+.character-boy-casual .pants-color {
+  fill: var(--pants-color);
+  stroke: var(--pants-color);
+}
+
+.character-boy-casual .shoes-color {
+  fill: var(--shoes-color);
+  stroke: var(--shoes-color);
+}
+
+/* Character Container Styling */
+.character-boy-casual .character-svg {
+  width: var(--character-width);
+  height: var(--character-height);
+  transform: scale(var(--character-scale));
+  filter: drop-shadow(var(--character-shadow));
+  border-radius: var(--character-border-radius);
+  transition: all 0.3s ease;
+}
+
+/* Character Group Styling */
+.character-boy-casual .character-group {
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effects */
+.character-boy-casual:hover .character-svg {
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+  transform: scale(var(--character-scale)) translateY(-2px);
+}
+
+/* Focus Styles for Accessibility */
+.character-boy-casual:focus .character-svg {
+  outline: 2px solid var(--shirt-color);
+  outline-offset: 2px;
+}
+
+/* Loading States */
+.character-boy-casual.loading .character-svg {
+  opacity: 0.5;
+  filter: grayscale(50%);
+}
+
+.character-boy-casual.ready .character-svg {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Error States */
+.character-boy-casual.error .character-svg {
+  filter: grayscale(100%) sepia(20%);
+  opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .character-boy-casual {
+    --character-width: 150px;
+    --character-height: 225px;
+    --character-scale: 0.75;
+  }
+}
+
+@media (max-width: 480px) {
+  .character-boy-casual {
+    --character-width: 120px;
+    --character-height: 180px;
+    --character-scale: 0.6;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .character-boy-casual {
+    --character-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .character-boy-casual .character-svg {
+    filter: drop-shadow(var(--character-shadow)) contrast(1.2);
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .character-boy-casual {
+    --character-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .character-boy-casual {
+    --animation-duration: 0s;
+    --animation-iteration: 1;
+  }
+  
+  .character-boy-casual * {
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .character-boy-casual {
+    --character-shadow: none;
+    --character-scale: 1;
+  }
+  
+  .character-boy-casual .character-svg {
+    filter: none;
+    break-inside: avoid;
+  }
+}
+
+/* Custom Property Fallbacks */
+.character-boy-casual {
+  /* Fallback colors for older browsers */
+  --skin-color: #FDBCB4;
+  --hair-color: #8B4513;
+  --shirt-color: #4169E1;
+  --pants-color: #2F4F4F;
+  --shoes-color: #000000;
+}
+
+/* Animation Speed Variants */
+.character-boy-casual.animation-slow {
+  --animation-duration: 2s;
+}
+
+.character-boy-casual.animation-normal {
+  --animation-duration: 1s;
+}
+
+.character-boy-casual.animation-fast {
+  --animation-duration: 0.5s;
+}
+
+/* Size Variants */
+.character-boy-casual.size-small {
+  --character-width: 100px;
+  --character-height: 150px;
+  --character-scale: 0.5;
+}
+
+.character-boy-casual.size-medium {
+  --character-width: 200px;
+  --character-height: 300px;
+  --character-scale: 1;
+}
+
+.character-boy-casual.size-large {
+  --character-width: 300px;
+  --character-height: 450px;
+  --character-scale: 1.5;
+}
+
+/* Theme Variants */
+.character-boy-casual.theme-light {
+  --character-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.character-boy-casual.theme-dark {
+  --character-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.character-boy-casual.theme-neon {
+  --character-shadow: 0 0 20px rgba(65, 105, 225, 0.5);
+}
+
+/* Interaction States */
+.character-boy-casual.interactive {
+  cursor: pointer;
+}
+
+.character-boy-casual.interactive:hover .character-svg {
+  transform: scale(var(--character-scale)) translateY(-4px);
+}
+
+.character-boy-casual.interactive:active .character-svg {
+  transform: scale(var(--character-scale)) translateY(-2px);
+}
+
+/* Accessibility Enhancements */
+.character-boy-casual[aria-busy="true"] .character-svg {
+  opacity: 0.6;
+}
+
+.character-boy-casual[aria-disabled="true"] .character-svg {
+  opacity: 0.4;
+  filter: grayscale(100%);
+  cursor: not-allowed;
+}
+
+/* Performance Optimizations */
+.character-boy-casual .character-svg {
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Custom Property Validation */
+.character-boy-casual {
+  /* Ensure custom properties are valid */
+  --character-width: clamp(50px, 100%, 400px);
+  --character-height: clamp(75px, 100%, 600px);
+  --character-scale: clamp(0.25, 1, 3);
+}

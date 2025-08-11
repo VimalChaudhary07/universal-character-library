@@ -1,0 +1,256 @@
+/* Character Custom Properties - Sporty Girl */
+
+/* Root character container */
+.character-girl-sporty {
+  /* Character Dimensions */
+  --character-width: 200px;
+  --character-height: 300px;
+  --character-scale: 1;
+  
+  /* Color Customization */
+  --skin-color: #FDBCB4;
+  --hair-color: #FFD700;
+  --shirt-color: #FF69B4;
+  --pants-color: #000080;
+  --shoes-color: #FFFFFF;
+  
+  /* Animation Properties */
+  --animation-duration: 1s;
+  --animation-timing: ease-in-out;
+  --animation-iteration: infinite;
+  
+  /* Spacing and Layout */
+  --character-spacing: 10px;
+  --character-margin: 20px;
+  
+  /* Effects */
+  --character-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --character-border-radius: 8px;
+}
+
+/* Apply custom properties to SVG elements */
+.character-girl-sporty .skin-color {
+  fill: var(--skin-color);
+  stroke: var(--skin-color);
+}
+
+.character-girl-sporty .hair-color {
+  fill: var(--hair-color);
+  stroke: var(--hair-color);
+}
+
+.character-girl-sporty .shirt-color {
+  fill: var(--shirt-color);
+  stroke: var(--shirt-color);
+}
+
+.character-girl-sporty .pants-color {
+  fill: var(--pants-color);
+  stroke: var(--pants-color);
+}
+
+.character-girl-sporty .shoes-color {
+  fill: var(--shoes-color);
+  stroke: var(--shoes-color);
+}
+
+/* Character Container Styling */
+.character-girl-sporty .character-svg {
+  width: var(--character-width);
+  height: var(--character-height);
+  transform: scale(var(--character-scale));
+  filter: drop-shadow(var(--character-shadow));
+  border-radius: var(--character-border-radius);
+  transition: all 0.3s ease;
+}
+
+/* Character Group Styling */
+.character-girl-sporty .character-group {
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effects */
+.character-girl-sporty:hover .character-svg {
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+  transform: scale(var(--character-scale)) translateY(-2px);
+}
+
+/* Focus Styles for Accessibility */
+.character-girl-sporty:focus .character-svg {
+  outline: 2px solid var(--shirt-color);
+  outline-offset: 2px;
+}
+
+/* Loading States */
+.character-girl-sporty.loading .character-svg {
+  opacity: 0.5;
+  filter: grayscale(50%);
+}
+
+.character-girl-sporty.ready .character-svg {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Error States */
+.character-girl-sporty.error .character-svg {
+  filter: grayscale(100%) sepia(20%);
+  opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .character-girl-sporty {
+    --character-width: 150px;
+    --character-height: 225px;
+    --character-scale: 0.75;
+  }
+}
+
+@media (max-width: 480px) {
+  .character-girl-sporty {
+    --character-width: 120px;
+    --character-height: 180px;
+    --character-scale: 0.6;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .character-girl-sporty {
+    --character-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .character-girl-sporty .character-svg {
+    filter: drop-shadow(var(--character-shadow)) contrast(1.2);
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .character-girl-sporty {
+    --character-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .character-girl-sporty {
+    --animation-duration: 0s;
+    --animation-iteration: 1;
+  }
+  
+  .character-girl-sporty * {
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .character-girl-sporty {
+    --character-shadow: none;
+    --character-scale: 1;
+  }
+  
+  .character-girl-sporty .character-svg {
+    filter: none;
+    break-inside: avoid;
+  }
+}
+
+/* Custom Property Fallbacks */
+.character-girl-sporty {
+  /* Fallback colors for older browsers */
+  --skin-color: #FDBCB4;
+  --hair-color: #FFD700;
+  --shirt-color: #FF69B4;
+  --pants-color: #000080;
+  --shoes-color: #FFFFFF;
+}
+
+/* Animation Speed Variants */
+.character-girl-sporty.animation-slow {
+  --animation-duration: 2s;
+}
+
+.character-girl-sporty.animation-normal {
+  --animation-duration: 1s;
+}
+
+.character-girl-sporty.animation-fast {
+  --animation-duration: 0.5s;
+}
+
+/* Size Variants */
+.character-girl-sporty.size-small {
+  --character-width: 100px;
+  --character-height: 150px;
+  --character-scale: 0.5;
+}
+
+.character-girl-sporty.size-medium {
+  --character-width: 200px;
+  --character-height: 300px;
+  --character-scale: 1;
+}
+
+.character-girl-sporty.size-large {
+  --character-width: 300px;
+  --character-height: 450px;
+  --character-scale: 1.5;
+}
+
+/* Theme Variants */
+.character-girl-sporty.theme-light {
+  --character-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.character-girl-sporty.theme-dark {
+  --character-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.character-girl-sporty.theme-neon {
+  --character-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+}
+
+/* Interaction States */
+.character-girl-sporty.interactive {
+  cursor: pointer;
+}
+
+.character-girl-sporty.interactive:hover .character-svg {
+  transform: scale(var(--character-scale)) translateY(-4px);
+}
+
+.character-girl-sporty.interactive:active .character-svg {
+  transform: scale(var(--character-scale)) translateY(-2px);
+}
+
+/* Accessibility Enhancements */
+.character-girl-sporty[aria-busy="true"] .character-svg {
+  opacity: 0.6;
+}
+
+.character-girl-sporty[aria-disabled="true"] .character-svg {
+  opacity: 0.4;
+  filter: grayscale(100%);
+  cursor: not-allowed;
+}
+
+/* Performance Optimizations */
+.character-girl-sporty .character-svg {
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Custom Property Validation */
+.character-girl-sporty {
+  /* Ensure custom properties are valid */
+  --character-width: clamp(50px, 100%, 400px);
+  --character-height: clamp(75px, 100%, 600px);
+  --character-scale: clamp(0.25, 1, 3);
+}

@@ -1,0 +1,160 @@
+{
+  "id": "fantasy-woman",
+  "name": "Fantasy Woman",
+  "type": "woman",
+  "style": "fantasy",
+  "version": "1.0.0",
+  "description": "A mystical woman in fantasy clothing, perfect for games and fantasy apps.",
+  "tags": ["adult", "fantasy", "magical", "mystical", "enchanting"],
+  "parts": {
+    "skin": {
+      "color": "#FDBCB4",
+      "selector": ".skin",
+      "description": "Skin tone"
+    },
+    "hair": {
+      "color": "#9370DB",
+      "selector": ".hair",
+      "description": "Hair color"
+    },
+    "dress": {
+      "color": "#9370DB",
+      "selector": ".dress",
+      "description": "Fantasy dress color"
+    },
+    "shoes": {
+      "color": "#FFB6C1",
+      "selector": ".shoes",
+      "description": "Magical shoes color"
+    },
+    "tiara": {
+      "color": "#FFD700",
+      "selector": ".tiara",
+      "description": "Tiara color"
+    },
+    "gem": {
+      "color": "#FF1493",
+      "selector": ".gem",
+      "description": "Gem color on tiara"
+    },
+    "necklace": {
+      "color": "#FFD700",
+      "selector": ".necklace",
+      "description": "Necklace color"
+    },
+    "aura": {
+      "color": "#9370DB",
+      "selector": ".magic-aura",
+      "description": "Magic aura color"
+    },
+    "seam": {
+      "color": "#DDA0DD",
+      "selector": ".dress-seam",
+      "description": "Dress seam color"
+    },
+    "pattern": {
+      "color": "#DDA0DD",
+      "selector": ".pattern",
+      "description": "Dress pattern color"
+    },
+    "eyelash": {
+      "color": "#9370DB",
+      "selector": ".eyelash",
+      "description": "Eyelash color"
+    }
+  },
+  "animations": [
+    {
+      "name": "idle",
+      "duration": 2000,
+      "type": "css",
+      "loop": true,
+      "file": "animations.css",
+      "description": "Mystical floating stance"
+    },
+    {
+      "name": "walk",
+      "duration": 1000,
+      "type": "css",
+      "loop": true,
+      "file": "animations.css",
+      "description": "Graceful walking animation"
+    },
+    {
+      "name": "dance",
+      "duration": 2000,
+      "type": "lottie",
+      "loop": true,
+      "file": "animations.json",
+      "description": "Magical dance movements"
+    },
+    {
+      "name": "magic",
+      "duration": 1500,
+      "type": "web-animations",
+      "loop": false,
+      "file": "animations.css",
+      "description": "Casting spell animation"
+    },
+    {
+      "name": "blink",
+      "duration": 3000,
+      "type": "css",
+      "loop": true,
+      "file": "animations.css",
+      "description": "Enchanted eye blinking"
+    },
+    {
+      "name": "breathing",
+      "duration": 4000,
+      "type": "css",
+      "loop": true,
+      "file": "animations.css",
+      "description": "Mystical breathing pattern"
+    }
+  ],
+  "variants": [
+    {
+      "name": "fantasy",
+      "file": "svg/base.svg",
+      "description": "Fantasy magical outfit"
+    }
+  ],
+  "accessibility": {
+    "label": "Animated fantasy woman character",
+    "role": "img",
+    "ariaDescription": "A customizable animated woman character in fantasy magical clothing"
+  },
+  "technical": {
+    "svgViewBox": "0 0 200 300",
+    "transformOrigin": "100px 150px",
+    "cssClass": "character-woman-fantasy",
+    "colorVariables": [
+      "--skin-color",
+      "--hair-color",
+      "--dress-color",
+      "--shoes-color",
+      "--tiara-color",
+      "--gem-color",
+      "--necklace-color",
+      "--aura-color",
+      "--seam-color",
+      "--pattern-color",
+      "--eyelash-color"
+    ],
+    "supportedAnimations": [
+      "idle",
+      "walk", 
+      "dance",
+      "magic",
+      "blink",
+      "breathing"
+    ]
+  },
+  "performance": {
+    "svgSize": "3.8KB",
+    "animationCount": 6,
+    "customizableParts": 11,
+    "complexity": "high"
+  }
+}

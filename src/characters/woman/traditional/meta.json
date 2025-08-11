@@ -1,0 +1,65 @@
+{
+  "id": "woman-traditional",
+  "name": "Traditional Woman",
+  "type": "woman",
+  "style": "traditional",
+  "animations": [
+    "idle",
+    "walk",
+    "dance",
+    "greet",
+    "pray",
+    "cook",
+    "celebrate",
+    "traditional-dance",
+    "bow",
+    "curtsy",
+    "wave",
+    "clap",
+    "spin",
+    "twirl"
+  ],
+  "description": "A woman in traditional cultural attire, representing heritage and customs.",
+  "tags": [
+    "adult",
+    "traditional",
+    "cultural",
+    "heritage",
+    "elegant",
+    "graceful"
+  ],
+  "isAvailable": true,
+  "culture": "Traditional",
+  "bodyType": "graceful",
+  "theme": "cultural",
+  "accessories": [
+    "jewelry",
+    "headscarf",
+    "necklace",
+    "bracelets",
+    "earrings",
+    "bindi",
+    "traditional-ornaments"
+  ],
+  "colors": {
+    "skin": "#FDBCB4",
+    "hair": "#000000",
+    "primary": "#DC143C",
+    "secondary": "#FFD700",
+    "accent": "#FF1493"
+  },
+  "customizableParts": [
+    "skin",
+    "hair",
+    "dress",
+    "jewelry",
+    "accessories",
+    "patterns"
+  ],
+  "animationStyles": [
+    "graceful",
+    "elegant",
+    "traditional",
+    "cultural"
+  ]
+}

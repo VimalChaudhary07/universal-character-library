@@ -1,0 +1,69 @@
+{
+  "id": "girl-holiday",
+  "name": "Holiday Girl",
+  "type": "girl",
+  "style": "holiday",
+  "animations": [
+    "idle",
+    "walk",
+    "dance",
+    "celebrate",
+    "wave",
+    "jump",
+    "spin",
+    "twirl",
+    "gift-give",
+    "carol",
+    "build-snowman",
+    "decorate",
+    "holiday-dance",
+    "cheer"
+  ],
+  "description": "A girl in festive holiday clothing, perfect for Christmas and winter celebrations.",
+  "tags": [
+    "child",
+    "holiday",
+    "christmas",
+    "winter",
+    "festive",
+    "celebration",
+    "seasonal"
+  ],
+  "isAvailable": true,
+  "culture": "Western",
+  "bodyType": "cheerful",
+  "theme": "holiday",
+  "accessories": [
+    "santa-hat",
+    "mittens",
+    "scarf",
+    "gift-bag",
+    "snowflakes",
+    "holiday-jewelry",
+    "boots",
+    "sweater"
+  ],
+  "colors": {
+    "skin": "#FDBCB4",
+    "hair": "#8B4513",
+    "primary": "#228B22",
+    "secondary": "#DC143C",
+    "accent": "#FFFFFF"
+  },
+  "customizableParts": [
+    "skin",
+    "hair",
+    "sweater",
+    "hat",
+    "scarf",
+    "mittens",
+    "accessories",
+    "gift-bag"
+  ],
+  "animationStyles": [
+    "festive",
+    "cheerful",
+    "celebratory",
+    "holiday"
+  ]
+}

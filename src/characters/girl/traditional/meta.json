@@ -1,0 +1,65 @@
+{
+  "id": "girl-traditional",
+  "name": "Traditional Girl",
+  "type": "girl",
+  "style": "traditional",
+  "animations": [
+    "idle",
+    "walk",
+    "bow",
+    "study",
+    "write",
+    "dance",
+    "play",
+    "greet",
+    "curtsy",
+    "wave",
+    "spin",
+    "twirl",
+    "fan-dance",
+    "traditional-dance"
+  ],
+  "description": "A girl in traditional cultural attire, representing heritage and customs.",
+  "tags": [
+    "child",
+    "traditional",
+    "cultural",
+    "heritage",
+    "graceful",
+    "scholarly"
+  ],
+  "isAvailable": true,
+  "culture": "Traditional",
+  "bodyType": "graceful",
+  "theme": "cultural",
+  "accessories": [
+    "hair-ornaments",
+    "necklace",
+    "bracelets",
+    "fan",
+    "hair-pins",
+    "flowers",
+    "traditional-accessories"
+  ],
+  "colors": {
+    "skin": "#FDBCB4",
+    "hair": "#000000",
+    "primary": "#FF69B4",
+    "secondary": "#FFD700",
+    "accent": "#FFFFFF"
+  },
+  "customizableParts": [
+    "skin",
+    "hair",
+    "dress",
+    "accessories",
+    "patterns",
+    "fan"
+  ],
+  "animationStyles": [
+    "graceful",
+    "elegant",
+    "traditional",
+    "cultural"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "id": "man-traditional",
+  "name": "Traditional Man",
+  "type": "man",
+  "style": "traditional",
+  "animations": [
+    "idle",
+    "walk",
+    "dance",
+    "drum",
+    "celebrate",
+    "greet",
+    "storytell",
+    "run",
+    "jump",
+    "bow",
+    "wave",
+    "clap",
+    "staff-spin",
+    "traditional-dance"
+  ],
+  "description": "A man in traditional cultural attire, representing heritage and customs.",
+  "tags": [
+    "adult",
+    "traditional",
+    "cultural",
+    "heritage",
+    "strong",
+    "wise"
+  ],
+  "isAvailable": true,
+  "culture": "Traditional",
+  "bodyType": "strong",
+  "theme": "cultural",
+  "accessories": [
+    "headscarf",
+    "necklace",
+    "bracelets",
+    "staff",
+    "belt",
+    "arm-bands",
+    "traditional-ornaments"
+  ],
+  "colors": {
+    "skin": "#8D5524",
+    "hair": "#000000",
+    "primary": "#228B22",
+    "secondary": "#FF6B35",
+    "accent": "#FFD700"
+  },
+  "customizableParts": [
+    "skin",
+    "hair",
+    "tunic",
+    "accessories",
+    "patterns",
+    "staff"
+  ],
+  "animationStyles": [
+    "strong",
+    "traditional",
+    "cultural",
+    "powerful"
+  ]
+}

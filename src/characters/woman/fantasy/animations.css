@@ -1,0 +1,253 @@
+/* Fantasy Woman Character Animations */
+
+/* Idle Animation - Mystical floating stance */
+@keyframes idle-floating {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-3px) scale(1.01); }
+}
+
+@keyframes idle-glow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes idle-rotation {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  75% { transform: rotate(-1deg); }
+}
+
+.anim-idle {
+  animation: idle-floating 2s ease-in-out infinite,
+             idle-rotation 10s ease-in-out infinite;
+}
+
+.anim-idle .magic-aura {
+  animation: idle-glow 3s ease-in-out infinite;
+}
+
+/* Walk Animation - Graceful walking animation */
+@keyframes walk-body {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(1deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  75% { transform: translateY(-5px) rotate(-1deg); }
+}
+
+@keyframes walk-arm-left {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-20deg); }
+}
+
+@keyframes walk-arm-right {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(20deg); }
+}
+
+@keyframes walk-leg-left {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(15deg); }
+}
+
+@keyframes walk-leg-right {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-15deg); }
+}
+
+@keyframes walk-dress {
+  0%, 100% { transform: scaleY(1); }
+  25% { transform: scaleY(1.05); }
+  50% { transform: scaleY(1.1); }
+  75% { transform: scaleY(1.05); }
+}
+
+.anim-walk {
+  animation: walk-body 1s ease-in-out infinite;
+}
+
+.anim-walk .arm-left {
+  animation: walk-arm-left 1s ease-in-out infinite;
+  transform-origin: 66px 95px;
+}
+
+.anim-walk .arm-right {
+  animation: walk-arm-right 1s ease-in-out infinite;
+  transform-origin: 134px 95px;
+}
+
+.anim-walk .leg-left {
+  animation: walk-leg-left 1s ease-in-out infinite;
+  transform-origin: 86px 145px;
+}
+
+.anim-walk .leg-right {
+  animation: walk-leg-right 1s ease-in-out infinite;
+  transform-origin: 114px 145px;
+}
+
+.anim-walk .dress {
+  animation: walk-dress 1s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+/* Dance Animation - Magical dance movements */
+@keyframes dance-body {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  25% { transform: translateY(-15px) rotate(-5deg) scale(1.05); }
+  50% { transform: translateY(-8px) rotate(5deg) scale(1.02); }
+  75% { transform: translateY(-15px) rotate(-5deg) scale(1.05); }
+}
+
+@keyframes dance-arms {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-45deg); }
+  50% { transform: rotate(45deg); }
+  75% { transform: rotate(-45deg); }
+}
+
+@keyframes dance-sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.anim-dance {
+  animation: dance-body 2s ease-in-out infinite;
+}
+
+.anim-dance .arm-left,
+.anim-dance .arm-right {
+  animation: dance-arms 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.anim-dance .magic-aura {
+  animation: dance-sparkle 2s ease-in-out infinite;
+}
+
+/* Magic Animation - Casting spell animation */
+@keyframes magic-cast {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+  25% { transform: scale(1.2) rotate(90deg); opacity: 1; }
+  50% { transform: scale(1.5) rotate(180deg); opacity: 0.6; }
+  75% { transform: scale(1.2) rotate(270deg); opacity: 1; }
+}
+
+@keyframes magic-hands {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-30deg); }
+}
+
+@keyframes magic-glow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.anim-magic .magic-aura {
+  animation: magic-cast 1.5s ease-out;
+}
+
+.anim-magic .arm-left,
+.anim-magic .arm-right {
+  animation: magic-hands 1.5s ease-out;
+  transform-origin: center;
+}
+
+.anim-magic .tiara,
+.anim-magic .necklace {
+  animation: magic-glow 1.5s ease-out;
+}
+
+/* Blink Animation - Enchanted eye blinking */
+@keyframes blink-eyes {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
+.anim-blink .eye {
+  animation: blink-eyes 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Breathing Animation - Mystical breathing pattern */
+@keyframes breathing-chest {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.02); }
+}
+
+@keyframes breathing-head {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1px); }
+}
+
+@keyframes breathing-aura {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.05); }
+}
+
+.anim-breathing .torso {
+  animation: breathing-chest 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.anim-breathing .head {
+  animation: breathing-head 4s ease-in-out infinite;
+}
+
+.anim-breathing .magic-aura {
+  animation: breathing-aura 4s ease-in-out infinite;
+}
+
+/* Animation utility classes */
+.character-woman-fantasy {
+  transform-origin: 100px 150px;
+  transition: all 0.3s ease;
+}
+
+/* Pause state */
+.paused {
+  animation-play-state: paused !important;
+}
+
+.paused * {
+  animation-play-state: paused !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .character-woman-fantasy {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 480px) {
+  .character-woman-fantasy {
+    transform: scale(0.6);
+  }
+}
+
+/* Accessibility - Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .anim-idle {
+    animation: none;
+  }
+  
+  .anim-walk {
+    animation: none;
+  }
+  
+  .anim-dance {
+    animation: none;
+  }
+  
+  .anim-magic {
+    animation: none;
+  }
+  
+  .anim-blink {
+    animation: none;
+  }
+  
+  .anim-breathing {
+    animation: none;
+  }
+}

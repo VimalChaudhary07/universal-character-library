@@ -1,0 +1,482 @@
+/* 
+ * Character Library - Global CSS Variables System
+ * 
+ * This file defines the global CSS custom properties (variables) used throughout
+ * the Character Library for consistent customization and theming.
+ */
+
+/* ===========================================
+   ROOT VARIABLES - Global Defaults
+   =========================================== */
+
+:root {
+  /* =========================================
+      COLOR SYSTEM
+   ========================================= */
+  
+  /* Primary Character Colors */
+  --cl-skin-color-light: #FDBCB4;      /* Light skin tone */
+  --cl-skin-color-medium: #F1C27D;     /* Medium skin tone */
+  --cl-skin-color-dark: #C68642;       /* Dark skin tone */
+  --cl-skin-color: var(--cl-skin-color-light);  /* Default skin */
+  
+  /* Hair Colors */
+  --cl-hair-color-blonde: #FFD700;     /* Blonde hair */
+  --cl-hair-color-brown: #8B4513;     /* Brown hair */
+  --cl-hair-color-black: #2F4F4F;     /* Black hair */
+  --cl-hair-color-red: #DC143C;        /* Red hair */
+  --cl-hair-color-gray: #808080;       /* Gray hair */
+  --cl-hair-color: var(--cl-hair-color-brown);  /* Default hair */
+  
+  /* Clothing Colors */
+  --cl-clothing-color-primary: #4169E1;   /* Primary clothing */
+  --cl-clothing-color-secondary: #2F4F4F;  /* Secondary clothing */
+  --cl-clothing-color-accent: #FF69B4;     /* Accent clothing */
+  --cl-clothing-color-neutral: #FFFFFF;    /* Neutral clothing */
+  
+  /* Shoe Colors */
+  --cl-shoes-color-brown: #8B4513;
+  --cl-shoes-color-black: #000000;
+  --cl-shoes-color-white: #FFFFFF;
+  --cl-shoes-color: var(--cl-shoes-color-black);
+  
+  /* Accessory Colors */
+  --cl-accessory-color-gold: #FFD700;
+  --cl-accessory-color-silver: #C0C0C0;
+  --cl-accessory-color-bronze: #CD7F32;
+  --cl-accessory-color: var(--cl-accessory-color-gold);
+  
+  /* =========================================
+      ANIMATION SYSTEM
+   ========================================= */
+  
+  /* Animation Durations */
+  --cl-animation-duration-fast: 300ms;
+  --cl-animation-duration-normal: 1000ms;
+  --cl-animation-duration-slow: 2000ms;
+  --cl-animation-duration-very-slow: 4000ms;
+  
+  /* Animation Timing Functions */
+  --cl-animation-timing-linear: linear;
+  --cl-animation-timing-ease: ease;
+  --cl-animation-timing-ease-in: ease-in;
+  --cl-animation-timing-ease-out: ease-out;
+  --cl-animation-timing-ease-in-out: ease-in-out;
+  --cl-animation-timing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Animation Speed Multipliers */
+  --cl-animation-speed-slow: 2;
+  --cl-animation-speed-normal: 1;
+  --cl-animation-speed-fast: 0.5;
+  --cl-animation-speed: var(--cl-animation-speed-normal);
+  
+  /* =========================================
+      SIZING SYSTEM
+   ========================================= */
+  
+  /* Character Sizes */
+  --cl-character-size-xs: 0.5;
+  --cl-character-size-sm: 0.7;
+  --cl-character-size-md: 1;
+  --cl-character-size-lg: 1.3;
+  --cl-character-size-xl: 1.6;
+  --cl-character-size: var(--cl-character-size-md);
+  
+  /* Spacing */
+  --cl-spacing-xs: 2px;
+  --cl-spacing-sm: 4px;
+  --cl-spacing-md: 8px;
+  --cl-spacing-lg: 16px;
+  --cl-spacing-xl: 24px;
+  
+  /* =========================================
+      EFFECTS & FILTERS
+   ========================================= */
+  
+  /* Filters */
+  --cl-filter-none: none;
+  --cl-filter-grayscale: grayscale(100%);
+  --cl-filter-sepia: sepia(100%);
+  --cl-filter-blur: blur(2px);
+  --cl-filter-brightness: brightness(1.2);
+  --cl-filter-contrast: contrast(1.2);
+  --cl-filter: var(--cl-filter-none);
+  
+  /* Shadows */
+  --cl-shadow-none: none;
+  --cl-shadow-sm: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
+  --cl-shadow-md: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+  --cl-shadow-lg: drop-shadow(4px 4px 8px rgba(0,0,0,0.3));
+  --cl-shadow: var(--cl-shadow-none);
+  
+  /* =========================================
+      THEMING SYSTEM
+   ========================================= */
+  
+  /* Light Theme */
+  --cl-theme-light-bg: #FFFFFF;
+  --cl-theme-light-text: #000000;
+  --cl-theme-light-border: #E5E5E5;
+  
+  /* Dark Theme */
+  --cl-theme-dark-bg: #1A1A1A;
+  --cl-theme-dark-text: #FFFFFF;
+  --cl-theme-dark-border: #404040;
+  
+  /* =========================================
+      STATE SYSTEM
+   ========================================= */
+  
+  /* Opacity States */
+  --cl-state-opacity-hidden: 0;
+  --cl-state-opacity-faded: 0.5;
+  --cl-state-opacity-disabled: 0.7;
+  --cl-state-opacity-visible: 1;
+  --cl-state-opacity: var(--cl-state-opacity-visible);
+  
+  /* Border States */
+  --cl-state-border-focus: 2px solid var(--cl-clothing-color-primary);
+  --cl-state-border-hover: 1px solid var(--cl-clothing-color-accent);
+  
+  /* =========================================
+      RESPONSIVE BREAKPOINTS
+   ========================================= */
+  
+  --cl-breakpoint-xs: 320px;
+  --cl-breakpoint-sm: 576px;
+  --cl-breakpoint-md: 768px;
+  --cl-breakpoint-lg: 992px;
+  --cl-breakpoint-xl: 1200px;
+}
+
+/* ===========================================
+   CHARACTER-SPECIFIC VARIABLE MAPPINGS
+   =========================================== */
+
+/* Generic character variable mappings that can be used by all characters */
+.character {
+  /* Map global variables to character-specific variables */
+  --skin-color: var(--cl-skin-color);
+  --hair-color: var(--cl-hair-color);
+  --shirt-color: var(--cl-clothing-color-primary);
+  --pants-color: var(--cl-clothing-color-secondary);
+  --shoes-color: var(--cl-shoes-color);
+  --accessory-color: var(--cl-accessory-color);
+  
+  /* Animation variables */
+  --animation-duration: var(--cl-animation-duration-normal);
+  --animation-timing: var(--cl-animation-timing-ease-in-out);
+  --animation-speed: var(--cl-animation-speed);
+  
+  /* Sizing */
+  --character-scale: var(--cl-character-size);
+  --character-opacity: var(--cl-state-opacity);
+  
+  /* Effects */
+  --character-filter: var(--cl-filter);
+  --character-shadow: var(--cl-shadow);
+}
+
+/* ===========================================
+   THEME IMPLEMENTATIONS
+   =========================================== */
+
+/* Light Theme */
+.character.theme-light {
+  --cl-skin-color: var(--cl-skin-color-light);
+  --cl-hair-color: var(--cl-hair-color-blonde);
+  --cl-clothing-color-primary: #87CEEB;
+  --cl-clothing-color-secondary: #4682B4;
+  --cl-shoes-color: #696969;
+}
+
+/* Dark Theme */
+.character.theme-dark {
+  --cl-skin-color: var(--cl-skin-color-medium);
+  --cl-hair-color: var(--cl-hair-color-black);
+  --cl-clothing-color-primary: #191970;
+  --cl-clothing-color-secondary: #000080;
+  --cl-shoes-color: #2F2F2F;
+}
+
+/* Vibrant Theme */
+.character.theme-vibrant {
+  --cl-skin-color: var(--cl-skin-color-light);
+  --cl-hair-color: var(--cl-hair-color-red);
+  --cl-clothing-color-primary: #FF1493;
+  --cl-clothing-color-secondary: #32CD32;
+  --cl-shoes-color: var(--cl-accessory-color-gold);
+}
+
+/* ===========================================
+   SEASONAL THEMES
+   =========================================== */
+
+/* Winter Theme */
+.character.theme-winter {
+  --cl-skin-color: var(--cl-skin-color-light);
+  --cl-hair-color: var(--cl-hair-color-brown);
+  --cl-clothing-color-primary: #4682B4;
+  --cl-clothing-color-secondary: #2F4F4F;
+  --cl-shoes-color: #8B4513;
+  --cl-accessory-color: var(--cl-accessory-color-silver);
+}
+
+/* Spring Theme */
+.character.theme-spring {
+  --cl-skin-color: #FFDBAC;
+  --cl-hair-color: #228B22;
+  --cl-clothing-color-primary: #98FB98;
+  --cl-clothing-color-secondary: #3CB371;
+  --cl-shoes-color: #8FBC8F;
+  --cl-accessory-color: #FF69B4;
+}
+
+/* Summer Theme */
+.character.theme-summer {
+  --cl-skin-color: var(--cl-skin-color-light);
+  --cl-hair-color: var(--cl-hair-color-blonde);
+  --cl-clothing-color-primary: #FFD700;
+  --cl-clothing-color-secondary: #FF6347;
+  --cl-shoes-color: #FF4500;
+  --cl-accessory-color: var(--cl-accessory-color-gold);
+}
+
+/* Autumn Theme */
+.character.theme-autumn {
+  --cl-skin-color: var(--cl-skin-color-medium);
+  --cl-hair-color: var(--cl-hair-color-brown);
+  --cl-clothing-color-primary: #FF8C00;
+  --cl-clothing-color-secondary: #A0522D;
+  --cl-shoes-color: #8B4513;
+  --cl-accessory-color: var(--cl-accessory-color-bronze);
+}
+
+/* ===========================================
+   SIZE MODIFIERS
+   =========================================== */
+
+.character.size-xs {
+  --cl-character-size: var(--cl-character-size-xs);
+}
+
+.character.size-sm {
+  --cl-character-size: var(--cl-character-size-sm);
+}
+
+.character.size-md {
+  --cl-character-size: var(--cl-character-size-md);
+}
+
+.character.size-lg {
+  --cl-character-size: var(--cl-character-size-lg);
+}
+
+.character.size-xl {
+  --cl-character-size: var(--cl-character-size-xl);
+}
+
+/* ===========================================
+   ANIMATION SPEED MODIFIERS
+   =========================================== */
+
+.character.speed-slow {
+  --cl-animation-speed: var(--cl-animation-speed-slow);
+}
+
+.character.speed-normal {
+  --cl-animation-speed: var(--cl-animation-speed-normal);
+}
+
+.character.speed-fast {
+  --cl-animation-speed: var(--cl-animation-speed-fast);
+}
+
+/* ===========================================
+   EFFECT MODIFIERS
+   =========================================== */
+
+.character.effect-grayscale {
+  --cl-filter: var(--cl-filter-grayscale);
+}
+
+.character.effect-sepia {
+  --cl-filter: var(--cl-filter-sepia);
+}
+
+.character.effect-blur {
+  --cl-filter: var(--cl-filter-blur);
+}
+
+.character.effect-bright {
+  --cl-filter: var(--cl-filter-brightness);
+}
+
+.character.effect-contrast {
+  --cl-filter: var(--cl-filter-contrast);
+}
+
+.character.effect-shadow-sm {
+  --cl-shadow: var(--cl-shadow-sm);
+}
+
+.character.effect-shadow-md {
+  --cl-shadow: var(--cl-shadow-md);
+}
+
+.character.effect-shadow-lg {
+  --cl-shadow: var(--cl-shadow-lg);
+}
+
+/* ===========================================
+   STATE MODIFIERS
+   =========================================== */
+
+.character.state-hidden {
+  --cl-state-opacity: var(--cl-state-opacity-hidden);
+  pointer-events: none;
+}
+
+.character.state-faded {
+  --cl-state-opacity: var(--cl-state-opacity-faded);
+}
+
+.character.state-disabled {
+  --cl-state-opacity: var(--cl-state-opacity-disabled);
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* ===========================================
+   INTERACTIVE STATES
+   =========================================== */
+
+.character:hover {
+  --cl-character-size: calc(var(--cl-character-size) * 1.05);
+  transition: transform 0.2s var(--cl-animation-timing-ease-out);
+}
+
+.character:focus {
+  outline: var(--cl-state-border-focus);
+  outline-offset: var(--cl-spacing-sm);
+}
+
+.character:focus-visible {
+  outline: var(--cl-state-border-focus);
+  outline-offset: var(--cl-spacing-sm);
+}
+
+/* ===========================================
+   RESPONSIVE ADJUSTMENTS
+   =========================================== */
+
+@media (max-width: 768px) {
+  .character {
+    --cl-character-size: calc(var(--cl-character-size) * 0.8);
+  }
+}
+
+@media (max-width: 480px) {
+  .character {
+    --cl-character-size: calc(var(--cl-character-size) * 0.6);
+  }
+}
+
+/* ===========================================
+   ACCESSIBILITY & PREFERENCES
+   =========================================== */
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .character * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High Contrast */
+@media (prefers-contrast: high) {
+  .character {
+    --cl-skin-color: Window;
+    --cl-hair-color: WindowText;
+    --cl-clothing-color-primary: WindowText;
+    --cl-clothing-color-secondary: WindowText;
+    --cl-shoes-color: WindowText;
+    --cl-accessory-color: Window;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cl-skin-color: var(--cl-skin-color-medium);
+    --cl-hair-color: var(--cl-hair-color-brown);
+    --cl-clothing-color-primary: #4169E1;
+    --cl-clothing-color-secondary: #2F4F4F;
+    --cl-shoes-color: #1C1C1C;
+  }
+}
+
+/* ===========================================
+   PRINT STYLES
+   =========================================== */
+
+@media print {
+  .character {
+    --cl-filter: var(--cl-filter-grayscale);
+    --cl-shadow: var(--cl-shadow-none);
+    --cl-character-size: var(--cl-character-size-md);
+  }
+  
+  .character * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ===========================================
+   UTILITY CLASSES
+   =========================================== */
+
+/* Animation Control */
+.cl-no-animation {
+  animation: none !important;
+}
+
+.cl-pause-animation {
+  animation-play-state: paused !important;
+}
+
+.cl-resume-animation {
+  animation-play-state: running !important;
+}
+
+/* Color Overrides */
+.cl-skin-tone-light { --cl-skin-color: var(--cl-skin-color-light); }
+.cl-skin-tone-medium { --cl-skin-color: var(--cl-skin-color-medium); }
+.cl-skin-tone-dark { --cl-skin-color: var(--cl-skin-color-dark); }
+
+.cl-hair-blonde { --cl-hair-color: var(--cl-hair-color-blonde); }
+.cl-hair-brown { --cl-hair-color: var(--cl-hair-color-brown); }
+.cl-hair-black { --cl-hair-color: var(--cl-hair-color-black); }
+.cl-hair-red { --cl-hair-color: var(--cl-hair-color-red); }
+.cl-hair-gray { --cl-hair-color: var(--cl-hair-color-gray); }
+
+/* Debug Mode */
+.cl-debug {
+  outline: 1px dashed red;
+  outline-offset: 2px;
+}
+
+.cl-debug::before {
+  content: attr(class);
+  position: absolute;
+  top: -20px;
+  left: 0;
+  background: red;
+  color: white;
+  padding: 2px 4px;
+  font-size: 10px;
+  font-family: monospace;
+}
