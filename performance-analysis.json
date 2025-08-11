@@ -1,0 +1,421 @@
+{
+  "timestamp": "2025-08-11T16:47:58.992Z",
+  "summary": {
+    "totalTests": 100,
+    "datasetSizes": [
+      100,
+      500,
+      1000,
+      2000,
+      5000
+    ],
+    "largestDataset": 5000,
+    "testCategories": {
+      "loading": 0,
+      "animations": 40,
+      "customization": 25,
+      "filtering": 25
+    }
+  },
+  "performance": {
+    "loading": {},
+    "animations": {
+      "100": {
+        "idle": {
+          "averageMs": 4.80859,
+          "maxMs": 4.80859,
+          "minMs": 4.80859,
+          "rating": "excellent"
+        },
+        "walk": {
+          "averageMs": 5.593379,
+          "maxMs": 5.593379,
+          "minMs": 5.593379,
+          "rating": "excellent"
+        },
+        "run": {
+          "averageMs": 4.921932,
+          "maxMs": 4.921932,
+          "minMs": 4.921932,
+          "rating": "excellent"
+        },
+        "jump": {
+          "averageMs": 4.447915,
+          "maxMs": 4.447915,
+          "minMs": 4.447915,
+          "rating": "excellent"
+        },
+        "dance": {
+          "averageMs": 5.496843,
+          "maxMs": 5.496843,
+          "minMs": 5.496843,
+          "rating": "excellent"
+        },
+        "wave": {
+          "averageMs": 4.425004,
+          "maxMs": 4.425004,
+          "minMs": 4.425004,
+          "rating": "excellent"
+        },
+        "fight": {
+          "averageMs": 5.686214,
+          "maxMs": 5.686214,
+          "minMs": 5.686214,
+          "rating": "excellent"
+        },
+        "fly": {
+          "averageMs": 4.446322,
+          "maxMs": 4.446322,
+          "minMs": 4.446322,
+          "rating": "excellent"
+        }
+      },
+      "500": {
+        "idle": {
+          "averageMs": 5.41541,
+          "maxMs": 5.41541,
+          "minMs": 5.41541,
+          "rating": "excellent"
+        },
+        "walk": {
+          "averageMs": 5.223383,
+          "maxMs": 5.223383,
+          "minMs": 5.223383,
+          "rating": "excellent"
+        },
+        "run": {
+          "averageMs": 4.946841,
+          "maxMs": 4.946841,
+          "minMs": 4.946841,
+          "rating": "excellent"
+        },
+        "jump": {
+          "averageMs": 5.562999,
+          "maxMs": 5.562999,
+          "minMs": 5.562999,
+          "rating": "excellent"
+        },
+        "dance": {
+          "averageMs": 5.774305,
+          "maxMs": 5.774305,
+          "minMs": 5.774305,
+          "rating": "excellent"
+        },
+        "wave": {
+          "averageMs": 5.939227,
+          "maxMs": 5.939227,
+          "minMs": 5.939227,
+          "rating": "excellent"
+        },
+        "fight": {
+          "averageMs": 5.426748,
+          "maxMs": 5.426748,
+          "minMs": 5.426748,
+          "rating": "excellent"
+        },
+        "fly": {
+          "averageMs": 5.3962,
+          "maxMs": 5.3962,
+          "minMs": 5.3962,
+          "rating": "excellent"
+        }
+      },
+      "1000": {
+        "idle": {
+          "averageMs": 4.930093,
+          "maxMs": 4.930093,
+          "minMs": 4.930093,
+          "rating": "excellent"
+        },
+        "walk": {
+          "averageMs": 4.474258,
+          "maxMs": 4.474258,
+          "minMs": 4.474258,
+          "rating": "excellent"
+        },
+        "run": {
+          "averageMs": 5.922795,
+          "maxMs": 5.922795,
+          "minMs": 5.922795,
+          "rating": "excellent"
+        },
+        "jump": {
+          "averageMs": 5.603897,
+          "maxMs": 5.603897,
+          "minMs": 5.603897,
+          "rating": "excellent"
+        },
+        "dance": {
+          "averageMs": 5.046479,
+          "maxMs": 5.046479,
+          "minMs": 5.046479,
+          "rating": "excellent"
+        },
+        "wave": {
+          "averageMs": 4.428352,
+          "maxMs": 4.428352,
+          "minMs": 4.428352,
+          "rating": "excellent"
+        },
+        "fight": {
+          "averageMs": 5.512535,
+          "maxMs": 5.512535,
+          "minMs": 5.512535,
+          "rating": "excellent"
+        },
+        "fly": {
+          "averageMs": 4.643093,
+          "maxMs": 4.643093,
+          "minMs": 4.643093,
+          "rating": "excellent"
+        }
+      },
+      "2000": {
+        "idle": {
+          "averageMs": 5.73821,
+          "maxMs": 5.73821,
+          "minMs": 5.73821,
+          "rating": "excellent"
+        },
+        "walk": {
+          "averageMs": 5.806474,
+          "maxMs": 5.806474,
+          "minMs": 5.806474,
+          "rating": "excellent"
+        },
+        "run": {
+          "averageMs": 4.346335,
+          "maxMs": 4.346335,
+          "minMs": 4.346335,
+          "rating": "excellent"
+        },
+        "jump": {
+          "averageMs": 5.773687,
+          "maxMs": 5.773687,
+          "minMs": 5.773687,
+          "rating": "excellent"
+        },
+        "dance": {
+          "averageMs": 5.82133,
+          "maxMs": 5.82133,
+          "minMs": 5.82133,
+          "rating": "excellent"
+        },
+        "wave": {
+          "averageMs": 4.714074,
+          "maxMs": 4.714074,
+          "minMs": 4.714074,
+          "rating": "excellent"
+        },
+        "fight": {
+          "averageMs": 4.681501,
+          "maxMs": 4.681501,
+          "minMs": 4.681501,
+          "rating": "excellent"
+        },
+        "fly": {
+          "averageMs": 5.100777,
+          "maxMs": 5.100777,
+          "minMs": 5.100777,
+          "rating": "excellent"
+        }
+      },
+      "5000": {
+        "idle": {
+          "averageMs": 6.792906,
+          "maxMs": 6.792906,
+          "minMs": 6.792906,
+          "rating": "excellent"
+        },
+        "walk": {
+          "averageMs": 5.836621,
+          "maxMs": 5.836621,
+          "minMs": 5.836621,
+          "rating": "excellent"
+        },
+        "run": {
+          "averageMs": 5.633576,
+          "maxMs": 5.633576,
+          "minMs": 5.633576,
+          "rating": "excellent"
+        },
+        "jump": {
+          "averageMs": 6.300846,
+          "maxMs": 6.300846,
+          "minMs": 6.300846,
+          "rating": "excellent"
+        },
+        "dance": {
+          "averageMs": 5.656597,
+          "maxMs": 5.656597,
+          "minMs": 5.656597,
+          "rating": "excellent"
+        },
+        "wave": {
+          "averageMs": 6.321409,
+          "maxMs": 6.321409,
+          "minMs": 6.321409,
+          "rating": "excellent"
+        },
+        "fight": {
+          "averageMs": 6.185257,
+          "maxMs": 6.185257,
+          "minMs": 6.185257,
+          "rating": "excellent"
+        },
+        "fly": {
+          "averageMs": 5.55557,
+          "maxMs": 5.55557,
+          "minMs": 5.55557,
+          "rating": "excellent"
+        }
+      }
+    },
+    "customization": {
+      "100": {
+        "averageMs": 3.0827724,
+        "rating": "excellent",
+        "timePerCharacter": 0.030827724
+      },
+      "500": {
+        "averageMs": 3.2655788,
+        "rating": "excellent",
+        "timePerCharacter": 0.0065311576
+      },
+      "1000": {
+        "averageMs": 3.6185944,
+        "rating": "excellent",
+        "timePerCharacter": 0.0036185944000000003
+      },
+      "2000": {
+        "averageMs": 3.9502528000000003,
+        "rating": "excellent",
+        "timePerCharacter": 0.0019751264000000004
+      },
+      "5000": {
+        "averageMs": 5.157788200000001,
+        "rating": "good",
+        "timePerCharacter": 0.00103155764
+      }
+    },
+    "filtering": {
+      "100": {
+        "averageMs": 0.0155586,
+        "rating": "excellent",
+        "timePerCharacter": 0.000155586
+      },
+      "500": {
+        "averageMs": 0.0299732,
+        "rating": "excellent",
+        "timePerCharacter": 0.0000599464
+      },
+      "1000": {
+        "averageMs": 0.0634422,
+        "rating": "excellent",
+        "timePerCharacter": 0.00006344220000000001
+      },
+      "2000": {
+        "averageMs": 0.0289424,
+        "rating": "excellent",
+        "timePerCharacter": 0.0000144712
+      },
+      "5000": {
+        "averageMs": 0.06823660000000001,
+        "rating": "excellent",
+        "timePerCharacter": 0.000013647320000000002
+      }
+    },
+    "overall": {
+      "averageRating": 3.98,
+      "rating": "excellent",
+      "testCount": 50
+    }
+  },
+  "bottlenecks": [],
+  "recommendations": [
+    {
+      "priority": "medium",
+      "category": "general",
+      "title": "Implement Performance Monitoring",
+      "description": "Add real-time performance monitoring to detect issues early",
+      "implementation": "Use Performance API, custom metrics, and alerting system"
+    },
+    {
+      "priority": "low",
+      "category": "general",
+      "title": "Add Performance Budgets",
+      "description": "Set and enforce performance budgets for different operations",
+      "implementation": "Define time budgets for loading, animations, and user interactions"
+    }
+  ],
+  "scalability": {
+    "linear": false,
+    "maxRecommendedDataset": 5000,
+    "performanceTrend": "stable",
+    "projections": {
+      "10000": {
+        "estimatedLoadTimeMs": 0,
+        "feasible": true,
+        "confidence": "medium"
+      },
+      "20000": {
+        "estimatedLoadTimeMs": 0,
+        "feasible": true,
+        "confidence": "medium"
+      },
+      "50000": {
+        "estimatedLoadTimeMs": 0,
+        "feasible": true,
+        "confidence": "medium"
+      },
+      "100000": {
+        "estimatedLoadTimeMs": 0,
+        "feasible": true,
+        "confidence": "medium"
+      }
+    }
+  },
+  "memory": {
+    "patterns": {
+      "100": {
+        "totalMemoryMB": 0.024562835693359375,
+        "memoryPerCharacterKB": 0.2515234375,
+        "efficiency": "excellent"
+      },
+      "500": {
+        "totalMemoryMB": 0.12365913391113281,
+        "memoryPerCharacterKB": 0.25325390625,
+        "efficiency": "excellent"
+      },
+      "1000": {
+        "totalMemoryMB": 0.2476062774658203,
+        "memoryPerCharacterKB": 0.253548828125,
+        "efficiency": "excellent"
+      },
+      "2000": {
+        "totalMemoryMB": 0.49712467193603516,
+        "memoryPerCharacterKB": 0.25452783203125,
+        "efficiency": "excellent"
+      },
+      "5000": {
+        "totalMemoryMB": 1.2471771240234375,
+        "memoryPerCharacterKB": 0.255421875,
+        "efficiency": "excellent"
+      }
+    },
+    "efficiency": {
+      "averageMemoryPerCharacterKB": 0.25365517578125,
+      "rating": "excellent"
+    },
+    "recommendations": []
+  },
+  "overallAssessment": {
+    "status": "excellent",
+    "score": 3.98,
+    "summary": "Performance is excellent with no critical issues detected.",
+    "nextSteps": [
+      "Implement continuous performance monitoring",
+      "Set up performance regression testing"
+    ]
+  }
+}

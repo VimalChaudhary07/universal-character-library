@@ -250,7 +250,7 @@ export function generateComprehensiveCharacters(): Character[] {
 }
 
 // Helper functions for character generation
-function generateAnimationsForStyle(style: Character['style'], culture: string): string[] {
+export function generateAnimationsForStyle(style: Character['style'], culture: string): string[] {
   const baseAnimations = ANIMATION_LIBRARY.basic;
   const emotionAnimations = ANIMATION_LIBRARY.emotions.slice(0, 8);
   const socialAnimations = ANIMATION_LIBRARY.social.slice(0, 6);
@@ -280,7 +280,7 @@ function generateAnimationsForStyle(style: Character['style'], culture: string):
   return [...baseAnimations, ...emotionAnimations, ...socialAnimations, ...styleAnimations];
 }
 
-function generateColorsForCulture(culture: string, type: string) {
+export function generateColorsForCulture(culture: string, type: string) {
   const colorPalettes = {
     Western: {
       skin: ['#FDBCB4', '#F1C27D', '#E0AC69', '#C68642', '#8D5524'],
@@ -351,7 +351,7 @@ function generateColorsForCulture(culture: string, type: string) {
   };
 }
 
-function generateCharacterName(type: string, culture: string, style: string): string {
+export function generateCharacterName(type: string, culture: string, style: string): string {
   const names = {
     boy: {
       Western: ['Alex', 'Max', 'Jack', 'Leo', 'Noah', 'Ethan', 'Lucas', 'Mason'],
@@ -393,7 +393,7 @@ function generateCharacterName(type: string, culture: string, style: string): st
   return cultureNames[Math.floor(Math.random() * cultureNames.length)];
 }
 
-function generateCharacterDescription(type: string, style: string, culture: string, bodyType: string): string {
+export function generateCharacterDescription(type: string, style: string, culture: string, bodyType: string): string {
   const descriptions = {
     boy: {
       casual: `A ${bodyType} young boy from ${culture} culture in casual everyday clothing.`,
@@ -438,14 +438,14 @@ function generateCharacterDescription(type: string, style: string, culture: stri
          `A ${bodyType} ${type} from ${culture} culture in ${style} clothing.`;
 }
 
-function generateTags(type: string, style: string, culture: string, theme: string): string[] {
+export function generateTags(type: string, style: string, culture: string, theme: string): string[] {
   const baseTags = [type, style, culture.toLowerCase(), theme];
   const ageTag = (type === 'boy' || type === 'girl') ? 'child' : 'adult';
   
   return [...baseTags, ageTag, 'diverse', 'inclusive'];
 }
 
-function generateThemesForStyle(style: Character['style']): string[] {
+export function generateThemesForStyle(style: Character['style']): string[] {
   const themes = {
     casual: ['everyday', 'relaxed', 'comfortable', 'modern'],
     formal: ['business', 'professional', 'elegant', 'sophisticated'],
@@ -459,7 +459,7 @@ function generateThemesForStyle(style: Character['style']): string[] {
   return themes[style] || themes.casual;
 }
 
-function generateOccupations(style: Character['style'], culture: string): string[] {
+export function generateOccupations(style: Character['style'], culture: string): string[] {
   const occupations = {
     casual: ['student', 'artist', 'writer', 'musician', 'freelancer'],
     formal: ['business', 'executive', 'manager', 'consultant', 'professional'],
@@ -473,7 +473,7 @@ function generateOccupations(style: Character['style'], culture: string): string
   return occupations[style] || occupations.casual;
 }
 
-function generateAccessories(style: Character['style'], culture: string): string[] {
+export function generateAccessories(style: Character['style'], culture: string): string[] {
   const accessories = {
     casual: ['watch', 'backpack', 'cap', 'glasses', 'phone'],
     formal: ['tie', 'watch', 'briefcase', 'glasses', 'jewelry'],
@@ -499,7 +499,7 @@ function generateAccessories(style: Character['style'], culture: string): string
   return [...styleAccessories.slice(0, 3), ...cultureSpecific.slice(0, 2)];
 }
 
-function generateHistoricalEra(): string {
+export function generateHistoricalEra(): string {
   const eras = ['Ancient', 'Medieval', 'Renaissance', 'Victorian', 'Industrial', 'Modern'];
   return eras[Math.floor(Math.random() * eras.length)];
 }

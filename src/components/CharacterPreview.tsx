@@ -18,21 +18,19 @@ import {
   Zap
 } from "lucide-react";
 import { createAnimationSystem, getAvailableAnimations, getAnimationConfig, injectAnimationCSS } from "@/lib/animationSystem";
+import { CharacterCustomization, applyCustomizationToCSS } from "@/lib/enhanced-customization";
 
 interface CharacterPreviewProps {
   characterName: string;
   characterType: 'boy' | 'girl' | 'man' | 'woman';
-  characterStyle: 'casual' | 'formal' | 'sporty' | 'fantasy' | 'sci-fi' | 'historical' | 'traditional';
+  characterStyle: 'casual' | 'formal' | 'sporty' | 'fantasy' | 'sci-fi' | 'historical' | 'traditional' | 'holiday' | 'sports' | 'occupational';
   animations: string[];
   svgContent?: string;
-  colors?: {
-    skin?: string;
-    hair?: string;
-    shirt?: string;
-    pants?: string;
-    shoes?: string;
-  };
+  customization?: CharacterCustomization;
   className?: string;
+  isPlaying?: boolean;
+  animationSpeed?: number;
+  scale?: number;
 }
 
 // Default comprehensive animations from the animation system
@@ -44,13 +42,16 @@ export default function CharacterPreview({
   characterStyle,
   animations = defaultAnimations,
   svgContent,
-  colors,
-  className = "" 
+  customization,
+  className = "",
+  isPlaying: externalIsPlaying,
+  animationSpeed: externalAnimationSpeed = 1,
+  scale: externalScale = 1
 }: CharacterPreviewProps) {
   const [currentAnimation, setCurrentAnimation] = useState<string>(animations[0]);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(externalIsPlaying || false);
   const [progress, setProgress] = useState(0);
-  const [playbackSpeed, setPlaybackSpeed] = useState(1);
+  const [playbackSpeed, setPlaybackSpeed] = useState(externalAnimationSpeed);
   const [isMuted, setIsMuted] = useState(false);
   const [showControls, setShowControls] = useState(true);
   
@@ -60,13 +61,21 @@ export default function CharacterPreview({
   const startTimeRef = useRef<number>(0);
   const pausedTimeRef = useRef<number>(0);
 
-  const defaultColors = {
-    skin: colors?.skin || '#FDBCB4',
-    hair: colors?.hair || '#8B4513',
-    shirt: colors?.shirt || '#4169E1',
-    pants: colors?.pants || '#2F4F4F',
-    shoes: colors?.shoes || '#000000'
-  };
+  // Sync with external props
+  useEffect(() => {
+    if (externalIsPlaying !== undefined) {
+      setIsPlaying(externalIsPlaying);
+    }
+  }, [externalIsPlaying]);
+
+  useEffect(() => {
+    if (externalAnimationSpeed !== undefined) {
+      setPlaybackSpeed(externalAnimationSpeed);
+    }
+  }, [externalAnimationSpeed]);
+
+  // Apply customization to CSS variables
+  const cssVariables = customization ? applyCustomizationToCSS(customization) : {};
 
   // Initialize animation system and inject CSS
   useEffect(() => {
@@ -228,7 +237,11 @@ export default function CharacterPreview({
           onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault();
-              isPlaying ? handlePause() : handlePlay();
+              if (isPlaying) {
+                handlePause();
+              } else {
+                handlePlay();
+              }
             }
           }}
         >
@@ -236,7 +249,7 @@ export default function CharacterPreview({
             ref={characterRef}
             className="w-full h-full flex items-center justify-center transition-all duration-300"
             style={{
-              transform: `scale(${1 + Math.sin(progress * Math.PI / 50) * 0.1})`,
+              transform: `scale(${externalScale * (1 + Math.sin(progress * Math.PI / 50) * 0.1)})`,
               filter: isPlaying ? 'brightness(1.1)' : 'brightness(1)'
             }}
             aria-hidden="true"
@@ -246,11 +259,12 @@ export default function CharacterPreview({
                 className="w-full h-full flex items-center justify-center"
                 dangerouslySetInnerHTML={{ __html: svgContent }}
                 style={{
-                  '--skin-color': defaultColors.skin,
-                  '--hair-color': defaultColors.hair,
-                  '--shirt-color': defaultColors.shirt,
-                  '--pants-color': defaultColors.pants,
-                  '--shoes-color': defaultColors.shoes,
+                  ...cssVariables,
+                  '--skin-color': cssVariables['--character-skin-color'] || '#FDBCB4',
+                  '--hair-color': cssVariables['--character-hair-color'] || '#8B4513',
+                  '--shirt-color': cssVariables['--character-shirt-color'] || '#4169E1',
+                  '--pants-color': cssVariables['--character-pants-color'] || '#2F4F4F',
+                  '--shoes-color': cssVariables['--character-shoes-color'] || '#000000',
                 } as React.CSSProperties}
               />
             ) : (

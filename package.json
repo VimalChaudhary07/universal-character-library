@@ -10,7 +10,10 @@
     "db:push": "prisma db push",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
-    "db:reset": "prisma migrate reset"
+    "db:reset": "prisma migrate reset",
+    "performance:test": "node scripts/run-performance-tests.js",
+    "performance:analyze": "node scripts/analyze-performance.js",
+    "performance:quick": "node scripts/run-performance-tests.js --sizes 100,1000 --iterations 3"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
