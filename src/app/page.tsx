@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Github, Download, Palette, Zap, Code, Users } from "lucide-react";
+import { Github, Download, Palette, Zap, Code, Users, BarChart3 } from "lucide-react";
+import Link from "next/link";
 import CharacterGallery from "@/components/CharacterGallery";
 
 export default function Home() {
@@ -15,10 +16,10 @@ export default function Home() {
               Open Source Character Library
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-              Animated 2D Characters
+              Universal Character Library
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              A collection of customizable, animated 2D characters designed for easy integration into any web project. 
+              The world's most comprehensive collection of 1000+ diverse animated 2D characters with 500+ unique animations. 
               Built with SVG, CSS, and JavaScript for maximum flexibility and performance.
             </p>
           </div>
@@ -32,6 +33,12 @@ export default function Home() {
               <Download className="w-5 h-5" />
               Download Library
             </Button>
+            <Link href="/performance">
+              <Button variant="outline" size="lg" className="gap-2">
+                <BarChart3 className="w-5 h-5" />
+                Performance Dashboard
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -51,9 +58,9 @@ export default function Home() {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                 <Palette className="w-6 h-6 text-primary" />
               </div>
-              <CardTitle>Customizable</CardTitle>
+              <CardTitle>Advanced Customization</CardTitle>
               <CardDescription>
-                Change colors, clothing, hairstyles, and more with CSS variables and JavaScript API
+                13 skin tones, 20+ hairstyles, 30+ hair colors, cultural attire, and comprehensive accessory system
               </CardDescription>
             </CardHeader>
           </Card>
@@ -63,9 +70,9 @@ export default function Home() {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                 <Zap className="w-6 h-6 text-primary" />
               </div>
-              <CardTitle>Animated</CardTitle>
+              <CardTitle>500+ Unique Animations</CardTitle>
               <CardDescription>
-                Pre-built animations including idle, walk, wave, jump, dance, blink, and breathing
+                Extensive animation library including emotions, actions, cultural animations, and style-specific movements
               </CardDescription>
             </CardHeader>
           </Card>
@@ -87,9 +94,9 @@ export default function Home() {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                 <Users className="w-6 h-6 text-primary" />
               </div>
-              <CardTitle>Diverse Characters</CardTitle>
+              <CardTitle>1000+ Diverse Characters</CardTitle>
               <CardDescription>
-                Multiple character types: boy, girl, man, woman with various styles and outfits
+                Multiple character types: boy, girl, man, woman with various cultures, body types, and backgrounds
               </CardDescription>
             </CardHeader>
           </Card>
