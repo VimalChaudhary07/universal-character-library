@@ -14,21 +14,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Z.ai Code Scaffold - AI-Powered Development",
-  description: "Modern Next.js scaffold optimized for AI-powered development with Z.ai. Built with TypeScript, Tailwind CSS, and shadcn/ui.",
-  keywords: ["Z.ai", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "AI development", "React"],
-  authors: [{ name: "Z.ai Team" }],
+  title: "Universal Character Library - 1000+ Animated 2D Characters",
+  description: "The world's most comprehensive collection of customizable, animated 2D characters. 1000+ diverse characters with 500+ unique animations for web projects.",
+  keywords: ["Character Library", "Animated Characters", "SVG Characters", "2D Characters", "Web Animation", "React", "Vue", "JavaScript", "Customizable Characters"],
+  authors: [{ name: "Universal Character Library Team" }],
   openGraph: {
-    title: "Z.ai Code Scaffold",
-    description: "AI-powered development with modern React stack",
-    url: "https://chat.z.ai",
-    siteName: "Z.ai",
+    title: "Universal Character Library",
+    description: "1000+ diverse animated 2D characters for web projects",
+    url: "https://github.com/VimalChaudhary07/universal-character-library",
+    siteName: "Universal Character Library",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Z.ai Code Scaffold",
-    description: "AI-powered development with modern React stack",
+    title: "Universal Character Library",
+    description: "1000+ diverse animated 2D characters for web projects",
   },
 };
 
