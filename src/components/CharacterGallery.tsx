@@ -68,6 +68,33 @@ const enhancedCharacters = COMPREHENSIVE_CHARACTERS.map(char => {
   } else if (char.id.includes('woman-occupational') && char.isAvailable) {
     return { ...char, svgContent: WomanOccupationalSVG };
   }
+  
+  // Provide default SVG content for available characters based on type and style
+  if (char.isAvailable) {
+    switch (char.type) {
+      case 'boy':
+        if (char.style === 'casual') return { ...char, svgContent: BoyCasualSVG };
+        if (char.style === 'sports') return { ...char, svgContent: BoySportsSVG };
+        break;
+      case 'girl':
+        if (char.style === 'sporty') return { ...char, svgContent: GirlSportySVG };
+        if (char.style === 'traditional') return { ...char, svgContent: GirlTraditionalSVG };
+        if (char.style === 'holiday') return { ...char, svgContent: GirlHolidaySVG };
+        break;
+      case 'man':
+        if (char.style === 'formal') return { ...char, svgContent: ManFormalSVG };
+        if (char.style === 'traditional') return { ...char, svgContent: ManTraditionalSVG };
+        if (char.style === 'sci-fi') return { ...char, svgContent: ManSciFiSVG };
+        break;
+      case 'woman':
+        if (char.style === 'fantasy') return { ...char, svgContent: WomanFantasySVG };
+        if (char.style === 'traditional') return { ...char, svgContent: WomanTraditionalSVG };
+        if (char.style === 'historical') return { ...char, svgContent: WomanHistoricalSVG };
+        if (char.style === 'occupational') return { ...char, svgContent: WomanOccupationalSVG };
+        break;
+    }
+  }
+  
   return char;
 });
 
@@ -564,11 +591,11 @@ export default function CharacterGallery() {
                       dangerouslySetInnerHTML={{ __html: character.svgContent }}
                     />
                   ) : (
-                    <div className="text-6xl opacity-50">
-                      {character.type === 'boy' && '👦'}
-                      {character.type === 'girl' && '👧'}
-                      {character.type === 'man' && '👨'}
-                      {character.type === 'woman' && '👩'}
+                    <div className="w-full h-full flex items-center justify-center bg-muted/30">
+                      <div className="text-center">
+                        <div className="text-3xl mb-2">🎨</div>
+                        <div className="text-xs text-muted-foreground">Character Art</div>
+                      </div>
                     </div>
                   )}
                   
@@ -681,11 +708,11 @@ export default function CharacterGallery() {
                         dangerouslySetInnerHTML={{ __html: character.svgContent }}
                       />
                     ) : (
-                      <div className="text-2xl opacity-50">
-                        {character.type === 'boy' && '👦'}
-                        {character.type === 'girl' && '👧'}
-                        {character.type === 'man' && '👨'}
-                        {character.type === 'woman' && '👩'}
+                      <div className="w-full h-full flex items-center justify-center bg-muted/30">
+                        <div className="text-center">
+                          <div className="text-xl mb-1">🎨</div>
+                          <div className="text-xs text-muted-foreground">Character Art</div>
+                        </div>
                       </div>
                     )}
                     
