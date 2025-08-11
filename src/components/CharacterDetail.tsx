@@ -27,7 +27,7 @@ import {
   Scissors,
   Shirt,
   Gem,
-  Boot,
+  Shoe,
   Wand2,
   Image as ImageIcon,
   Sparkles,
@@ -693,7 +693,7 @@ const character = new Character({
                   <Card>
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
-                        <Boot className="w-5 h-5" />
+                        <Shoe className="w-5 h-5" />
                         Footwear
                       </CardTitle>
                     </CardHeader>
