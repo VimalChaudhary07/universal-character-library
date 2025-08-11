@@ -544,7 +544,7 @@ character.optimizeForMobile();`,
                 </Link>
                 <Link href="#" className="block">
                   <div className="flex items-center gap-2 p-2 rounded-md hover:bg-muted transition-colors">
-                    <Image className="w-4 h-4" />
+                    <Image className="w-4 h-4" alt="" />
                     <span className="text-sm">Examples Gallery</span>
                   </div>
                 </Link>
